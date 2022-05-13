@@ -15,7 +15,21 @@ public class Solicitacao {
     private String descricao;
     private String resposta;
     private Categoria categoria;
-    public Solicitacao(Integer id,Aluno aluno,String imagem, String data, String titulo, Integer carga, String instituicao, String status, String descricao, String resposta,Categoria categoria) {
+
+    public Solicitacao(Aluno aluno, String imagem, String data, String titulo, Integer carga, String instituicao, String status, String descricao, String resposta, Categoria categoria) {
+        this.aluno = aluno;
+        this.imagem = imagem;
+        this.data = data;
+        this.titulo = titulo;
+        this.carga = carga;
+        this.instituicao = instituicao;
+        this.status = status;
+        this.descricao = descricao;
+        this.resposta = resposta;
+        this.categoria = categoria;
+    }
+
+    public Solicitacao(Integer id, Aluno aluno, String imagem, String data, String titulo, Integer carga, String instituicao, String status, String descricao, String resposta, Categoria categoria) {
         this.imagem = imagem;
         this.aluno = aluno;
         this.id = id;

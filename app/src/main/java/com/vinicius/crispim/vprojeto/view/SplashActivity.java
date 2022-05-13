@@ -62,7 +62,7 @@ public class SplashActivity extends AppCompatActivity {
                 categoriaController.incluir(categoria);
                 categoriaController.incluir(categoria2);
                 categoriaController.incluir(categoria3);*/
-                Intent troca = new Intent(SplashActivity.this,Menu1Activity.class);
+                Intent troca = new Intent(SplashActivity.this,MainActivity.class);
                 startActivity(troca);
                 finish();
                 AlunoController alunoController = new AlunoController(getApplicationContext());

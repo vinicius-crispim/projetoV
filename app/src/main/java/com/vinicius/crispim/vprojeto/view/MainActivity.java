@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                     parametros.putInt("horasnecessariascurso",aluno.getCurso().getHorasnecessarias());
                     Toast.makeText(MainActivity.this,"Bem-vindo "+aluno.getNome(),
                             Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                    Intent intent = new Intent(MainActivity.this, Menu1Activity.class);
                     intent.putExtras(parametros);
                     startActivity(intent);
                 }
