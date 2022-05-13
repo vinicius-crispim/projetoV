@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroud"
+    tools:context=".view.MainActivity">
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="259dp"
+        android:layout_height="202dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/logo_do_app"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.051"
+        app:srcCompat="@drawable/desconto" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="287dp"
+        android:layout_height="75dp"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="Insira as informações para entrar"
+        android:textAlignment="gravity"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgLogo"
+        app:layout_constraintVertical_bias="0.321" />
+
+    <EditText
+        android:id="@+id/txtEmailentrar"
+        android:layout_width="299dp"
+        android:layout_height="57dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint=" Insira sua matricula"
+        android:inputType="number"
+        android:shadowColor="#FFFFFF"
+        android:text=""
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.553"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgLogo"
+        app:layout_constraintVertical_bias="0.204" />
+
+    <TextView
+        android:id="@+id/txtLinkCadastro"
+        android:layout_width="304dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="22dp"
+        android:linksClickable="true"
+        android:text="Clique aqui para cadastrar sua conta de aluno"
+        android:textColor="#0000FF"
+        android:textColorLink="#0000FF"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSenhaEntrar"
+        app:layout_constraintVertical_bias="0.024" />
+
+    <Button
+        android:id="@+id/btnLogar"
+        android:layout_width="224dp"
+        android:layout_height="54dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Entrar"
+        android:textColor="@color/black"
+        android:textColorLink="#874AC3"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtLinkCadastro"
+        app:layout_constraintVertical_bias="0.22" />
+
+    <EditText
+        android:id="@+id/txtSenhaEntrar"
+        android:layout_width="299dp"
+        android:layout_height="57dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint=" Insira sua senha"
+        android:inputType="text"
+        android:shadowColor="#FFFFFF"
+        android:text=""
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.553"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmailentrar"
+        app:layout_constraintVertical_bias="0.114" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

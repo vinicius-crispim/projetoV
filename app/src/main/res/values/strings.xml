@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Projeto Horas Complementares</string>
+    <string name="logo_do_app">Logo do app</string>
+    <string name="textview">TextView</string>
+    <string name="informe_os_seguintes_dados_para_concluir_o_seu_cadastro">Informe os seguintes dados para concluir o seu cadastro</string>
+    <string name="action_home">Home</string>
+    <string name="action_horas">Suas Horas</string>
+    <string name="action_perfil">Perfil</string>
+</resources>
