@@ -1,16 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/holo_green_light">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/backgroud">
 
-    <TextView
-        android:layout_width="wrap_content"
+
+    <ScrollView
+        android:id="@+id/scrCadastro"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
-        android:text="PERFIL FRAGMENT"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:layout_centerInParent="true" />
+        android:contentDescription="@string/app_name"
+        android:scrollbarSize="6dp"
+        android:scrollbarStyle="insideInset"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:visibility="visible">
 
+        <LinearLayout
+            android:layout_width="350sp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtSeusDados"
+                android:layout_width="299dp"
+                android:layout_height="55dp"
+                android:layout_marginBottom="30sp"
+                android:fontFamily="monospace"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="SEUS DADOS"
+                android:textColor="@color/black"
+                android:textSize="34sp" />
+
+            <EditText
+                android:id="@+id/txtSeusDados_Nome"
+                android:layout_width="299dp"
+                android:layout_height="55dp"
+                android:layout_marginBottom="30sp"
+                android:background="@color/white"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Nome: "
+                android:hint="Nome: "
+                android:focusable="false"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/txtSeusDados_Matricula"
+                android:layout_width="299dp"
+                android:layout_height="55dp"
+                android:layout_marginBottom="30sp"
+                android:background="@color/white"
+                android:ems="10"
+                android:text="Matrícula: "
+                android:hint="Matrícula: "
+                android:focusable="false"
+                android:inputType="text"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/txtSeusDados_Telefone"
+                android:layout_width="299dp"
+                android:layout_height="55dp"
+                android:layout_marginBottom="30sp"
+                android:background="@color/white"
+                android:ems="10"
+                android:text="Telefone:"
+                android:hint="Telefone:"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black" />
+
+            <EditText
+                android:id="@+id/txtSeusDados_Email"
+                android:layout_width="299dp"
+                android:layout_height="55dp"
+                android:layout_marginBottom="30sp"
+                android:background="@color/white"
+                android:ems="10"
+                android:inputType="text"
+                android:text="E-mail: "
+                android:hint="E-mail"
+                android:textColor="@color/black" />
+            <EditText
+                android:id="@+id/txtSeusDados_CPF"
+                android:layout_width="299dp"
+                android:layout_height="55dp"
+                android:layout_marginBottom="30sp"
+                android:background="@color/white"
+                android:focusable="false"
+                android:ems="10"
+                android:inputType="text"
+                android:text="CPF: "
+                android:hint="CPF: "
+                android:textColor="@color/black" />
+            <EditText
+                android:id="@+id/txtSeusDados_Curso"
+                android:layout_width="299dp"
+                android:layout_height="55dp"
+                android:layout_marginBottom="30sp"
+                android:background="@color/white"
+                android:focusable="false"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Curso: "
+                android:hint="Curso: "
+                android:textColor="@color/black" />
+            <EditText
+                android:id="@+id/txtSeusDados_Curso_Coordenador"
+                android:layout_width="299dp"
+                android:layout_height="55dp"
+                android:layout_marginBottom="30sp"
+                android:background="@color/white"
+                android:focusable="false"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Coordenador: "
+                android:hint="Coordenador: "
+                android:textColor="@color/black" />
+            <EditText
+                android:id="@+id/txtSeusDados_Curso_Horas"
+                android:layout_width="299dp"
+                android:layout_height="55dp"
+                android:layout_marginBottom="30sp"
+                android:background="@color/white"
+                android:focusable="false"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Horas Necessárias: "
+                android:hint="Horas Necessárias: "
+                android:textColor="@color/black" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/txtSeusDados_Horas"
+                    android:layout_width="136dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="43sp"
+                    android:layout_marginBottom="30sp"
+                    android:background="@color/white"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:hint="Suas Horas: "
+                    android:inputType="text"
+                    android:text="Suas Horas: "
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/txtSeusDados_HorasFaltando"
+                    android:layout_width="126dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="198sp"
+                    android:layout_marginBottom="30sp"
+                    android:background="@color/white"
+                    android:focusable="false"
+                    android:ems="10"
+                    android:hint="Faltam: "
+                    android:inputType="text"
+                    android:text="Faltam: "
+                    android:textColor="@color/black" />
+
+            </RelativeLayout>
+            <Button
+                android:id="@+id/btnEditar"
+                android:layout_width="119dp"
+                android:layout_height="48dp"
+                android:layout_marginBottom="30sp"
+                android:backgroundTint="@android:color/holo_orange_light"
+                android:text="Editar"
+                android:textColor="@color/black" />
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button"
+                android:visibility="invisible" />
+
+
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
