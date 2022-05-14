@@ -11,6 +11,7 @@ public class CursoDataModel {
     public static final String TABELA = "curso";
 
     public static final String ID = "id";
+    public static final String IDCOORDENADOR = "idcoordenador";
     public static final String NOME = "nome";
     public static final String HORASNECESSARIAS = "horasnecessarias";
 
@@ -23,7 +24,8 @@ public class CursoDataModel {
         queryCriarTabela+="CREATE TABLE "+TABELA+" (";
         queryCriarTabela+=ID+" integer primary key autoincrement, ";
         queryCriarTabela+=NOME+" text, ";
-        queryCriarTabela+=HORASNECESSARIAS+" integer ";
+        queryCriarTabela+=HORASNECESSARIAS+" integer, ";
+        queryCriarTabela+=IDCOORDENADOR+" INTEGER CONSTRAINT idcoordenador REFERENCES coordenador (id) ";
         queryCriarTabela+=")";
 
 
@@ -31,10 +33,11 @@ public class CursoDataModel {
     }
     public static String inserirCliente(Curso curso){
         queryCriarTabela+="INSERT INTO " + TABELA +" ";
-        queryCriarTabela+="(nome, horasnecessarias) ";
+        queryCriarTabela+="(nome, horasnecessarias,idcoordenador) ";
         queryCriarTabela+="VALUES ('";
         queryCriarTabela+=curso.getNome()+"', '";
-        queryCriarTabela+=curso.getHorasnecessarias()+"'";
+        queryCriarTabela+=curso.getHorasnecessarias()+"', ";
+        queryCriarTabela+=curso.getCoordenador().getId()+"";
         queryCriarTabela+=");";
         Log.d(AppUtil.TAG, "Inserir curso: TESTE"+queryCriarTabela);
 

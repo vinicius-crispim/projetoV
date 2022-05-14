@@ -1,6 +1,7 @@
 package com.vinicius.crispim.vprojeto.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +12,15 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.vinicius.crispim.vprojeto.R;
+import com.vinicius.crispim.vprojeto.api.AppUtil;
+import com.vinicius.crispim.vprojeto.controller.CursoController;
 import com.vinicius.crispim.vprojeto.model.Aluno;
+import com.vinicius.crispim.vprojeto.model.Curso;
 import com.vinicius.crispim.vprojeto.view.Menu1Activity;
 
 public class PerfilFragment extends Fragment {
     EditText txtSeusDados_Nome;
+    CursoController cursoController;
     EditText txtSeusDados_Matricula;
     EditText txtSeusDados_Telefone;
     EditText txtSeusDados_Email;
@@ -47,7 +52,7 @@ public class PerfilFragment extends Fragment {
         txtSeusDados_Email.getText().append(aluno.getEmail());
         txtSeusDados_CPF.getText().append(aluno.getCPF());
         txtSeusDados_Curso.getText().append(aluno.getCurso().getNome());
-        txtSeusDados_Curso_Coordenador.getText().append("TESTE");
+        txtSeusDados_Curso_Coordenador.getText().append("Carlos Gouveia");
         txtSeusDados_Curso_Horas.getText().append(aluno.getCurso().getHorasnecessarias().toString());
         txtSeusDados_Horas.getText().append(aluno.getHorasFeitas().toString());
         txtSeusDados_HorasFaltando.getText().append(aluno.getHorasFaltando().toString());

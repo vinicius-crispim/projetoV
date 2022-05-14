@@ -50,4 +50,7 @@ public class CursoController extends AppDataBase implements ICrud<Curso>{
     }public Curso getCursoByNome(String nome) {
         return getCursoByNome(CursoDataModel.TABELA,nome);
     }
+    public Curso getCursoByID (String id){
+        return getCursoById(CursoDataModel.TABELA,id);
+    }
 }

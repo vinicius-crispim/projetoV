@@ -13,15 +13,26 @@ import com.vinicius.crispim.vprojeto.api.AppUtil;
 import com.vinicius.crispim.vprojeto.appdatabase.AppDataBase;
 import com.vinicius.crispim.vprojeto.controller.AlunoController;
 import com.vinicius.crispim.vprojeto.controller.CategoriaController;
+import com.vinicius.crispim.vprojeto.controller.CoordenadorController;
 import com.vinicius.crispim.vprojeto.controller.CursoController;
+import com.vinicius.crispim.vprojeto.datamodel.CategoriaDataModel;
+import com.vinicius.crispim.vprojeto.datamodel.CoordenadorDataModel;
+import com.vinicius.crispim.vprojeto.datamodel.CursoDataModel;
 import com.vinicius.crispim.vprojeto.model.Aluno;
 import com.vinicius.crispim.vprojeto.model.Categoria;
+import com.vinicius.crispim.vprojeto.model.Coordenador;
 import com.vinicius.crispim.vprojeto.model.Curso;
+import com.vinicius.crispim.vprojeto.model.Solicitacao;
+
+import java.util.Date;
 
 public class SplashActivity extends AppCompatActivity {
     CursoController cursoController;
     CategoriaController categoriaController;
+    CoordenadorController coordenadorController;
     AlunoController alunoController;
+    Coordenador coordenador;
+    Coordenador coordenador2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +41,7 @@ public class SplashActivity extends AppCompatActivity {
         cursoController = new CursoController(getApplicationContext());
         categoriaController = new CategoriaController(getApplicationContext());
         alunoController = new AlunoController(getApplicationContext());
+        coordenadorController = new CoordenadorController(getApplicationContext());
         trocartela();
     }
     private void trocartela() {
@@ -37,7 +49,15 @@ public class SplashActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-               /* Curso curso = new Curso();
+                coordenador = new Coordenador();
+                coordenador.setCelular("(41) 99955-8866");
+                coordenador.setCPF("111.111.111-00");
+                coordenador.setNome("Carlos Gouveia");
+                coordenador2 = new Coordenador();
+                coordenador2.setCelular("(41) 96845-1453");
+                coordenador2.setCPF("324.562.271-21");
+                coordenador2.setNome("Rosangela Silva");
+                Curso curso = new Curso();
                 curso.setNome("Analise e Desenvolvimento de Sistemas");
                 curso.setHorasnecessarias(150);
                 Curso curso2 = new Curso();
@@ -54,14 +74,29 @@ public class SplashActivity extends AppCompatActivity {
                 Categoria categoria2 = new Categoria();
                 categoria2.setNome("Eventos");
                 Categoria categoria3 = new Categoria();
-                categoria3.setNome("Pesquisa");
+                categoria3.setNome("Pesquisa");;
+                coordenador.setEmail("gouveia@unifacear.com");
+                coordenador.setSenha("123456");
+                coordenador2.setEmail("rosangela@unifacear.com");
+                coordenador2.setSenha("789");
+                coordenador.setId(1);
+                coordenador2.setId(2);
+                categoriaController.incluir(categoria);
+                categoriaController.incluir(categoria2);
+                categoriaController.incluir(categoria3);
+                coordenadorController.incluir(coordenador);
+                coordenadorController.incluir(coordenador2);
+                curso.setCoordenador(coordenadorController.getAllCoordenadores(CoordenadorDataModel.TABELA).get(0));
+                curso2.setCoordenador(coordenadorController.getAllCoordenadores(CoordenadorDataModel.TABELA).get(0));
+                curso3.setCoordenador(coordenadorController.getAllCoordenadores(CoordenadorDataModel.TABELA).get(1));
+                curso4.setCoordenador(coordenadorController.getAllCoordenadores(CoordenadorDataModel.TABELA).get(1));
+                Log.i(AppUtil.TAG, "run: COORDENADOR: "+coordenadorController.getAllCoordenadores(CoordenadorDataModel.TABELA).get(0).getNome());
+                Log.i(AppUtil.TAG, "run: COORDENADOR: "+coordenadorController.getAllCoordenadores(CoordenadorDataModel.TABELA).get(1).getNome());
                 cursoController.incluir(curso);
                 cursoController.incluir(curso2);
                 cursoController.incluir(curso3);
                 cursoController.incluir(curso4);
-                categoriaController.incluir(categoria);
-                categoriaController.incluir(categoria2);
-                categoriaController.incluir(categoria3);*/
+
                 Intent troca = new Intent(SplashActivity.this,MainActivity.class);
                 startActivity(troca);
                 finish();

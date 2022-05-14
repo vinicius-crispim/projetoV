@@ -37,7 +37,7 @@ public class SolicitacaoDataModel {
         queryCriarTabela+=DESCRICAO+" text, ";
         queryCriarTabela+=RESPOSTA+" text, ";
         queryCriarTabela+=IMAGEM+" BLOB, ";
-        queryCriarTabela+=IDCATEGORIA+" INTEGER CONSTRAINT idcurso REFERENCES curso (id) ";
+        queryCriarTabela+=IDCATEGORIA+" INTEGER CONSTRAINT idcategoria REFERENCES categoria (id) ";
         queryCriarTabela+=")";
 
 

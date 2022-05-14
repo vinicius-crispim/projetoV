@@ -3,13 +3,10 @@ package com.vinicius.crispim.vprojeto.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -24,7 +21,6 @@ import com.vinicius.crispim.vprojeto.controller.CursoController;
 import com.vinicius.crispim.vprojeto.model.Aluno;
 import com.vinicius.crispim.vprojeto.model.Curso;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,7 +57,7 @@ public class RegistrarActivity extends AppCompatActivity  {
         CPF = findViewById(R.id.txtCPF);
         matricula =findViewById(R.id.txtMatricula);
         email = findViewById(R.id.txtEmailCadastro);
-        nome = findViewById(R.id.txtNome);
+        nome = findViewById(R.id.txtTituloLinha);
         txtautocursos = findViewById(R.id.txtautocursos);
         cursoController = new CursoController(getApplicationContext());
         curso = cursoController.listar();

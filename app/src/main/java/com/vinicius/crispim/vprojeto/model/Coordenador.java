@@ -1,24 +1,36 @@
 package com.vinicius.crispim.vprojeto.model;
 
+import java.util.List;
+
 public class Coordenador {
     private String nome;
     private Integer id;
     private String email;
     private String celular;
+    private String senha;
     private String CPF;
-    private Curso curso;
+    private List<Curso> cursos;
 
 
-    public Coordenador(String nome, Integer id, String email, String celular, String CPF, Curso curso) {
+    public Coordenador(String nome, Integer id, String email, String celular, String CPF, List<Curso> curso,String senha) {
+        this.senha=senha;
         this.nome = nome;
         this.id = id;
         this.email = email;
         this.celular = celular;
         this.CPF = CPF;
-        this.curso = curso;
+        this.cursos = curso;
     }
 
     public Coordenador() {
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public String getNome() {
@@ -61,12 +73,11 @@ public class Coordenador {
         this.CPF = CPF;
     }
 
-    public Curso getCurso() {
-        return curso;
+    public List<Curso> getCursos() {
+        return cursos;
     }
 
-    public void setCurso(Curso curso) {
-        this.curso = curso;
+    public void setCursos(List<Curso> cursos) {
+        this.cursos = cursos;
     }
-
 }

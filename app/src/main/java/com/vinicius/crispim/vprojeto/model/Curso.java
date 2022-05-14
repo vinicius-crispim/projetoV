@@ -7,11 +7,13 @@ public class Curso{
     private Integer id;
     private String nome;
     private Integer horasnecessarias;
+    private Coordenador coordenador;
 
-    public Curso(Integer id, String nome,Integer horasnecessarias) {
+    public Curso(Integer id, String nome,Integer horasnecessarias, Coordenador coordenador) {
         this.id = id;
         this.nome = nome;
         this.horasnecessarias = horasnecessarias;
+        this.coordenador=coordenador;
     }
 
     public Curso() {
@@ -39,6 +41,14 @@ public class Curso{
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Coordenador getCoordenador() {
+        return coordenador;
+    }
+
+    public void setCoordenador(Coordenador coordenador) {
+        this.coordenador = coordenador;
     }
 
     @Override

@@ -12,12 +12,16 @@ import com.vinicius.crispim.vprojeto.api.AppUtil;
 import com.vinicius.crispim.vprojeto.controller.CursoController;
 import com.vinicius.crispim.vprojeto.datamodel.AlunoDataModel;
 import com.vinicius.crispim.vprojeto.datamodel.CategoriaDataModel;
+import com.vinicius.crispim.vprojeto.datamodel.CoordenadorDataModel;
 import com.vinicius.crispim.vprojeto.datamodel.CursoDataModel;
 import com.vinicius.crispim.vprojeto.datamodel.SolicitacaoDataModel;
+import com.vinicius.crispim.vprojeto.datamodel.SugestaoDataModel;
 import com.vinicius.crispim.vprojeto.model.Aluno;
 import com.vinicius.crispim.vprojeto.model.Categoria;
+import com.vinicius.crispim.vprojeto.model.Coordenador;
 import com.vinicius.crispim.vprojeto.model.Curso;
 import com.vinicius.crispim.vprojeto.model.Solicitacao;
+import com.vinicius.crispim.vprojeto.model.Sugestao;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -38,10 +42,12 @@ public class AppDataBase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CursoDataModel.criarTabela());
         db.execSQL(AlunoDataModel.criarTabela());
         db.execSQL(CategoriaDataModel.criarTabela());
         db.execSQL(SolicitacaoDataModel.criarTabela());
+        db.execSQL(CoordenadorDataModel.criarTabela());
+        db.execSQL(CursoDataModel.criarTabela());
+        db.execSQL(SugestaoDataModel.criarTabela());
         Log.i(AppUtil.TAG, "onCreate: Tabela Curso criada com sucesso"+CursoDataModel.criarTabela());
     }
 
@@ -193,6 +199,31 @@ public class AppDataBase extends SQLiteOpenHelper {
         }
 
         return cursos;
+    } @SuppressLint("Range")
+    public List<Coordenador> getAllCoordenadores(String tabela){
+        List<Coordenador> coordenadores = new ArrayList<>();
+        db = getWritableDatabase();
+        String sql = "select * from "+tabela;
+        Cursor cursor;
+
+        cursor = db.rawQuery(sql,null);
+        Coordenador obj;
+        if(cursor.moveToFirst()){
+            do {
+                obj = new Coordenador();
+
+                obj.setId(cursor.getInt(cursor.getColumnIndex(CoordenadorDataModel.ID)));
+                obj.setNome(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.NOME)));
+                obj.setEmail(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.EMAIL)));
+                obj.setCPF(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.CPF)));
+                obj.setCelular(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.CELULAR)));
+                obj.setSenha(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.SENHA)));
+                coordenadores.add(obj);
+                Log.i("LISTAR", "getAllCursos: "+obj.getNome());
+            }while (cursor.moveToNext());
+        }
+
+        return coordenadores;
     }@SuppressLint("Range")
     public Curso getCursoByNome(String tabela,String nome){
         db = getWritableDatabase();
@@ -207,6 +238,57 @@ public class AppDataBase extends SQLiteOpenHelper {
                 obj.setId(cursor.getInt(cursor.getColumnIndex(CursoDataModel.ID)));
                 obj.setNome(cursor.getString(cursor.getColumnIndex(CursoDataModel.NOME)));
                 obj.setHorasnecessarias(cursor.getInt(cursor.getColumnIndex(CursoDataModel.HORASNECESSARIAS)));
+                return obj;
+        }else{
+            return null;
+        }
+
+    }@SuppressLint("Range")
+    public Curso getCursoById(String tabela,String nome){
+        db = getWritableDatabase();
+        String sql = "select * from "+tabela+" where id = "+nome+"";
+        Cursor cursor;
+
+        cursor = db.rawQuery(sql,null);
+        Curso obj;
+        if(cursor.moveToFirst()){
+                obj = new Curso();
+
+                obj.setId(cursor.getInt(cursor.getColumnIndex(CursoDataModel.ID)));
+                obj.setNome(cursor.getString(cursor.getColumnIndex(CursoDataModel.NOME)));
+                obj.setHorasnecessarias(cursor.getInt(cursor.getColumnIndex(CursoDataModel.HORASNECESSARIAS)));
+                sql = "select * from coordenador where id = "+cursor.getInt(cursor.getColumnIndex(CursoDataModel.IDCOORDENADOR));
+                cursor = db.rawQuery(sql,null);
+                Coordenador coordenador = new Coordenador();
+                coordenador.setId(cursor.getInt(cursor.getColumnIndex(CoordenadorDataModel.ID)));
+                coordenador.setNome(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.NOME)));
+                coordenador.setSenha(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.SENHA)));
+                coordenador.setCelular(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.CELULAR)));
+                coordenador.setCPF(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.CPF)));
+                coordenador.setEmail(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.EMAIL)));                Log.i("LISTAR", "getAllCursos: "+obj.getNome());
+                obj.setCoordenador(coordenador);
+                return obj;
+        }else{
+            return null;
+        }
+
+    }@SuppressLint("Range")
+    public Coordenador getCoordenadorById(String tabela,String idcurso){
+        db = getWritableDatabase();
+        String sql = "select * from "+tabela+" where idcurso = "+idcurso+"";
+        Cursor cursor;
+
+        cursor = db.rawQuery(sql,null);
+        Coordenador obj;
+        if(cursor.moveToFirst()){
+                obj = new Coordenador();
+
+                obj.setId(cursor.getInt(cursor.getColumnIndex(CoordenadorDataModel.ID)));
+                obj.setNome(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.NOME)));
+                obj.setSenha(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.SENHA)));
+                obj.setCelular(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.CELULAR)));
+                obj.setCPF(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.CPF)));
+                obj.setEmail(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.EMAIL)));
                 Log.i("LISTAR", "getAllCursos: "+obj.getNome());
                 return obj;
         }else{
@@ -234,6 +316,28 @@ public class AppDataBase extends SQLiteOpenHelper {
         }
 
         return categorias;
+    }@SuppressLint("Range")
+    public List<Sugestao> getAllSugestao(String tabela){
+        List<Sugestao> sugestoes = new ArrayList<>();
+        db = getWritableDatabase();
+        String sql = "select * from "+tabela;
+        Cursor cursor;
+
+        cursor = db.rawQuery(sql,null);
+        Sugestao obj;
+        if(cursor.moveToFirst()){
+            do {
+                obj = new Sugestao();
+
+                obj.setId(cursor.getInt(cursor.getColumnIndex(SugestaoDataModel.ID)));
+                obj.setTitulo(cursor.getString(cursor.getColumnIndex(SugestaoDataModel.TITULO)));
+                obj.setDescricao(cursor.getString(cursor.getColumnIndex(SugestaoDataModel.DESCRICAO)));
+                obj.setImgSugestao(cursor.getString(cursor.getColumnIndex(SugestaoDataModel.IMGSUGESTAO)));
+                sugestoes.add(obj);
+            }while (cursor.moveToNext());
+        }
+
+        return sugestoes;
     }@SuppressLint("Range")
     public List<Solicitacao> getAllSolicitacao(String tabela){
         List<Solicitacao> solicitacaos = new ArrayList<>();
