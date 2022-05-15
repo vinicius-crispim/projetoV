@@ -8,5 +8,5 @@
     <string name="action_horas">Suas Horas</string>
     <string name="action_horas_coordenador">Sugerir Atividade</string>
     <string name="action_perfil">Perfil</string>
-    <string name="action_perfil_coordenador">Perfil</string>
+    <string name="action_perfil_coordenador">Solicitações</string>
 </resources>

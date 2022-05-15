@@ -42,7 +42,7 @@ public class SugestaoController extends AppDataBase implements ICrud<Sugestao>{
 
     @Override
     public boolean deletar(int id) {
-        return false;
+        return deleteById(SugestaoDataModel.TABELA,id);
     }
 
     @Override
