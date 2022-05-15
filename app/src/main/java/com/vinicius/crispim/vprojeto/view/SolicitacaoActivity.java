@@ -23,7 +23,6 @@ import android.widget.Toast;
 import com.vinicius.crispim.vprojeto.R;
 import com.vinicius.crispim.vprojeto.api.AppUtil;
 import com.vinicius.crispim.vprojeto.controller.CategoriaController;
-import com.vinicius.crispim.vprojeto.controller.CursoController;
 import com.vinicius.crispim.vprojeto.controller.SolicitacaoController;
 import com.vinicius.crispim.vprojeto.model.Aluno;
 import com.vinicius.crispim.vprojeto.model.Categoria;

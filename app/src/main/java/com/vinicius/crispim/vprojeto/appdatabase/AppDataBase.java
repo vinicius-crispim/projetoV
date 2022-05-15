@@ -176,6 +176,52 @@ public class AppDataBase extends SQLiteOpenHelper {
         }
 
         return alunos;
+    }@SuppressLint("Range")
+    public List<Coordenador> getAllCoordenador(String tabela, String senha){
+        List<Coordenador> coordenadores = new ArrayList<>();
+        db = getWritableDatabase();
+        if(senha !=null) {
+            String sql = "select * from " + tabela + " where senha = '" + senha+"'";
+            Cursor cursor;
+            cursor = db.rawQuery(sql, null);
+            Coordenador obj;
+            if (cursor.moveToFirst()) {
+                do {
+                    obj = new Coordenador();
+
+                    obj.setId(cursor.getInt(cursor.getColumnIndex(CoordenadorDataModel.ID)));
+                    obj.setNome(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.NOME)));
+                    obj.setSenha(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.SENHA)));
+                    obj.setCelular(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.CELULAR)));
+                    obj.setCPF(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.CPF)));
+                    obj.setEmail(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.EMAIL)));
+                    coordenadores.add(obj);
+                    Log.i("LISTAR", "getAllCoordenadores: " + obj.getNome());
+                } while (cursor.moveToNext());
+            }
+        }else{
+            String sql = "select * from " + tabela;
+            Cursor cursor;
+
+
+            cursor = db.rawQuery(sql, null);
+            Coordenador obj;
+            if (cursor.moveToFirst()) {
+                do {
+                    obj = new Coordenador();
+                    obj.setId(cursor.getInt(cursor.getColumnIndex(CoordenadorDataModel.ID)));
+                    obj.setNome(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.NOME)));
+                    obj.setSenha(cursor.getString(cursor.getColumnIndex(AlunoDataModel.SENHA)));
+                    obj.setCelular(cursor.getString(cursor.getColumnIndex(AlunoDataModel.CELULAR)));
+                    obj.setCPF(cursor.getString(cursor.getColumnIndex(AlunoDataModel.CPF)));
+                    obj.setEmail(cursor.getString(cursor.getColumnIndex(AlunoDataModel.EMAIL)));
+                    coordenadores.add(obj);
+                    Log.i("LISTAR", "getAllCoordenadores: " + obj.getNome());
+                } while (cursor.moveToNext());
+            }
+        }
+
+        return coordenadores;
     }
     @SuppressLint("Range")
     public List<Curso> getAllCursos(String tabela){

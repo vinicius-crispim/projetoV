@@ -49,7 +49,7 @@ public class SplashActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                coordenador = new Coordenador();
+             /*   coordenador = new Coordenador();
                 coordenador.setCelular("(41) 99955-8866");
                 coordenador.setCPF("111.111.111-00");
                 coordenador.setNome("Carlos Gouveia");
@@ -95,8 +95,7 @@ public class SplashActivity extends AppCompatActivity {
                 cursoController.incluir(curso);
                 cursoController.incluir(curso2);
                 cursoController.incluir(curso3);
-                cursoController.incluir(curso4);
-
+                cursoController.incluir(curso4);*/
                 Intent troca = new Intent(SplashActivity.this,MainActivity.class);
                 startActivity(troca);
                 finish();

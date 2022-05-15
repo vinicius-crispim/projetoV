@@ -63,4 +63,6 @@ public class CoordenadorController extends AppDataBase implements ICrud<Coordena
         return  getAllCoordenadores(CoordenadorDataModel.TABELA);
     }
 
+    public List<Coordenador> logar(String senha) {
+        return getAllCoordenador(CoordenadorDataModel.TABELA,senha);    }
 }

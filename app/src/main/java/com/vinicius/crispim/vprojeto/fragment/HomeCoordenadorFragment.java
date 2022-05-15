@@ -19,21 +19,21 @@ import com.vinicius.crispim.vprojeto.model.Sugestao;
 
 import java.util.List;
 
-public class HomeFragment extends Fragment {
-    ListView lista_sugestao;
+public class HomeCoordenadorFragment extends Fragment {
+    ListView lista_sugestao_coordenador;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container,false);
-        lista_sugestao = (ListView) view.findViewById(R.id.lista_sugestao);
-        this.CarregarFeed();
+        View view = inflater.inflate(R.layout.fragment_home_coordenador, container,false);
+        lista_sugestao_coordenador = (ListView) view.findViewById(R.id.lista_sugestao_coordenador);
+        this.CarregarCoordenador();
         return view;
     }
-    protected void CarregarFeed(){
+    protected void CarregarCoordenador(){
         SugestaoController sugestaoController = new SugestaoController(getContext());
         List<Sugestao> sugestoes = sugestaoController.listar();
-        lista_sugestao.setAdapter((ListAdapter) new LinhaConsultarAdapter(this, sugestoes));
+        lista_sugestao_coordenador.setAdapter((ListAdapter) new LinhaConsultarCoordenadorAdapter(this, sugestoes));
 
     }
 }

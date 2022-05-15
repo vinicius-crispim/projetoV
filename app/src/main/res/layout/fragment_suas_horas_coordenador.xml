@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:background="@color/backgroud">
+
+    <!--<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SUAS HORAS FRAGMENT"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:layout_centerInParent="true" />-->
+    <ScrollView
+        android:id="@+id/scrCadastro"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:scrollbarSize="6dp"
+        android:scrollbarStyle="insideInset"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="350sp"
+            android:layout_height="300sp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/txtTituloPostar"
+                android:layout_width="299dp"
+                android:layout_height="55dp"
+                android:layout_marginBottom="30sp"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint="Título da Atividade"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black" />
+
+            <Button
+                android:id="@+id/btnImagemPostar"
+                android:layout_width="199dp"
+                android:layout_height="55dp"
+                android:layout_marginBottom="15sp"
+                android:backgroundTint="#D5EDB50A"
+                android:text="Adicionar imagem"
+                android:textColor="@color/black" />
+
+            <ImageView
+                android:id="@+id/imgfotoPostar"
+                android:layout_width="300sp"
+                android:layout_height="300sp"
+                android:layout_marginBottom="15sp"
+                android:maxWidth="300sp"
+                android:maxHeight="300sp"
+                android:minWidth="200sp"
+                android:minHeight="200sp"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <EditText
+                android:id="@+id/txtDescricaoPostar"
+                android:layout_width="326dp"
+                android:layout_height="176dp"
+                android:layout_marginBottom="30sp"
+                android:background="@color/white"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="Descriçao da atividade"
+                android:inputType="textMultiLine"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnPostar"
+                android:layout_width="119dp"
+                android:layout_height="48dp"
+                android:layout_marginBottom="30sp"
+                android:backgroundTint="#D37EBC37"
+                android:text="Postar"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</RelativeLayout>

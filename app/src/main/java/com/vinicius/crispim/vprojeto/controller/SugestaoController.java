@@ -32,7 +32,7 @@ public class SugestaoController extends AppDataBase implements ICrud<Sugestao>{
         dados.put(SugestaoDataModel.DESCRICAO,obj.getDescricao());
         dados.put(SugestaoDataModel.IMGSUGESTAO,obj.getImgSugestao());
 
-        return insert(CategoriaDataModel.TABELA,dados);
+        return insert(SugestaoDataModel.TABELA,dados);
     }
 
     @Override

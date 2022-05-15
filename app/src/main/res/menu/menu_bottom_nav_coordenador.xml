@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_home_coordenadores" android:title="@string/action_home_coordenador"
+        android:icon="@drawable/home"/>
+    <item android:id="@+id/action_suashoras_coordenadores" android:title="@string/action_horas_coordenador"
+        android:icon="@drawable/suashoras"/>
+    <item android:id="@+id/action_perfil_coordenadores" android:title="@string/action_perfil_coordenador"
+        android:icon="@drawable/perfil"/>
+</menu>

@@ -28,10 +28,14 @@ import com.vinicius.crispim.vprojeto.R;
 import com.vinicius.crispim.vprojeto.api.AppUtil;
 import com.vinicius.crispim.vprojeto.controller.CategoriaController;
 import com.vinicius.crispim.vprojeto.controller.SolicitacaoController;
+import com.vinicius.crispim.vprojeto.controller.SugestaoController;
 import com.vinicius.crispim.vprojeto.model.Aluno;
 import com.vinicius.crispim.vprojeto.model.Categoria;
+import com.vinicius.crispim.vprojeto.model.Coordenador;
 import com.vinicius.crispim.vprojeto.model.Solicitacao;
+import com.vinicius.crispim.vprojeto.model.Sugestao;
 import com.vinicius.crispim.vprojeto.view.Menu1Activity;
+import com.vinicius.crispim.vprojeto.view.MenuCoordenadorActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
@@ -39,60 +43,31 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class SuasHorasFragment extends Fragment {
+public class SuasHorasCoordenadorFragment extends Fragment {
     SimpleDateFormat sdf1= new SimpleDateFormat("dd/MM/yyyy");
-    Spinner spinner;
-    Categoria ultimo;
-    Categoria testecat;
     EditText txtTitulo;
-    EditText txtCarga;
-    EditText txtInstituicao;
     EditText txtDescricao;
     Button btnImagem;
     Button btnEnviar;
-    Aluno aluno;
+    Coordenador coordenador;
     String fotoEmString;
     ImageView imgfoto;
-    CategoriaController categoriaController;
-    SolicitacaoController solicitacaoController;
-    List<Categoria> categorias = new ArrayList<>();
-    Solicitacao solicitacao;
+    SugestaoController sugestaoController;
+    Sugestao sugestao;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_suas_horas, container,false);
-        btnEnviar = view.findViewById(R.id.btnEnviar);
-        txtTitulo = view.findViewById(R.id.txtTitulo);
-        txtDescricao = view.findViewById(R.id.txtDescricao);
-        btnImagem = view.findViewById(R.id.btnImagem);
-        txtCarga = view.findViewById(R.id.txtCarga);
-        imgfoto = view.findViewById(R.id.imgfoto);
-        txtInstituicao = view.findViewById(R.id.txtInstituicao);
-        categoriaController = new CategoriaController(getContext());
-        solicitacaoController = new SolicitacaoController(getContext());
-        categorias = categoriaController.listar();
-        solicitacao = new Solicitacao();
-        testecat = new Categoria();
-        Menu1Activity activity = (Menu1Activity) getActivity();
-        Log.i(AppUtil.TAG, "onCreateView: ALUNO PASSADO:"+activity.getAluno().getNome());
-        aluno = activity.getAluno();
-        ArrayAdapter<Categoria> adpter = new ArrayAdapter<Categoria>(getContext(), android.R.layout.simple_spinner_dropdown_item,categoriaController.listar());
-        adpter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner = view.findViewById(R.id.spnCategorias);
-        spinner.setAdapter(adpter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                ultimo = categorias.get(position);
-                solicitacao.setCategoria(categoriaController.listar().get(position));
-                testecat = categoriaController.listar().get(position);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
+        View view = inflater.inflate(R.layout.fragment_suas_horas_coordenador, container,false);
+        btnEnviar = view.findViewById(R.id.btnPostar);
+        txtTitulo = view.findViewById(R.id.txtTituloPostar);
+        txtDescricao = view.findViewById(R.id.txtDescricaoPostar);
+        btnImagem = view.findViewById(R.id.btnImagemPostar);
+        imgfoto = view.findViewById(R.id.imgfotoPostar);
+        sugestaoController = new SugestaoController(getContext());
+        sugestao = new Sugestao();
+        MenuCoordenadorActivity activity = (MenuCoordenadorActivity) getActivity();
+        Log.i(AppUtil.TAG, "onCreateView: COORDENADOR:"+activity.getCoordenador().getNome());
+        coordenador = activity.getCoordenador();
         btnImagem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -102,23 +77,17 @@ public class SuasHorasFragment extends Fragment {
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                solicitacao.setTitulo(txtTitulo.getText().toString());
-                solicitacao.setInstituicao(txtInstituicao.getText().toString());
-                solicitacao.setDescricao(txtDescricao.getText().toString());
-                solicitacao.setCarga(Integer.parseInt(txtCarga.getText().toString()));
-                solicitacao.setResposta("Não Respondido");
-                solicitacao.setStatus("EM ANÁLISE");
-                solicitacao.setData(sdf1.format(new Date()));
-                solicitacao.setAluno(aluno);
+                sugestao.setTitulo(txtTitulo.getText().toString());
+                sugestao.setDescricao(txtDescricao.getText().toString());
                 /*solicitacaoController.incluir(new Solicitacao(aluno, fotoEmString,
                         sdf1.format(new Date()),
                         txtTitulo.getText().toString(),Integer.parseInt(txtCarga.getText().toString()),
                         txtInstituicao.getText().toString(),
                         "EM ANALISE",txtDescricao.getText().toString(),
                         "Não Respondido",testecat));*/
-                solicitacaoController.incluir(solicitacao);
-                Log.i(AppUtil.TAG, "onCreate: aluno cadastrado "+solicitacao.getTitulo());
-                Toast.makeText(getContext(),"Solicitação enviada com sucesso, aguarde resposta do seu coordenador!",
+                sugestaoController.incluir(sugestao);
+                Log.i(AppUtil.TAG, "onCreate: sugestao postada "+sugestao.getTitulo());
+                Toast.makeText(getContext(),"Sugestão postada com sucesso!",
                         Toast.LENGTH_SHORT).show();
             }
         });
@@ -166,9 +135,9 @@ public class SuasHorasFragment extends Fragment {
                 imagemGalery.compress(Bitmap.CompressFormat.JPEG,70,streamdafoto);
                 fotoembyte = streamdafoto.toByteArray();
                 fotoEmString = Base64.encodeToString(fotoembyte,Base64.DEFAULT);
-                solicitacao.setImagem(fotoEmString);
-                Log.i(AppUtil.TAG, "onActivityResult: FOTO: "+solicitacao.getImagem());
-                Toast.makeText(getActivity(), "FOTOSALVA.",
+                sugestao.setImgSugestao(fotoEmString);
+                Log.i(AppUtil.TAG, "onActivityResult: FOTO: "+sugestao.getImgSugestao());
+                Toast.makeText(getActivity(), "Foto adicionada.",
                         Toast.LENGTH_SHORT).show();
             }catch (Exception e){
 
