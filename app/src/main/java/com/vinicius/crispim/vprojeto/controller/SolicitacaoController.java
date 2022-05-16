@@ -6,7 +6,9 @@ import android.util.Log;
 
 import com.vinicius.crispim.vprojeto.api.AppUtil;
 import com.vinicius.crispim.vprojeto.appdatabase.AppDataBase;
+import com.vinicius.crispim.vprojeto.datamodel.CoordenadorDataModel;
 import com.vinicius.crispim.vprojeto.datamodel.SolicitacaoDataModel;
+import com.vinicius.crispim.vprojeto.model.Coordenador;
 import com.vinicius.crispim.vprojeto.model.Solicitacao;
 
 import java.util.List;
@@ -14,7 +16,7 @@ import java.util.List;
 public class SolicitacaoController extends AppDataBase implements ICrud<Solicitacao>{
 
     ContentValues dados;
-
+    CoordenadorController coordenadorController;
     public SolicitacaoController(Context context) {
         super(context);
 
@@ -34,6 +36,10 @@ public class SolicitacaoController extends AppDataBase implements ICrud<Solicita
         dados.put(SolicitacaoDataModel.STATUS,obj.getStatus());
         dados.put(SolicitacaoDataModel.RESPOSTA,obj.getResposta());
         dados.put(SolicitacaoDataModel.IMAGEM,obj.getImagem());
+        dados.put(SolicitacaoDataModel.IDCATEGORIA,obj.getCategoria().getId());
+        dados.put(SolicitacaoDataModel.IDALUNO,obj.getAluno().getMatricula());
+        Log.i(AppUtil.TAG, "incluir: COORDENADOR:"+obj.getAluno().getCurso().getCoordenador().getId());
+        dados.put(SolicitacaoDataModel.IDCOORDENADOR,obj.getAluno().getCurso().getCoordenador().getId());
 
         return insert(SolicitacaoDataModel.TABELA,dados);
     }

@@ -91,8 +91,8 @@
 
             <ImageView
                 android:id="@+id/imgfoto"
-                android:layout_width="300sp"
-                android:layout_height="300sp"
+                android:layout_width="350dp"
+                android:layout_height="315dp"
                 android:layout_marginBottom="15sp"
                 android:maxWidth="300sp"
                 android:maxHeight="300sp"

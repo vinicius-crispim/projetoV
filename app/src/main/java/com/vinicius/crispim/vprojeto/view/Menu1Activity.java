@@ -15,6 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.vinicius.crispim.vprojeto.R;
 import com.vinicius.crispim.vprojeto.api.AppUtil;
 import com.vinicius.crispim.vprojeto.model.Aluno;
+import com.vinicius.crispim.vprojeto.model.Coordenador;
 import com.vinicius.crispim.vprojeto.model.Curso;
 import com.vinicius.crispim.vprojeto.viewpageradapter.ViewPagerAdapter;
 
@@ -43,6 +44,14 @@ public class Menu1Activity extends AppCompatActivity {
         curso.setHorasnecessarias(parametros.getInt("horasnecessariascurso"));
         curso.setId(parametros.getInt("idcurso"));
         curso.setNome(parametros.getString("nomecurso"));
+        Coordenador coordenador = new Coordenador();
+        coordenador.setNome(parametros.getString("nomecoordenador"));
+        coordenador.setSenha(parametros.getString("senhacoordenador"));
+        coordenador.setCelular(parametros.getString("celularcoordenador"));
+        coordenador.setCPF(parametros.getString("CPFcoordenador"));
+        coordenador.setEmail(parametros.getString("emailcoordenador"));
+        coordenador.setId(parametros.getInt("idcoordenador"));
+        curso.setCoordenador(coordenador);
         aluno.setCurso(curso);
         Log.i(AppUtil.TAG, "onCreate: Aluno:"+aluno);
         mNavigationView = findViewById(R.id.bottom_nav);

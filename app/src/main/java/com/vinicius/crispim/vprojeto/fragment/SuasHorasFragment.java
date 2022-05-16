@@ -27,7 +27,9 @@ import androidx.fragment.app.Fragment;
 import com.vinicius.crispim.vprojeto.R;
 import com.vinicius.crispim.vprojeto.api.AppUtil;
 import com.vinicius.crispim.vprojeto.controller.CategoriaController;
+import com.vinicius.crispim.vprojeto.controller.CoordenadorController;
 import com.vinicius.crispim.vprojeto.controller.SolicitacaoController;
+import com.vinicius.crispim.vprojeto.datamodel.CoordenadorDataModel;
 import com.vinicius.crispim.vprojeto.model.Aluno;
 import com.vinicius.crispim.vprojeto.model.Categoria;
 import com.vinicius.crispim.vprojeto.model.Solicitacao;
@@ -102,6 +104,7 @@ public class SuasHorasFragment extends Fragment {
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                CoordenadorController coordenadorController = new CoordenadorController(getContext());
                 solicitacao.setTitulo(txtTitulo.getText().toString());
                 solicitacao.setInstituicao(txtInstituicao.getText().toString());
                 solicitacao.setDescricao(txtDescricao.getText().toString());
@@ -110,6 +113,8 @@ public class SuasHorasFragment extends Fragment {
                 solicitacao.setStatus("EM ANÁLISE");
                 solicitacao.setData(sdf1.format(new Date()));
                 solicitacao.setAluno(aluno);
+                Log.i(AppUtil.TAG, "onClick: IDCOORDENADOR: "+aluno.getCurso().getCoordenador().getId().toString());
+               // solicitacao.setCoordenador(coordenadorController.getCoordenadorById(CoordenadorDataModel.TABELA,aluno.getCurso().getCoordenador().getId().toString()));
                 /*solicitacaoController.incluir(new Solicitacao(aluno, fotoEmString,
                         sdf1.format(new Date()),
                         txtTitulo.getText().toString(),Integer.parseInt(txtCarga.getText().toString()),
@@ -163,7 +168,7 @@ public class SuasHorasFragment extends Fragment {
                 imgfoto.setImageBitmap(imagemGalery);
                 byte[] fotoembyte;
                 ByteArrayOutputStream streamdafoto = new ByteArrayOutputStream();
-                imagemGalery.compress(Bitmap.CompressFormat.JPEG,70,streamdafoto);
+                imagemGalery.compress(Bitmap.CompressFormat.JPEG,100,streamdafoto);
                 fotoembyte = streamdafoto.toByteArray();
                 fotoEmString = Base64.encodeToString(fotoembyte,Base64.DEFAULT);
                 solicitacao.setImagem(fotoEmString);

@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.vinicius.crispim.vprojeto.api.AppUtil;
+import com.vinicius.crispim.vprojeto.controller.CoordenadorController;
 import com.vinicius.crispim.vprojeto.controller.CursoController;
 import com.vinicius.crispim.vprojeto.datamodel.AlunoDataModel;
 import com.vinicius.crispim.vprojeto.datamodel.CategoriaDataModel;
@@ -239,6 +240,14 @@ public class AppDataBase extends SQLiteOpenHelper {
                 obj.setId(cursor.getInt(cursor.getColumnIndex(CursoDataModel.ID)));
                 obj.setNome(cursor.getString(cursor.getColumnIndex(CursoDataModel.NOME)));
                 obj.setHorasnecessarias(cursor.getInt(cursor.getColumnIndex(CursoDataModel.HORASNECESSARIAS)));
+                Integer idcoordenador = cursor.getInt(cursor.getColumnIndex(CursoDataModel.IDCOORDENADOR));
+                List<Coordenador> coordenadores = getAllCoordenadores(CoordenadorDataModel.TABELA);
+                for (Coordenador coordenador1:coordenadores) {
+                    if (coordenador1.getId() == idcoordenador){
+                        obj.setCoordenador(coordenador1);
+                        Log.i(AppUtil.TAG, "getAllAlunos: CURSO AQUI: "+obj.getCoordenador().getNome());
+                    }
+                }
                 cursos.add(obj);
                 Log.i("LISTAR", "getAllCursos: "+obj.getNome());
             }while (cursor.moveToNext());
@@ -318,10 +327,32 @@ public class AppDataBase extends SQLiteOpenHelper {
             return null;
         }
 
-    }@SuppressLint("Range")
+    }
+    @SuppressLint("Range")
+    public Coordenador getCoordenadorById2(String tabela,String nome){
+        db = getWritableDatabase();
+        String sql = "select * from "+tabela+" where id = "+nome+"";
+        Cursor cursor;
+
+        cursor = db.rawQuery(sql,null);
+        Coordenador obj;
+        if(cursor.moveToFirst()) {
+            obj = new Coordenador();
+
+            obj.setId(cursor.getInt(cursor.getColumnIndex(CoordenadorDataModel.ID)));
+            obj.setNome(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.NOME)));
+            obj.setEmail(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.EMAIL)));
+            obj.setCPF(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.CPF)));
+            obj.setCelular(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.CELULAR)));
+            obj.setSenha(cursor.getString(cursor.getColumnIndex(CoordenadorDataModel.SENHA)));
+            return obj;
+        }
+        return null;
+    }
+    @SuppressLint("Range")
     public Coordenador getCoordenadorById(String tabela,String idcurso){
         db = getWritableDatabase();
-        String sql = "select * from "+tabela+" where idcurso = "+idcurso+"";
+        String sql = "select * from "+tabela+" where id = "+idcurso+"";
         Cursor cursor;
 
         cursor = db.rawQuery(sql,null);

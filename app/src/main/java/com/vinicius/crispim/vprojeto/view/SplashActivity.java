@@ -49,7 +49,7 @@ public class SplashActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-             /*   coordenador = new Coordenador();
+                /*coordenador = new Coordenador();
                 coordenador.setCelular("(41) 99955-8866");
                 coordenador.setCPF("111.111.111-00");
                 coordenador.setNome("Carlos Gouveia");
@@ -95,16 +95,27 @@ public class SplashActivity extends AppCompatActivity {
                 cursoController.incluir(curso);
                 cursoController.incluir(curso2);
                 cursoController.incluir(curso3);
-                cursoController.incluir(curso4);*/
+                cursoController.incluir(curso4);
+                curso.setId(1);
+                Aluno aluno = new Aluno();
+                aluno.setCurso(curso);
+                aluno.setHorasFeitas(0);
+                aluno.setCelular("41 997548613");
+                aluno.setHorasFaltando(curso.getHorasnecessarias());
+                aluno.setSenha("12");
+                aluno.setCPF("121.238.754-49");
+                aluno.setEmail("vinicrispim02@hotmail.com");
+                aluno.setNome("Vinicius Crispim");
+                alunoController.incluir(aluno);*/
                 Intent troca = new Intent(SplashActivity.this,MainActivity.class);
                 startActivity(troca);
                 finish();
-                AlunoController alunoController = new AlunoController(getApplicationContext());
+          /*      AlunoController alunoController = new AlunoController(getApplicationContext());
                 alunoController.listar();
-                for (Aluno aluno:alunoController.listar()
+                for (Aluno aluno2:alunoController.listar()
                      ) {
-                    Log.i(AppUtil.TAG, "run: ALUNOS: "+aluno);
-                }
+                    Log.i(AppUtil.TAG, "run: ALUNOS: "+aluno2);
+                }*/
             }
         },3000);
     }

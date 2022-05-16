@@ -30,6 +30,7 @@ public class CursoController extends AppDataBase implements ICrud<Curso>{
         dados.put(CursoDataModel.NOME,obj.getNome());
         dados.put(CursoDataModel.ID,obj.getId());
         dados.put(CursoDataModel.HORASNECESSARIAS,obj.getHorasnecessarias());
+        dados.put(CursoDataModel.IDCOORDENADOR,obj.getCoordenador().getId());
 
         return insert(CursoDataModel.TABELA,dados);
     }

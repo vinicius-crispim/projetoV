@@ -97,6 +97,12 @@ public class MainActivity extends AppCompatActivity {
                         parametros.putString("nomecurso", aluno.getCurso().getNome());
                         parametros.putInt("idcurso", aluno.getCurso().getId());
                         parametros.putInt("horasnecessariascurso", aluno.getCurso().getHorasnecessarias());
+                        parametros.putString("nomecoordenador", aluno.getCurso().getCoordenador().getNome());
+                        parametros.putString("senhacoordenador", aluno.getCurso().getCoordenador().getSenha());
+                        parametros.putString("celularcoordenador", aluno.getCurso().getCoordenador().getCelular());
+                        parametros.putString("CPFcoordenador", aluno.getCurso().getCoordenador().getCPF());
+                        parametros.putString("emailcoordenador", aluno.getCurso().getCoordenador().getEmail());
+                        parametros.putInt("idcoordenador", aluno.getCurso().getCoordenador().getId());
                         Toast.makeText(MainActivity.this, "Bem-vindo " + aluno.getNome(),
                                 Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MainActivity.this, Menu1Activity.class);

@@ -20,6 +20,8 @@ public class SolicitacaoDataModel {
     public static final String DESCRICAO = "descricao";
     public static final String RESPOSTA = "resposta";
     public static final String IDCATEGORIA = "idcategoria";
+    public static final String IDALUNO = "idaluno";
+    public static final String IDCOORDENADOR = "idcoordenador";
 
 
     //query para criar tabela no banco
@@ -37,6 +39,8 @@ public class SolicitacaoDataModel {
         queryCriarTabela+=DESCRICAO+" text, ";
         queryCriarTabela+=RESPOSTA+" text, ";
         queryCriarTabela+=IMAGEM+" BLOB, ";
+        queryCriarTabela+=IDALUNO+" INTEGER CONSTRAINT idaluno REFERENCES aluno (id), ";
+        queryCriarTabela+=IDCOORDENADOR+" INTEGER CONSTRAINT idcoordenador REFERENCES coordenador (id), ";
         queryCriarTabela+=IDCATEGORIA+" INTEGER CONSTRAINT idcategoria REFERENCES categoria (id) ";
         queryCriarTabela+=")";
 

@@ -6,6 +6,7 @@ import java.util.Date;
 public class Solicitacao {
     private Integer id;
     private Aluno aluno;
+    private Coordenador coordenador;
     private String imagem;
     private String data;
     private String titulo;
@@ -16,8 +17,10 @@ public class Solicitacao {
     private String resposta;
     private Categoria categoria;
 
-    public Solicitacao(Aluno aluno, String imagem, String data, String titulo, Integer carga, String instituicao, String status, String descricao, String resposta, Categoria categoria) {
+    public Solicitacao(Integer id, Aluno aluno, Coordenador coordenador, String imagem, String data, String titulo, Integer carga, String instituicao, String status, String descricao, String resposta, Categoria categoria) {
+        this.id = id;
         this.aluno = aluno;
+        this.coordenador = coordenador;
         this.imagem = imagem;
         this.data = data;
         this.titulo = titulo;
@@ -66,6 +69,14 @@ public class Solicitacao {
 
     public void setImagem(String imagem) {
         this.imagem = imagem;
+    }
+
+    public Coordenador getCoordenador() {
+        return coordenador;
+    }
+
+    public void setCoordenador(Coordenador coordenador) {
+        this.coordenador = coordenador;
     }
 
     public String getData() {
