@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:paddingLeft="8dp">
 
-    <RelativeLayout
+    <!--<RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -52,5 +52,77 @@
             android:textSize="20sp" />
 
     </RelativeLayout>
+-->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
 
+        android:layout_marginEnd="0dp"
+        android:backgroundTint="#8B36ECD7"
+        app:rippleColor="#FFFFFF"
+        app:strokeColor="@color/black"
+        app:strokeWidth="0dp"
+        tools:ignore="DuplicateIds">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:orientation="vertical">
+
+            <!-- Media -->
+            <ImageView
+                android:id="@+id/imgSugestao"
+                android:layout_width="350dp"
+                android:layout_height="300dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="0dp"
+                android:foregroundGravity="center_horizontal|center_vertical"
+                tools:srcCompat="@drawable/perfil" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Title, secondary and supporting text -->
+
+                <TextView
+                    android:id="@+id/txtTituloSugestao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|center_horizontal"
+                    android:text="Titulo do evento"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/descLong1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod elit magna, id condimentum sem fermentum ut. Praesent viverra egestas neque, ac facilisis nisi sollicitudin tempus. Cras facilisis at ligula quis interdum. Nulla porta nec ex et condimentum. Cras sit amet commodo erat. Aenean sit amet molestie nisi, nec dictum nisl. Sed dignissim libero augue, nec bibendum mauris facilisis eu."
+                    android:textAlignment="center"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

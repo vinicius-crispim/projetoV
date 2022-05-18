@@ -58,6 +58,7 @@ public class SuasHorasCoordenadorFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_suas_horas_coordenador, container,false);
+        ((MenuCoordenadorActivity) getActivity()).setActionBarTitle("Sugerir Atividade");
         btnEnviar = view.findViewById(R.id.btnPostar);
         txtTitulo = view.findViewById(R.id.txtTituloPostar);
         txtDescricao = view.findViewById(R.id.txtDescricaoPostar);

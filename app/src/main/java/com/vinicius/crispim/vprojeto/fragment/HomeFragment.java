@@ -16,6 +16,7 @@ import com.vinicius.crispim.vprojeto.R;
 import com.vinicius.crispim.vprojeto.api.AppUtil;
 import com.vinicius.crispim.vprojeto.controller.SugestaoController;
 import com.vinicius.crispim.vprojeto.model.Sugestao;
+import com.vinicius.crispim.vprojeto.view.Menu1Activity;
 
 import java.util.List;
 
@@ -26,6 +27,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container,false);
+        ((Menu1Activity) getActivity()).setActionBarTitle("Home");
         lista_sugestao = (ListView) view.findViewById(R.id.lista_sugestao);
         this.CarregarFeed();
         return view;

@@ -9,9 +9,10 @@
 
     <ScrollView
         android:id="@+id/scrCadastro"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
+        android:paddingBottom="100dp"
         android:scrollbarSize="6dp"
         android:scrollbarStyle="insideInset"
         android:visibility="visible"
@@ -23,7 +24,7 @@
         app:layout_constraintVertical_bias="0.0"
         tools:visibility="visible">
 
-        <LinearLayout
+        <!--<LinearLayout
             android:layout_width="350sp"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -190,7 +191,284 @@
                 android:visibility="invisible" />
 
 
-        </LinearLayout>
+        </LinearLayout>-->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+
+            android:layout_marginEnd="0dp"
+            android:backgroundTint="@color/backgroud"
+            app:rippleColor="#FFFFFF"
+            app:strokeColor="@color/black"
+            app:strokeWidth="0dp"
+            tools:ignore="DuplicateIds">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="0dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!--<com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtSeusDados_Nome"
+                    android:layout_width="299dp"
+                    android:layout_height="55dp"
+                    android:backgroundTint="@color/black"
+                    android:hint="Nome"
+                    app:boxBackgroundColor="@color/black"
+                    app:hintTextColor="@color/black"
+                    app:itemBackground="@color/black"
+                    app:startIconContentDescription="Imagem representando perfil"
+                    app:startIconDrawable="@drawable/perfil"></com.google.android.material.textfield.TextInputLayout>
+         -->       <TextView
+                android:id="@+id/txtSeusDados"
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:layout_marginBottom="5dp"
+                android:background="#6E6E6E"
+                android:fontFamily="monospace"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="SEUS DADOS"
+                android:textColor="@color/black"
+                android:textSize="34sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nome"
+
+                    app:hintTextColor="@color/black"
+                    app:startIconContentDescription="Imagem representando perfil"
+                    app:startIconDrawable="@drawable/perfil">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtSeusDados_Nome"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:background="#6E6E6E"
+                        android:textColor="#CBFFFFFF"
+                        android:textSize="18sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Matricula"
+
+                    app:hintTextColor="@color/black"
+                    app:startIconContentDescription="Imagem representando matricula"
+                    app:startIconDrawable="@drawable/matricula">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtSeusDados_Matricula"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:background="#6E6E6E"
+                        android:textColor="#CBFFFFFF"
+                        android:textSize="18sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Telefone"
+
+                    app:hintTextColor="@color/black"
+                    app:startIconContentDescription="Imagem representando matricula"
+                    app:startIconDrawable="@drawable/matricula">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtSeusDados_Telefone"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:background="#6E6E6E"
+                        android:textColor="#CBFFFFFF"
+                        android:textSize="18sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="CPF"
+
+                    app:hintTextColor="@color/black"
+                    app:startIconContentDescription="Imagem representando CPF"
+                    app:startIconDrawable="@drawable/matricula">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtSeusDados_CPF"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:background="#6E6E6E"
+                        android:textColor="#CBFFFFFF"
+                        android:textSize="18sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+
+                    app:hintTextColor="@color/black"
+                    app:startIconContentDescription="Imagem representando CPF"
+                    app:startIconDrawable="@drawable/matricula">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtSeusDados_Email"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:background="#6E6E6E"
+                        android:textColor="#CBFFFFFF"
+                        android:textSize="18sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Curso"
+
+                    app:hintTextColor="@color/black"
+                    app:startIconContentDescription="Imagem representando Curso"
+                    app:startIconDrawable="@drawable/matricula">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtSeusDados_Curso"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:background="#6E6E6E"
+                        android:textColor="#CBFFFFFF"
+                        android:textSize="18sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Coordenador"
+
+                    app:hintTextColor="@color/black"
+                    app:startIconContentDescription="Imagem representando coordenador"
+                    app:startIconDrawable="@drawable/matricula">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtSeusDados_Curso_Coordenador"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:background="#6E6E6E"
+                        android:textColor="#CBFFFFFF"
+                        android:textSize="18sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Faltam"
+
+                        app:hintTextColor="@color/black"
+                        app:startIconContentDescription="Imagem representando as horas que faltam serem realizadas">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtSeusDados_HorasFaltando"
+                            android:layout_width="129dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginRight="55dp"
+                            android:background="#6E6E6E"
+                            android:enabled="false"
+                            android:textColor="#CBFFFFFF"
+                            android:textSize="20sp"
+                            tools:ignore="DuplicateClickableBoundsCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Suas horas"
+
+                        app:hintTextColor="@color/black"
+                        app:startIconContentDescription="Imagem representando as horas que faltam">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtSeusDados_Horas"
+                            android:layout_width="158dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginRight="70dp"
+                            android:background="#6E6E6E"
+                            android:enabled="false"
+                            android:textColor="#CBFFFFFF"
+                            android:textSize="20sp"
+                            tools:ignore="DuplicateClickableBoundsCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </RelativeLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Horas necessárias"
+
+                    app:hintTextColor="@color/black"
+                    app:startIconContentDescription="Imagem representando coordenador"
+                    app:startIconDrawable="@drawable/matricula">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtSeusDados_Curso_Horas"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:background="#6E6E6E"
+                        android:textColor="#CBFFFFFF"
+                        android:textSize="18sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--<EditText
+                    android:id="@+id/txtSeusDados_Telefone"
+                    android:layout_width="299dp"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="30sp"
+                    android:background="@color/white"
+                    android:ems="10"
+                    android:hint="Telefone:"
+                    android:inputType="text"
+                    android:text="Telefone:"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black" />-->
+
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
     </ScrollView>
 
 </RelativeLayout>

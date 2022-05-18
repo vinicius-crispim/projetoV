@@ -102,4 +102,7 @@ public class MenuCoordenadorActivity extends AppCompatActivity {
     public Coordenador getCoordenador(){
         return coordenador;
     }
+    public void setActionBarTitle(String title){
+        getSupportActionBar().setTitle(title);
+    }
 }

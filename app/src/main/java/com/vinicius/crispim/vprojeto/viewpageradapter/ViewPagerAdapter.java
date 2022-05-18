@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import com.vinicius.crispim.vprojeto.fragment.HomeFragment;
 import com.vinicius.crispim.vprojeto.fragment.PerfilFragment;
 import com.vinicius.crispim.vprojeto.fragment.SuasHorasFragment;
+import com.vinicius.crispim.vprojeto.view.Menu1Activity;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 

@@ -65,15 +65,12 @@ public class Menu1Activity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.action_home:
                         mViewPager.setCurrentItem(0);
-                        Toast.makeText(Menu1Activity.this,"HOME",Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_suashoras:
                         mViewPager.setCurrentItem(1);
-                        Toast.makeText(Menu1Activity.this,"FAVORITE",Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_perfil:
                         mViewPager.setCurrentItem(2);
-                        Toast.makeText(Menu1Activity.this,"MY PAGE",Toast.LENGTH_SHORT).show();
                         break;
 
                 }
@@ -116,4 +113,8 @@ public class Menu1Activity extends AppCompatActivity {
     public Aluno getAluno(){
         return aluno;
     }
+    public void setActionBarTitle(String title){
+        getSupportActionBar().setTitle(title);
+    }
+
 }

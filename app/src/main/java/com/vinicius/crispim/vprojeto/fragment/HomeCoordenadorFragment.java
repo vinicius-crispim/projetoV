@@ -16,6 +16,7 @@ import com.vinicius.crispim.vprojeto.R;
 import com.vinicius.crispim.vprojeto.api.AppUtil;
 import com.vinicius.crispim.vprojeto.controller.SugestaoController;
 import com.vinicius.crispim.vprojeto.model.Sugestao;
+import com.vinicius.crispim.vprojeto.view.MenuCoordenadorActivity;
 
 import java.util.List;
 
@@ -26,6 +27,7 @@ public class HomeCoordenadorFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home_coordenador, container,false);
+        ((MenuCoordenadorActivity) getActivity()).setActionBarTitle("Home");
         lista_sugestao_coordenador = (ListView) view.findViewById(R.id.lista_sugestao_coordenador);
         this.CarregarCoordenador();
         return view;

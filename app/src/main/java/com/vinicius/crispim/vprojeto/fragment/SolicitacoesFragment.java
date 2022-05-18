@@ -14,12 +14,14 @@ import com.vinicius.crispim.vprojeto.R;
 import com.vinicius.crispim.vprojeto.controller.CursoController;
 import com.vinicius.crispim.vprojeto.model.Aluno;
 import com.vinicius.crispim.vprojeto.view.Menu1Activity;
+import com.vinicius.crispim.vprojeto.view.MenuCoordenadorActivity;
 
 public class SolicitacoesFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_perfil_coordenador, container,false);
+        ((MenuCoordenadorActivity) getActivity()).setActionBarTitle("Solicitações");
         return view;
     }
 }

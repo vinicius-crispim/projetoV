@@ -9,4 +9,5 @@
     <string name="action_horas_coordenador">Sugerir Atividade</string>
     <string name="action_perfil">Perfil</string>
     <string name="action_perfil_coordenador">Solicitações</string>
+    <string name="content_description_end_icon">Nome</string>
 </resources>

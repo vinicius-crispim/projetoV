@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.vinicius.crispim.vprojeto.R;
 import com.vinicius.crispim.vprojeto.api.AppUtil;
 import com.vinicius.crispim.vprojeto.controller.CursoController;
@@ -19,7 +21,7 @@ import com.vinicius.crispim.vprojeto.model.Curso;
 import com.vinicius.crispim.vprojeto.view.Menu1Activity;
 
 public class PerfilFragment extends Fragment {
-    EditText txtSeusDados_Nome;
+    TextInputEditText txtSeusDados_Nome;
     CursoController cursoController;
     EditText txtSeusDados_Matricula;
     EditText txtSeusDados_Telefone;
@@ -46,8 +48,8 @@ public class PerfilFragment extends Fragment {
         txtSeusDados_HorasFaltando = view.findViewById(R.id.txtSeusDados_HorasFaltando);
         Menu1Activity activity = (Menu1Activity) getActivity();
         Aluno aluno = activity.getAluno();
-        txtSeusDados_Nome.getText().append(aluno.getNome());
-        txtSeusDados_Matricula.getText().append(aluno.getMatricula().toString());
+        txtSeusDados_Nome.setText(aluno.getNome());
+        txtSeusDados_Matricula.setText(aluno.getMatricula().toString());
         txtSeusDados_Telefone.getText().append(aluno.getCelular());
         txtSeusDados_Email.getText().append(aluno.getEmail());
         txtSeusDados_CPF.getText().append(aluno.getCPF());
