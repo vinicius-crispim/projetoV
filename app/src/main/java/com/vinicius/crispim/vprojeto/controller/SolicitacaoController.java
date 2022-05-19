@@ -46,7 +46,20 @@ public class SolicitacaoController extends AppDataBase implements ICrud<Solicita
 
     @Override
     public boolean alterar(Solicitacao obj) {
-        return false;
+        dados = new ContentValues();
+        dados.put(SolicitacaoDataModel.TITULO,obj.getTitulo());
+        dados.put(SolicitacaoDataModel.ID,obj.getId());
+        dados.put(SolicitacaoDataModel.DATA,obj.getData());
+        dados.put(SolicitacaoDataModel.DESCRICAO,obj.getDescricao());
+        dados.put(SolicitacaoDataModel.CARGA,obj.getCarga());
+        dados.put(SolicitacaoDataModel.INSTITUICAO,obj.getInstituicao());
+        dados.put(SolicitacaoDataModel.STATUS,obj.getStatus());
+        dados.put(SolicitacaoDataModel.RESPOSTA,obj.getResposta());
+        dados.put(SolicitacaoDataModel.IMAGEM,obj.getImagem());
+        dados.put(SolicitacaoDataModel.IDCATEGORIA,obj.getCategoria().getId());
+        dados.put(SolicitacaoDataModel.IDALUNO,obj.getAluno().getMatricula());
+        dados.put(SolicitacaoDataModel.IDCOORDENADOR,obj.getAluno().getCurso().getCoordenador().getId());
+        return update(SolicitacaoDataModel.TABELA,dados);
     }
 
     @Override

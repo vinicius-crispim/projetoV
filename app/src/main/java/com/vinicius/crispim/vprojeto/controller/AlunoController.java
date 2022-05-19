@@ -54,7 +54,17 @@ public class AlunoController extends AppDataBase implements ICrud<Aluno>{
 
     @Override
     public boolean alterar(Aluno obj) {
-        return false;
+        dados = new ContentValues();
+        dados.put(AlunoDataModel.NOME,obj.getNome());
+        dados.put(AlunoDataModel.EMAIL,obj.getEmail());
+        dados.put(AlunoDataModel.CPF,obj.getCPF());
+        dados.put(AlunoDataModel.CELULAR,obj.getCelular());
+        dados.put(AlunoDataModel.HORASFALTANDO,obj.getHorasFaltando());
+        dados.put(AlunoDataModel.HORASFEITAS,obj.getHorasFeitas());
+        dados.put(AlunoDataModel.MATRICULA,obj.getMatricula());
+        dados.put(AlunoDataModel.SENHA,obj.getSenha());
+        dados.put(AlunoDataModel.IDCURSO,obj.getCurso().getId());
+        return updateAluno(AlunoDataModel.TABELA,dados);
     }
 
     @Override

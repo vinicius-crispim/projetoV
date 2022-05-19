@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="8dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+
+        android:layout_marginEnd="0dp"
+        android:backgroundTint="#8B36ECD7"
+        android:paddingRight="10dp"
+        app:rippleColor="#FFFFFF"
+        app:strokeColor="@color/black"
+        app:strokeWidth="0dp"
+        tools:ignore="DuplicateIds">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:orientation="vertical">
+
+            <!-- Media -->
+            <ImageView
+                android:id="@+id/imgSolicitacaoResposta"
+                android:layout_width="350dp"
+                android:layout_height="300dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="0dp"
+                android:foregroundGravity="center_horizontal|center_vertical"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Title, secondary and supporting text -->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Titulo da Atividade"
+                    app:hintTextColor="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtTituloSolicitacaoResposta2"
+                        android:layout_width="340dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="#6E6E6E"
+                        android:enabled="false"
+                        android:textColor="#CBFFFFFF"
+                        android:textSize="18sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Descrição"
+                    app:hintTextColor="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtDescricaoSolicitacaoResposta"
+                        android:layout_width="340dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:background="#6E6E6E"
+                        android:enabled="false"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="#CBFFFFFF"
+                        android:textSize="18sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Aluno"
+                    app:hintTextColor="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtNomeSolicitacaoResposta"
+                        android:layout_width="340dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:background="#6E6E6E"
+                        android:enabled="false"
+                        android:textColor="#CBFFFFFF"
+                        android:textSize="18sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Instituição"
+                    app:hintTextColor="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtInstituicaoSolicitacaoResposta"
+                        android:layout_width="340dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:background="#6E6E6E"
+                        android:enabled="false"
+                        android:textColor="#CBFFFFFF"
+                        android:textSize="18sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Carga"
+
+                        app:hintTextColor="@color/black"
+                        app:startIconContentDescription="Imagem representando perfil">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtCargaSolicitacaoResposta"
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginRight="15dp"
+                            android:background="#6E6E6E"
+                            android:enabled="false"
+                            android:textColor="#CBFFFFFF"
+                            android:textSize="18sp"
+                            tools:ignore="DuplicateClickableBoundsCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Data"
+                        app:hintTextColor="@color/black">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtDataSolicitacaoResposta"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginRight="70dp"
+                            android:background="#6E6E6E"
+                            android:enabled="false"
+                            android:textColor="#CBFFFFFF"
+                            android:textSize="18sp"
+                            tools:ignore="DuplicateClickableBoundsCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Status"
+
+                        app:hintTextColor="@color/black"
+                        app:startIconContentDescription="Imagem representando perfil">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtStatusSolicitacaoResposta"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginRight="15dp"
+                            android:background="#6E6E6E"
+                            android:enabled="false"
+                            android:textColor="#CBFFFFFF"
+                            android:textSize="18sp"
+                            tools:ignore="DuplicateClickableBoundsCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Categoria"
+                        app:hintTextColor="@color/black">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtCategoriaSolicitacaoResposta"
+                            android:layout_width="175dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginRight="81dp"
+                            android:background="#6E6E6E"
+                            android:enabled="false"
+                            android:textColor="#CBFFFFFF"
+                            android:textSize="18sp"
+                            tools:ignore="DuplicateClickableBoundsCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnInvalidar"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="112dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/btnValidar"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="-20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="185dp"
+                        android:layout_marginRight="185dp"
+                        android:layout_marginBottom="0dp"
+                        android:layout_toStartOf="@+id/btnValidar"
+                        android:layout_toLeftOf="@+id/btnValidar"
+                        android:background="@android:color/transparent"
+                        android:text="Invalidar"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/holo_red_light" />
+
+                    <Button
+                        android:id="@+id/btnValidar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="-15dp"
+                        android:layout_marginRight="-15dp"
+                        android:background="@android:color/transparent"
+                        android:text="Validar"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/holo_green_dark" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

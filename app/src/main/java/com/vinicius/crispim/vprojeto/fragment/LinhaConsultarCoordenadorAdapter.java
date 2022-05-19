@@ -3,7 +3,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.vinicius.crispim.vprojeto.R;
-import com.vinicius.crispim.vprojeto.api.AppUtil;
 import com.vinicius.crispim.vprojeto.controller.SugestaoController;
 import com.vinicius.crispim.vprojeto.model.Sugestao;
 
@@ -61,7 +59,7 @@ public class LinhaConsultarCoordenadorAdapter extends BaseAdapter{
     @Override
     public View getView(final int position, View convertView, ViewGroup parent){
         final View viewLinhaLista = layoutInflater.inflate(R.layout.acitivity_linha_consultar_coordenador, null);
-        TextView txtTituloLinha = (TextView) viewLinhaLista.findViewById(R.id.txtTituloLinhaPOSTAGEM);
+        TextView txtTituloLinha = (TextView) viewLinhaLista.findViewById(R.id.txtTituloSolicitacaoResposta);
         TextView txtDescricaoLinha = (TextView) viewLinhaLista.findViewById(R.id.txtDescricaoLinhaPostar);
         sugestoes = new ArrayList<>();
         sugestoes = sugestaoController.listar();

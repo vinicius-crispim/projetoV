@@ -1,5 +1,7 @@
 package com.vinicius.crispim.vprojeto.fragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -58,7 +60,6 @@ public class SuasHorasCoordenadorFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_suas_horas_coordenador, container,false);
-        ((MenuCoordenadorActivity) getActivity()).setActionBarTitle("Sugerir Atividade");
         btnEnviar = view.findViewById(R.id.btnPostar);
         txtTitulo = view.findViewById(R.id.txtTituloPostar);
         txtDescricao = view.findViewById(R.id.txtDescricaoPostar);
@@ -88,8 +89,8 @@ public class SuasHorasCoordenadorFragment extends Fragment {
                         "Não Respondido",testecat));*/
                 sugestaoController.incluir(sugestao);
                 Log.i(AppUtil.TAG, "onCreate: sugestao postada "+sugestao.getTitulo());
-                Toast.makeText(getContext(),"Sugestão postada com sucesso!",
-                        Toast.LENGTH_SHORT).show();
+                Alertar_onClick();
+
             }
         });
 
@@ -145,5 +146,19 @@ public class SuasHorasCoordenadorFragment extends Fragment {
             }
         }
     }
-
+    protected void Alertar_onClick(){
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
+        alertDialog.setMessage("Deseja realizar a postagem");
+        alertDialog.setPositiveButton("confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(getContext(),"Sugestão postada com sucesso!",
+                        Toast.LENGTH_SHORT).show();
+                imgfoto.setImageBitmap(null);
+                txtTitulo.setText("");
+                txtDescricao.setText("");
+            }
+        });
+        alertDialog.show();
     }
+}
