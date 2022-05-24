@@ -1,5 +1,7 @@
 package com.vinicius.crispim.vprojeto.fragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -125,6 +127,8 @@ public class SuasHorasFragment extends Fragment {
                 Log.i(AppUtil.TAG, "onCreate: aluno cadastrado "+solicitacao.getTitulo());
                 Toast.makeText(getContext(),"Solicitação enviada com sucesso, aguarde resposta do seu coordenador!",
                         Toast.LENGTH_SHORT).show();
+                Alertar_onClick();
+
             }
         });
 
@@ -151,7 +155,24 @@ public class SuasHorasFragment extends Fragment {
         }
 
     }
-
+    protected void Alertar_onClick(){
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
+        alertDialog.setMessage("A solicitação será enviada");
+        alertDialog.setPositiveButton("confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(getContext(),"Solicitação enviada com sucesso!",
+                        Toast.LENGTH_SHORT).show();
+                imgfoto.setImageBitmap(null);
+                txtTitulo.setText("");
+                txtDescricao.setText("");
+                txtInstituicao.setText("");
+                txtCarga.setText("");
+                imgfoto.setImageBitmap(null);
+            }
+        });
+        alertDialog.show();
+    }
     public void onActivityResult(int requestCode, int resultCode, Intent dados) {
         super.onActivityResult(requestCode,resultCode,dados);
         if (resultCode == -1) {

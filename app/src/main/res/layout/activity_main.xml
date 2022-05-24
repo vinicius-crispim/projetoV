@@ -37,7 +37,80 @@
         app:layout_constraintTop_toTopOf="@+id/imgLogo"
         app:layout_constraintVertical_bias="0.321" />
 
-    <EditText
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Matricula"
+            app:hintTextColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtEmailentrar"
+                android:layout_width="299dp"
+                android:layout_height="62dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="200dp"
+                android:layout_marginBottom="30sp"
+                android:background="#6E6E6E"
+                android:textColor="#CBFFFFFF"
+                android:textSize="19dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Senha"
+            app:hintTextColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtSenhaEntrar"
+                android:layout_width="299dp"
+                android:layout_height="62dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30sp"
+                android:inputType="textPassword"
+                android:background="#6E6E6E"
+                android:textColor="#CBFFFFFF"
+                android:textSize="19dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/txtLinkCadastro"
+            android:layout_width="304dp"
+            android:layout_height="37dp"
+            android:layout_gravity="center"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:linksClickable="true"
+            android:text="Clique aqui para cadastrar sua conta de aluno"
+            android:textColor="#0000FF"
+            android:textColorLink="#0000FF"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnLogar"
+            android:layout_width="224dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="25dp"
+            android:backgroundTint="#4CAF50"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:text="Entrar"
+            android:textColor="@color/black"
+            android:textColorLink="#874AC3"
+            android:textSize="20sp"
+            app:iconGravity="end" />
+    </LinearLayout>
+
+   <!-- <EditText
         android:id="@+id/txtEmailentrar"
         android:layout_width="299dp"
         android:layout_height="57dp"
@@ -56,49 +129,16 @@
         app:layout_constraintHorizontal_bias="0.553"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgLogo"
-        app:layout_constraintVertical_bias="0.204" />
+        app:layout_constraintVertical_bias="0.204" />-->
 
-    <TextView
-        android:id="@+id/txtLinkCadastro"
-        android:layout_width="304dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="22dp"
-        android:linksClickable="true"
-        android:text="Clique aqui para cadastrar sua conta de aluno"
-        android:textColor="#0000FF"
-        android:textColorLink="#0000FF"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSenhaEntrar"
-        app:layout_constraintVertical_bias="0.024" />
-
-    <Button
-        android:id="@+id/btnLogar"
-        android:layout_width="224dp"
-        android:layout_height="54dp"
-        android:backgroundTint="#4CAF50"
-        android:text="Entrar"
-        android:textColor="@color/black"
-        android:textColorLink="#874AC3"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtLinkCadastro"
-        app:layout_constraintVertical_bias="0.22" />
-
-    <EditText
+    <!--<EditText
         android:id="@+id/txtSenhaEntrar"
         android:layout_width="299dp"
         android:layout_height="57dp"
         android:background="@color/white"
         android:ems="10"
         android:hint=" Insira sua senha"
-        android:inputType="text"
+        android:inputType="text|textPassword"
         android:shadowColor="#FFFFFF"
         android:text=""
         android:textColor="@color/black"
@@ -110,5 +150,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtEmailentrar"
         app:layout_constraintVertical_bias="0.114" />
-
+-->
 </androidx.constraintlayout.widget.ConstraintLayout>

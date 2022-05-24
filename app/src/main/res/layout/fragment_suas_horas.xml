@@ -35,8 +35,27 @@
             android:layout_margin="20dp"
             android:gravity="center"
             android:orientation="vertical">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Titulo"
+                app:hintTextColor="@color/black">
 
-            <EditText
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtTitulo"
+                    android:layout_width="299dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="#6E6E6E"
+                    android:textColor="#CBFFFFFF"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="30sp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--<EditText
                 android:id="@+id/txtTitulo"
                 android:layout_width="299dp"
                 android:layout_height="55dp"
@@ -47,8 +66,27 @@
                 android:inputType="text"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black" />
+-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Carga Horária"
+                app:hintTextColor="@color/black">
 
-            <EditText
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtCarga"
+                    android:layout_width="299dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="#6E6E6E"
+                    android:textColor="#CBFFFFFF"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="30sp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+<!--            <EditText
                 android:id="@+id/txtCarga"
                 android:layout_width="299dp"
                 android:layout_height="55dp"
@@ -58,9 +96,27 @@
                 android:hint="Carga Horária"
                 android:inputType="text"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black" />
+                android:textColorHint="@color/black" />-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Instituição"
+                app:hintTextColor="@color/black">
 
-            <EditText
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtInstituicao"
+                    android:layout_width="299dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="#6E6E6E"
+                    android:textColor="#CBFFFFFF"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="30sp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+           <!-- <EditText
                 android:id="@+id/txtInstituicao"
                 android:layout_width="299dp"
                 android:layout_height="55dp"
@@ -70,7 +126,7 @@
                 android:hint="Instituição"
                 android:inputType="text"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black" />
+                android:textColorHint="@color/black" />-->
 
             <Spinner
                 android:id="@+id/spnCategorias"
@@ -89,21 +145,54 @@
                 android:text="Adicionar certificado"
                 android:textColor="@color/black" />
 
-            <ImageView
-                android:id="@+id/imgfoto"
-                android:layout_width="350dp"
-                android:layout_height="315dp"
-                android:layout_marginBottom="15sp"
-                android:maxWidth="300sp"
-                android:maxHeight="300sp"
-                android:minWidth="200sp"
-                android:minHeight="200sp"
-                tools:srcCompat="@tools:sample/avatars" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
 
-            <EditText
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@android:color/transparent"
+                app:rippleColor="#FFFFFF"
+                app:strokeColor="@color/black"
+                app:strokeWidth="0dp"
+                tools:ignore="DuplicateIds">
+
+                <ImageView
+                    android:id="@+id/imgfoto"
+                    android:layout_width="350dp"
+                    android:layout_height="315dp"
+                    android:layout_margin="10dp"
+                    android:maxWidth="300sp"
+                    android:maxHeight="300sp"
+                    android:minWidth="200sp"
+                    android:minHeight="200sp"
+                    tools:srcCompat="@tools:sample/avatars" />
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Descrição"
+                app:hintTextColor="@color/black">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtDescricao"
+                    android:layout_width="324dp"
+                    android:layout_height="118dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="#6E6E6E"
+                    android:textColor="#CBFFFFFF"
+                    android:textSize="18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+           <!-- <EditText
                 android:id="@+id/txtDescricao"
                 android:layout_width="324dp"
                 android:layout_height="118dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginBottom="30sp"
                 android:background="@color/white"
                 android:ems="10"
@@ -111,11 +200,12 @@
                 android:hint="Descriçao da atividade"
                 android:inputType="textMultiLine"
                 android:textColor="@color/black" />
-
+-->
             <Button
                 android:id="@+id/btnEnviar"
                 android:layout_width="119dp"
                 android:layout_height="48dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginBottom="30sp"
                 android:backgroundTint="#D37EBC37"
                 android:text="Enviar"
@@ -125,6 +215,7 @@
                 android:id="@+id/button4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
                 android:text="Button"
                 android:visibility="invisible" />
 

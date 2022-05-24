@@ -246,12 +246,13 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtSeusDados_Nome"
-                        android:layout_width="300dp"
+                        android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="20dp"
                         android:background="#6E6E6E"
                         android:textColor="#CBFFFFFF"
+                        android:enabled="false"
                         android:textSize="18sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -267,12 +268,13 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtSeusDados_Matricula"
-                        android:layout_width="300dp"
+                        android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="30dp"
                         android:background="#6E6E6E"
                         android:textColor="#CBFFFFFF"
+                        android:enabled="false"
                         android:textSize="18sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -284,11 +286,12 @@
 
                     app:hintTextColor="@color/black"
                     app:startIconContentDescription="Imagem representando matricula"
-                    app:startIconDrawable="@drawable/matricula">
+                    app:startIconDrawable="@drawable/telefone">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtSeusDados_Telefone"
-                        android:layout_width="300dp"
+                        android:layout_width="350dp"
+                        android:enabled="false"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="30dp"
@@ -309,9 +312,10 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtSeusDados_CPF"
-                        android:layout_width="300dp"
+                        android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:enabled="false"
                         android:layout_marginTop="30dp"
                         android:background="#6E6E6E"
                         android:textColor="#CBFFFFFF"
@@ -326,11 +330,12 @@
 
                     app:hintTextColor="@color/black"
                     app:startIconContentDescription="Imagem representando CPF"
-                    app:startIconDrawable="@drawable/matricula">
+                    app:startIconDrawable="@drawable/email">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtSeusDados_Email"
-                        android:layout_width="300dp"
+                        android:enabled="false"
+                        android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="30dp"
@@ -347,14 +352,15 @@
 
                     app:hintTextColor="@color/black"
                     app:startIconContentDescription="Imagem representando Curso"
-                    app:startIconDrawable="@drawable/matricula">
+                    app:startIconDrawable="@drawable/curso">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtSeusDados_Curso"
-                        android:layout_width="300dp"
+                        android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="30dp"
+                        android:enabled="false"
                         android:background="#6E6E6E"
                         android:textColor="#CBFFFFFF"
                         android:textSize="18sp" />
@@ -368,14 +374,15 @@
 
                     app:hintTextColor="@color/black"
                     app:startIconContentDescription="Imagem representando coordenador"
-                    app:startIconDrawable="@drawable/matricula">
+                    app:startIconDrawable="@drawable/coordenadorperfil">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtSeusDados_Curso_Coordenador"
-                        android:layout_width="300dp"
+                        android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="30dp"
+                        android:enabled="false"
                         android:background="#6E6E6E"
                         android:textColor="#CBFFFFFF"
                         android:textSize="18sp" />
@@ -392,15 +399,16 @@
                         android:hint="Faltam"
 
                         app:hintTextColor="@color/black"
-                        app:startIconContentDescription="Imagem representando as horas que faltam serem realizadas">
+                        app:startIconContentDescription="Imagem representando horas faltando"
+                        app:startIconDrawable="@drawable/alarm_off">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtSeusDados_HorasFaltando"
-                            android:layout_width="129dp"
+                            android:layout_width="154dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right"
                             android:layout_marginTop="25dp"
-                            android:layout_marginRight="55dp"
+                            android:layout_marginRight="28dp"
                             android:background="#6E6E6E"
                             android:enabled="false"
                             android:textColor="#CBFFFFFF"
@@ -414,15 +422,16 @@
                         android:hint="Suas horas"
 
                         app:hintTextColor="@color/black"
-                        app:startIconContentDescription="Imagem representando as horas que faltam">
+                        app:startIconContentDescription="Imagem representando horas feitas"
+                        app:startIconDrawable="@drawable/alarm_on">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtSeusDados_Horas"
-                            android:layout_width="158dp"
+                            android:layout_width="183dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="25dp"
-                            android:layout_marginRight="70dp"
+                            android:layout_marginRight="85dp"
                             android:background="#6E6E6E"
                             android:enabled="false"
                             android:textColor="#CBFFFFFF"
@@ -437,16 +446,17 @@
                     android:hint="Horas necessárias"
 
                     app:hintTextColor="@color/black"
-                    app:startIconContentDescription="Imagem representando coordenador"
-                    app:startIconDrawable="@drawable/matricula">
+                    app:startIconContentDescription="Imagem de um relogio"
+                    app:startIconDrawable="@drawable/timer">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtSeusDados_Curso_Horas"
-                        android:layout_width="300dp"
+                        android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="30dp"
                         android:background="#6E6E6E"
+                        android:enabled="false"
                         android:textColor="#CBFFFFFF"
                         android:textSize="18sp" />
 

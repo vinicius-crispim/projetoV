@@ -34,7 +34,6 @@ public class RegistrarActivity extends AppCompatActivity  {
     Curso curso3 = new Curso();
     Curso curso4 = new Curso();
     Curso curso5 = new Curso();
-    Spinner spinner;
     Button btncadastrar;
     TextView nome;
     TextView senha;
@@ -50,6 +49,7 @@ public class RegistrarActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_registrar);
         celular = findViewById(R.id.editTextPhone);
         senha = findViewById(R.id.txtSenhaCadastro);
@@ -90,26 +90,6 @@ public class RegistrarActivity extends AppCompatActivity  {
         curso.add(0,cur);*/
         ArrayAdapter<Curso> adapter = new ArrayAdapter<Curso>(this, android.R.layout.simple_spinner_dropdown_item,curso);
         adpter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner = findViewById(R.id.spnCursos);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position>0){
-                    ultimo = curso.get(position-1);
-                    aluno.setCurso(curso.get(position));
-                    Log.i(AppUtil.TAG, "onCreate: AUTOCURSO:"+txtautocursos.getText().toString());
-
-                }
-
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
         btncadastrar = findViewById(R.id.btnCadastrarAluno);
         btncadastrar.setOnClickListener(new View.OnClickListener() {
             @Override

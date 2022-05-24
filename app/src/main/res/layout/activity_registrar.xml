@@ -53,7 +53,7 @@
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
-            <EditText
+          <!--  <EditText
                 android:id="@+id/txtTituloLinha"
                 android:layout_width="299dp"
                 android:layout_height="57dp"
@@ -66,9 +66,47 @@
                 android:text=""
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="20sp" />
+                android:textSize="20sp" />-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nome"
+                app:hintTextColor="@color/black">
 
-            <EditText
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtTituloLinha"
+                    android:layout_width="299dp"
+                    android:layout_height="62dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="#6E6E6E"
+                    android:textColor="#CBFFFFFF"
+                    android:textSize="19dp"
+                    android:layout_marginBottom="30sp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Matricula"
+                app:hintTextColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtMatricula"
+                    android:layout_width="299dp"
+                    android:layout_height="62dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="#6E6E6E"
+                    android:textColor="#CBFFFFFF"
+                    android:textSize="19dp"
+                    android:layout_marginBottom="30sp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- <EditText
 
                 android:id="@+id/txtMatricula"
                 android:layout_width="299dp"
@@ -83,8 +121,48 @@
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:textSize="20sp" />
+-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Senha"
+                app:hintTextColor="@color/black">
 
-            <EditText
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtSenhaCadastro"
+                    android:layout_width="299dp"
+                    android:layout_height="62dp"
+                    android:layout_gravity="center"
+                    android:inputType="textPassword"
+                    android:layout_marginTop="20dp"
+                    android:background="#6E6E6E"
+                    android:textColor="#CBFFFFFF"
+                    android:textSize="19dp"
+                    android:layout_marginBottom="30sp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Repetir Senha"
+                app:hintTextColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtConfirmaSenha"
+                    android:layout_width="299dp"
+                    android:layout_height="62dp"
+                    android:layout_gravity="center"
+                    android:inputType="textPassword"
+                    android:layout_marginTop="20dp"
+                    android:background="#6E6E6E"
+                    android:textColor="#CBFFFFFF"
+                    android:textSize="19dp"
+                    android:layout_marginBottom="30sp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+    <!--        <EditText
                 android:id="@+id/txtSenhaCadastro"
                 android:layout_width="299dp"
                 android:layout_height="57dp"
@@ -92,14 +170,14 @@
                 android:background="@color/white"
                 android:ems="10"
                 android:hint=" Insira sua senha"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:shadowColor="#FFFFFF"
                 android:text=""
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="20sp" />
+                android:textSize="20sp" />-->
 
-            <EditText
+           <!-- <EditText
                 android:id="@+id/txtConfirmaSenha"
                 android:layout_width="299dp"
                 android:layout_height="57dp"
@@ -112,9 +190,27 @@
                 android:text=""
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="20sp" />
+                android:textSize="20sp" />-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                app:hintTextColor="@color/black">
 
-            <EditText
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtEmailCadastro"
+                    android:layout_width="299dp"
+                    android:layout_height="62dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="#6E6E6E"
+                    android:textColor="#CBFFFFFF"
+                    android:textSize="19dp"
+                    android:layout_marginBottom="30sp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <!--<EditText
                 android:id="@+id/txtEmailCadastro"
                 android:layout_width="299dp"
                 android:layout_height="57dp"
@@ -128,16 +224,26 @@
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:textSize="20sp" />
+--><com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Curso"
+            app:hintTextColor="@color/black">
 
-            <Spinner
-                android:id="@+id/spnCursos"
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/txtautocursos"
                 android:layout_width="299dp"
-                android:layout_height="57dp"
-                android:layout_marginBottom="30dp"
-                android:contentDescription="Spinner dos cursos"
-                android:theme="@style/spinnerpersolnalizado" />
+                android:layout_height="95dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="#6E6E6E"
+                android:textColor="#CBFFFFFF"
+                android:textSize="19dp"
+                android:layout_marginBottom="30sp"
+                />
 
-            <AutoCompleteTextView
+        </com.google.android.material.textfield.TextInputLayout>
+           <!-- <AutoCompleteTextView
                 android:id="@+id/txtautocursos"
                 android:layout_width="match_parent"
                 android:layout_height="51dp"
@@ -149,9 +255,27 @@
                 android:backgroundTint="@color/white"
                 android:textColorHint="@color/black"
                 android:completionHint="Informe seu curso"
-                android:shadowColor="@color/white" />
+                android:shadowColor="@color/white" />-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="CPF"
+                app:hintTextColor="@color/black">
 
-            <EditText
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtCPF"
+                    android:layout_width="299dp"
+                    android:layout_height="62dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="#6E6E6E"
+                    android:textColor="#CBFFFFFF"
+                    android:textSize="19dp"
+                    android:layout_marginBottom="30sp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <!--<EditText
                 android:id="@+id/txtCPF"
                 android:layout_width="299dp"
                 android:layout_height="57dp"
@@ -164,9 +288,28 @@
                 android:text=""
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="20sp" />
+                android:textSize="20sp" />-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Telefone"
+                app:hintTextColor="@color/black">
 
-            <EditText
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextPhone"
+                    android:layout_width="299dp"
+                    android:layout_height="62dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="#6E6E6E"
+                    android:textColor="#CBFFFFFF"
+                    android:textSize="19dp"
+                    android:layout_marginBottom="30sp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--<EditText
                 android:id="@+id/editTextPhone"
                 android:layout_width="299dp"
                 android:layout_height="57dp"
@@ -179,7 +322,7 @@
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:textSize="20sp" />
-
+-->
             <Button
                 android:id="@+id/btnCadastrarAluno"
                 android:layout_width="299dp"

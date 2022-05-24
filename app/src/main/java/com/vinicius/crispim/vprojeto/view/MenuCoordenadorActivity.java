@@ -51,15 +51,12 @@ public class MenuCoordenadorActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.action_home_coordenadores:
                         mViewPager.setCurrentItem(0);
-                        Toast.makeText(MenuCoordenadorActivity.this,"HOME",Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_suashoras_coordenadores:
                         mViewPager.setCurrentItem(1);
-                        Toast.makeText(MenuCoordenadorActivity.this,"FAVORITE",Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.action_perfil_coordenadores:
                         mViewPager.setCurrentItem(2);
-                        Toast.makeText(MenuCoordenadorActivity.this,"MY PAGE",Toast.LENGTH_SHORT).show();
                         break;
 
                 }
