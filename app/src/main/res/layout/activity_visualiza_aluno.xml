@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/backgroud">
-
-
+    android:background="@color/backgroud"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".view.VisualizaAlunoActivity">
     <ScrollView
         android:id="@+id/scrCadastro"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="@string/app_name"
         android:paddingBottom="20dp"
         android:scrollbarSize="6dp"
         android:scrollbarStyle="insideInset"
@@ -55,14 +53,14 @@
                     app:startIconContentDescription="Imagem representando perfil"
                     app:startIconDrawable="@drawable/perfil"></com.google.android.material.textfield.TextInputLayout>
          -->       <TextView
-                android:id="@+id/txtSeusDados"
+                android:id="@+id/txtPesquisaAlunoTitulo"
                 android:layout_width="match_parent"
                 android:layout_height="85dp"
                 android:layout_marginBottom="5dp"
                 android:background="#6E6E6E"
                 android:fontFamily="monospace"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="SEUS DADOS"
+                android:text="Dados do Aluno"
                 android:textColor="@color/black"
                 android:textSize="34sp" />
 
@@ -76,7 +74,7 @@
                     app:startIconDrawable="@drawable/perfil">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtSeusDados_Nome"
+                        android:id="@+id/txtPesquisaAlunoNome"
                         android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -98,7 +96,7 @@
                     app:startIconDrawable="@drawable/matricula">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtSeusDados_Matricula"
+                        android:id="@+id/txtPesquisaAlunoMatricula"
                         android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -120,7 +118,7 @@
                     app:startIconDrawable="@drawable/telefone">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtSeusDados_Telefone"
+                        android:id="@+id/txtPesquisaAlunoTelefone"
                         android:layout_width="350dp"
                         android:enabled="false"
                         android:layout_height="wrap_content"
@@ -142,7 +140,7 @@
                     app:startIconDrawable="@drawable/matricula">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtSeusDados_CPF"
+                        android:id="@+id/txtPesquisaAlunoCPF"
                         android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -164,7 +162,7 @@
                     app:startIconDrawable="@drawable/email">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtSeusDados_Email"
+                        android:id="@+id/txtPesquisaAlunoEmail"
                         android:enabled="false"
                         android:layout_width="350dp"
                         android:layout_height="wrap_content"
@@ -186,7 +184,7 @@
                     app:startIconDrawable="@drawable/curso">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtSeusDados_Curso"
+                        android:id="@+id/txtPesquisaAlunoCurso"
                         android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -208,7 +206,7 @@
                     app:startIconDrawable="@drawable/coordenadorperfil">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtSeusDados_Curso_Coordenador"
+                        android:id="@+id/txtPesquisaAlunoCoordenador"
                         android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -234,7 +232,7 @@
                         app:startIconDrawable="@drawable/alarm_off">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txtSeusDados_HorasFaltando"
+                            android:id="@+id/txtPesquisaAlunoHorasFaltando"
                             android:layout_width="154dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right"
@@ -250,14 +248,14 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Suas horas"
+                        android:hint="Horas feitas"
 
                         app:hintTextColor="@color/black"
                         app:startIconContentDescription="Imagem representando horas feitas"
                         app:startIconDrawable="@drawable/alarm_on">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txtSeusDados_Horas"
+                            android:id="@+id/txtPesquisaAlunoHorasFeitas"
                             android:layout_width="183dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -281,12 +279,11 @@
                     app:startIconDrawable="@drawable/timer">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtSeusDados_Curso_Horas"
+                        android:id="@+id/txtPesquisaAlunoHorasNecessarias"
                         android:layout_width="350dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="30dp"
-                        android:layout_marginBottom="50dp"
                         android:background="#6E6E6E"
                         android:enabled="false"
                         android:textColor="#CBFFFFFF"
@@ -312,5 +309,4 @@
 
         </com.google.android.material.card.MaterialCardView>
     </ScrollView>
-
 </RelativeLayout>

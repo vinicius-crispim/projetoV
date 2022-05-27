@@ -75,7 +75,8 @@ public class AlunoController extends AppDataBase implements ICrud<Aluno>{
     @Override
     public List<Aluno> listar() {
         return  getAllAlunos(AlunoDataModel.TABELA,null,null);    }
-
+    public Aluno findByNome(String nome) {
+        return  getAlunoByNome(AlunoDataModel.TABELA,nome);    }
     public List<Aluno> logar(String senha,Integer matricula) {
         return getAllAlunos(AlunoDataModel.TABELA,senha,matricula);    }
 }

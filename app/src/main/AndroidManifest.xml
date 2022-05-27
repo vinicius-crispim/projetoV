@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vinicius.crispim.vprojeto">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:allowBackup = "false"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.VProjeto">
+        <activity
+            android:name=".view.VisualizaAlunoActivity"
+            android:exported="false" />
         <activity
             android:name=".view.SolicitacaoActivity"
             android:exported="false" />
@@ -30,14 +34,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.Menu1Activity"
-            android:exported="true">
-
-        </activity>
-        <activity android:name=".view.MenuCoordenadorActivity"
-            android:exported="true">
-
-        </activity>
+        <activity
+            android:name=".view.Menu1Activity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".view.MenuCoordenadorActivity"
+            android:exported="true"></activity>
     </application>
 
 </manifest>

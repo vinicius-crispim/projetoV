@@ -71,7 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nome"
-                app:hintTextColor="@color/black">
+                app:hintTextColor="@android:color/darker_gray">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtTituloLinha"
@@ -79,18 +79,17 @@
                     android:layout_height="62dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
                     android:background="#6E6E6E"
                     android:textColor="#CBFFFFFF"
-                    android:textSize="19dp"
-                    android:layout_marginBottom="30sp"
-                    />
+                    android:textSize="19dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Matricula"
-                app:hintTextColor="@color/black">
+                app:hintTextColor="@android:color/darker_gray">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtMatricula"
@@ -98,11 +97,10 @@
                     android:layout_height="62dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
                     android:background="#6E6E6E"
                     android:textColor="#CBFFFFFF"
-                    android:textSize="19dp"
-                    android:layout_marginBottom="30sp"
-                    />
+                    android:textSize="19dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -133,13 +131,12 @@
                     android:layout_width="299dp"
                     android:layout_height="62dp"
                     android:layout_gravity="center"
-                    android:inputType="textPassword"
                     android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
                     android:background="#6E6E6E"
+                    android:inputType="textPassword"
                     android:textColor="#CBFFFFFF"
-                    android:textSize="19dp"
-                    android:layout_marginBottom="30sp"
-                    />
+                    android:textSize="19dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
@@ -153,13 +150,12 @@
                     android:layout_width="299dp"
                     android:layout_height="62dp"
                     android:layout_gravity="center"
-                    android:inputType="textPassword"
                     android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
                     android:background="#6E6E6E"
+                    android:inputType="textPassword"
                     android:textColor="#CBFFFFFF"
-                    android:textSize="19dp"
-                    android:layout_marginBottom="30sp"
-                    />
+                    android:textSize="19dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
     <!--        <EditText
@@ -203,11 +199,10 @@
                     android:layout_height="62dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
                     android:background="#6E6E6E"
                     android:textColor="#CBFFFFFF"
-                    android:textSize="19dp"
-                    android:layout_marginBottom="30sp"
-                    />
+                    android:textSize="19dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
             <!--<EditText
@@ -233,14 +228,14 @@
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/txtautocursos"
                 android:layout_width="299dp"
-                android:layout_height="95dp"
+                android:layout_height="80dp"
                 android:layout_gravity="center"
+                android:paddingTop="18dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
                 android:background="#6E6E6E"
                 android:textColor="#CBFFFFFF"
-                android:textSize="19dp"
-                android:layout_marginBottom="30sp"
-                />
+                android:textSize="19dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
            <!-- <AutoCompleteTextView
@@ -268,11 +263,10 @@
                     android:layout_height="62dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
                     android:background="#6E6E6E"
                     android:textColor="#CBFFFFFF"
-                    android:textSize="19dp"
-                    android:layout_marginBottom="30sp"
-                    />
+                    android:textSize="19dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
             <!--<EditText
@@ -301,11 +295,10 @@
                     android:layout_height="62dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
                     android:background="#6E6E6E"
                     android:textColor="#CBFFFFFF"
-                    android:textSize="19dp"
-                    android:layout_marginBottom="30sp"
-                    />
+                    android:textSize="19dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -340,12 +333,6 @@
                 android:layout_height="wrap_content"
                 android:text="Button"
                 android:visibility="invisible" />
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Button" />
 
 
         </LinearLayout>

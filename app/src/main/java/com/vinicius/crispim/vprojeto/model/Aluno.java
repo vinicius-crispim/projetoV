@@ -140,17 +140,7 @@ public class Aluno implements Parcelable {
 
     @Override
     public String toString() {
-        return "Aluno{" +
-                "nome='" + nome + '\'' +
-                ", matricula=" + matricula +
-                ", senha=" + senha +
-                ", horas feiras=" + horasFeitas +
-                ", horas faltando=" + horasFaltando +
-                ", email='" + email + '\'' +
-                ", celular='" + celular + '\'' +
-                ", CPF='" + CPF + '\'' +
-   //             ", curso=" + curso.getNome() +
-                '}';
+        return                 nome;
     }
 
     @Override

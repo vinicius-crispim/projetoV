@@ -419,6 +419,35 @@ public class AppDataBase extends SQLiteOpenHelper {
             return null;
         }
 
+    }
+    @SuppressLint("Range")
+    public Aluno getAlunoByNome(String tabela,String nome){
+        db = getWritableDatabase();
+        String sql = "select * from "+tabela+" where nome = '"+nome+"'";
+        Cursor cursor;
+
+        cursor = db.rawQuery(sql,null);
+        Aluno obj;
+        if(cursor.moveToFirst()){
+            obj = new Aluno();
+
+            obj.setMatricula(cursor.getInt(cursor.getColumnIndex(AlunoDataModel.MATRICULA)));
+            obj.setNome(cursor.getString(cursor.getColumnIndex(AlunoDataModel.NOME)));
+            obj.setSenha(cursor.getString(cursor.getColumnIndex(AlunoDataModel.SENHA)));
+            obj.setCelular(cursor.getString(cursor.getColumnIndex(AlunoDataModel.CELULAR)));
+            obj.setCPF(cursor.getString(cursor.getColumnIndex(AlunoDataModel.CPF)));
+            obj.setEmail(cursor.getString(cursor.getColumnIndex(AlunoDataModel.EMAIL)));
+            obj.setHorasFaltando(cursor.getInt(cursor.getColumnIndex(AlunoDataModel.HORASFALTANDO)));
+            obj.setHorasFeitas(cursor.getInt(cursor.getColumnIndex(AlunoDataModel.HORASFEITAS)));
+            Integer idcurso = cursor.getInt(cursor.getColumnIndex(AlunoDataModel.IDCURSO));
+            Curso cursos = getCursoById(CursoDataModel.TABELA,idcurso.toString());
+            obj.setCurso(cursos);
+            Log.i("LISTAR", "getAllCursos: "+obj.getNome());
+            return obj;
+        }else{
+            return null;
+        }
+
     }@SuppressLint("Range")
     public List<Categoria> getAllCategoria(String tabela){
         List<Categoria> categorias = new ArrayList<>();
