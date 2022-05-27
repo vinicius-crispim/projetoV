@@ -262,6 +262,7 @@
                     android:layout_width="299dp"
                     android:layout_height="62dp"
                     android:layout_gravity="center"
+                    android:inputType="number"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="10dp"
                     android:background="#6E6E6E"
@@ -286,7 +287,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Telefone"
+                android:hint="Celular"
                 app:hintTextColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -294,6 +295,7 @@
                     android:layout_width="299dp"
                     android:layout_height="62dp"
                     android:layout_gravity="center"
+                    android:inputType="number"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="10dp"
                     android:background="#6E6E6E"

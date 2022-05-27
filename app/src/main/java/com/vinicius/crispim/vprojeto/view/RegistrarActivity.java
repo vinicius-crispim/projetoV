@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +21,8 @@ import com.vinicius.crispim.vprojeto.controller.AlunoController;
 import com.vinicius.crispim.vprojeto.controller.CursoController;
 import com.vinicius.crispim.vprojeto.model.Aluno;
 import com.vinicius.crispim.vprojeto.model.Curso;
+import com.vinicius.crispim.vprojeto.util.MaskType;
+import com.vinicius.crispim.vprojeto.util.MaskUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,8 +41,8 @@ public class RegistrarActivity extends AppCompatActivity  {
     TextView nome;
     TextView senha;
     TextView senhaConfirma;
-    TextView celular;
-    TextView CPF;
+    EditText celular;
+    EditText CPF;
     TextView matricula;
     TextView email;
     AutoCompleteTextView txtautocursos;
@@ -65,6 +68,8 @@ public class RegistrarActivity extends AppCompatActivity  {
         txtautocursos.setAdapter(adpter);
         ArrayAdapter<Curso> adapter = new ArrayAdapter<Curso>(this, android.R.layout.simple_spinner_dropdown_item,curso);
         adpter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        CPF.addTextChangedListener(MaskUtil.insert(CPF, MaskType.CPF));
+        celular.addTextChangedListener(MaskUtil.insert(celular,MaskType.CEL));
         btncadastrar = findViewById(R.id.btnCadastrarAluno);
         btncadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
