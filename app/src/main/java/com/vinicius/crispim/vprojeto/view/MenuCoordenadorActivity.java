@@ -25,6 +25,8 @@ public class MenuCoordenadorActivity extends AppCompatActivity {
     private BottomNavigationView mNavigationView;
     private ViewPager mViewPager;
     private Coordenador coordenador;
+    private long con;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +65,16 @@ public class MenuCoordenadorActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+        if (con + 2000 > System.currentTimeMillis()) {
+            startActivity(new Intent(this,MainActivity.class));
+            finish();
+        } else {
+            Toast.makeText(getBaseContext(), "Pressione duas vezes para sair", Toast.LENGTH_SHORT).show();
+        }
+        con = System.currentTimeMillis();
     }
     private void setUpViewPager(){
         ViewPagerAdapterCoordenador viewPagerAdapter = new ViewPagerAdapterCoordenador(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);

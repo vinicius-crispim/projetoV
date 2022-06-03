@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     TextView senhalogin;
     AlunoController alunoController;
     CoordenadorController coordenadorController;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,18 +48,19 @@ public class MainActivity extends AppCompatActivity {
         btnlogar.setOnClickListener(new View.OnClickListener() {
             Aluno alunosalvo;
             Curso cursosalvo;
+
             @Override
             public void onClick(View view) {
                 alunosalvo = new Aluno();
                 cursosalvo = new Curso();
-                Log.i(AppUtil.TAG, "onClick: MAT: "+matlogin.getText().toString());
+                Log.i(AppUtil.TAG, "onClick: MAT: " + matlogin.getText().toString());
                 if (matlogin.getText().toString().equals("00123")) {
                     coordenadorController = new CoordenadorController(getApplicationContext());
-                    if(coordenadorController.getAllCoordenador(CoordenadorDataModel.TABELA,senhalogin.getText().toString()).size() ==0){
+                    if (coordenadorController.getAllCoordenador(CoordenadorDataModel.TABELA, senhalogin.getText().toString()).size() == 0) {
                         Log.i(AppUtil.TAG, "onClick: LOGIN errado coordenador");
                         Toast.makeText(MainActivity.this, "Matricula ou senha inválidos coordenador",
                                 Toast.LENGTH_SHORT).show();
-                    }else{
+                    } else {
                         Coordenador coordenador = coordenadorController.logar(senhalogin.getText().toString()).get(0);
                         Log.i(AppUtil.TAG, "onClick: LOGIN efetuado");
                         Bundle parametros = new Bundle();
@@ -73,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(MainActivity.this, MenuCoordenadorActivity.class);
                         intent.putExtras(parametros);
                         startActivity(intent);
+                        finish();
                     }
                 } else {
                     alunoController = new AlunoController(getApplicationContext());
@@ -108,9 +111,15 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(MainActivity.this, Menu1Activity.class);
                         intent.putExtras(parametros);
                         startActivity(intent);
+                        finish();
                     }
                 }
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+        this.finishAffinity();
+        System.exit(0);
     }
 }

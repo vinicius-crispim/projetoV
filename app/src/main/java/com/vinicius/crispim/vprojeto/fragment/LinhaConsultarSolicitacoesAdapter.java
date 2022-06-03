@@ -85,9 +85,12 @@ public class LinhaConsultarSolicitacoesAdapter extends BaseAdapter{
         txtTituloLinha.setText(solicitacoes.get(position).getTitulo());
         txtDescricaoLinha.setText(solicitacoes.get(position).getDescricao());
         byte[] imagemBites;
-        imagemBites = Base64.decode(solicitacoes.get(position).getImagem(),Base64.DEFAULT);
-        Bitmap imagemdecodificada = BitmapFactory.decodeByteArray(imagemBites,0,imagemBites.length);
-        imgSugestao.setImageBitmap(imagemdecodificada);
+        if(Base64.decode(solicitacoes.get(position).getImagem(),Base64.DEFAULT) != null) {
+            imagemBites = Base64.decode(solicitacoes.get(position).getImagem(), Base64.DEFAULT);
+            Bitmap imagemdecodificada = BitmapFactory.decodeByteArray(imagemBites,0,imagemBites.length);
+            imgSugestao.setImageBitmap(imagemdecodificada);
+        }
+
         txtTituloLinha.setText(String.valueOf(solicitacoes.get(position).getTitulo()));
         txtInstituicao.setText(solicitacoes.get(position).getInstituicao());
         txtCategoria.setText(solicitacoes.get(position).getCategoria().getNome());
@@ -117,9 +120,6 @@ public class LinhaConsultarSolicitacoesAdapter extends BaseAdapter{
                         solicitacoes.get(position).getAluno().getHorasFaltando()-solicitacoes.get(position).getCarga()
                 );
                 AlunoController alunoController = new AlunoController(lista.getContext());
-                Log.i(AppUtil.TAG, "onClick: HORASFALTANDO:"+solicitacoes.get(position).getAluno().getHorasFaltando());
-                Log.i(AppUtil.TAG, "onClick: HORASFEITAS:"+solicitacoes.get(position).getAluno().getHorasFeitas());
-                Log.i(AppUtil.TAG, "onClick: HORASFEITAS:"+solicitacoes.get(position).getAluno().getMatricula());
                 Aluno aluno = solicitacoes.get(position).getAluno();
                 alunoController.alterar(aluno);
                 AtualizarLista();

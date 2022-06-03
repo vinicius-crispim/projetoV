@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroud">
+
+    <ScrollView
+        android:id="@+id/scrCadastroEdita"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:scrollbarSize="6dp"
+        android:scrollbarStyle="insideInset"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="350sp"
+            android:layout_height="300sp"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Titulo da Postagem"
+                app:hintTextColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtTituloPostarEdita"
+                    android:layout_width="299dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="#6E6E6E"
+                    android:textColor="#CBFFFFFF"
+                    android:textSize="18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnImagemPostarEdita"
+                android:layout_width="199dp"
+                android:layout_height="55dp"
+                android:layout_marginBottom="15sp"
+                android:backgroundTint="#D5EDB50A"
+                android:text="Adicionar imagem"
+                android:textColor="@color/black" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@android:color/transparent"
+                app:rippleColor="#FFFFFF"
+                app:strokeColor="@color/black"
+                app:strokeWidth="0dp"
+                tools:ignore="DuplicateIds">
+
+                <ImageView
+                    android:id="@+id/imgfotoPostarEdita"
+                    android:layout_width="350dp"
+                    android:layout_height="315dp"
+                    android:layout_margin="10dp"
+                    android:maxWidth="300sp"
+                    android:maxHeight="300sp"
+                    android:minWidth="200sp"
+                    android:minHeight="200sp"
+                    tools:srcCompat="@tools:sample/avatars" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Descrição da postagem"
+                app:hintTextColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtDescricaoPostarEdita"
+                    android:layout_width="299dp"
+                    android:layout_height="176dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="30sp"
+                    android:background="#6E6E6E"
+                    android:textColor="#CBFFFFFF"
+                    android:textSize="18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <!--<EditText
+                android:id="@+id/txtDescricaoPostar"
+                android:layout_width="326dp"
+                android:layout_height="176dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="30sp"
+                android:background="@color/white"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="Descriçao da atividade"
+                android:inputType="textMultiLine"
+                android:textColor="@color/black" />
+-->
+            <Button
+                android:id="@+id/btnPostarEdita"
+                android:layout_width="119dp"
+                android:layout_height="48dp"
+                android:layout_marginBottom="30sp"
+                android:backgroundTint="#D37EBC37"
+                android:text="Alterar"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

@@ -1,4 +1,6 @@
-package com.vinicius.crispim.vprojeto.fragment;
+package com.vinicius.crispim.vprojeto.view;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -11,41 +13,23 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import com.vinicius.crispim.vprojeto.R;
 import com.vinicius.crispim.vprojeto.api.AppUtil;
-import com.vinicius.crispim.vprojeto.controller.CategoriaController;
-import com.vinicius.crispim.vprojeto.controller.SolicitacaoController;
 import com.vinicius.crispim.vprojeto.controller.SugestaoController;
-import com.vinicius.crispim.vprojeto.model.Aluno;
-import com.vinicius.crispim.vprojeto.model.Categoria;
 import com.vinicius.crispim.vprojeto.model.Coordenador;
-import com.vinicius.crispim.vprojeto.model.Solicitacao;
 import com.vinicius.crispim.vprojeto.model.Sugestao;
-import com.vinicius.crispim.vprojeto.view.Menu1Activity;
-import com.vinicius.crispim.vprojeto.view.MenuCoordenadorActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
-public class SuasHorasCoordenadorFragment extends Fragment {
+public class EditActivity extends AppCompatActivity {
+
     SimpleDateFormat sdf1= new SimpleDateFormat("dd/MM/yyyy");
     EditText txtTitulo;
     EditText txtDescricao;
@@ -54,22 +38,20 @@ public class SuasHorasCoordenadorFragment extends Fragment {
     Coordenador coordenador;
     String fotoEmString;
     ImageView imgfoto;
+    Integer id;
     SugestaoController sugestaoController;
     Sugestao sugestao;
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_suas_horas_coordenador, container,false);
-        btnEnviar = view.findViewById(R.id.btnPostar);
-        txtTitulo = view.findViewById(R.id.txtTituloPostar);
-        txtDescricao = view.findViewById(R.id.txtDescricaoPostar);
-        btnImagem = view.findViewById(R.id.btnImagemPostar);
-        imgfoto = view.findViewById(R.id.imgfotoPostar);
-        sugestaoController = new SugestaoController(getContext());
-        sugestao = new Sugestao();
-        MenuCoordenadorActivity activity = (MenuCoordenadorActivity) getActivity();
-        Log.i(AppUtil.TAG, "onCreateView: COORDENADOR:"+activity.getCoordenador().getNome());
-        coordenador = activity.getCoordenador();
+    protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().hide();
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_edit);
+        btnEnviar = findViewById(R.id.btnPostarEdita);
+        txtTitulo = findViewById(R.id.txtTituloPostarEdita);
+        txtDescricao = findViewById(R.id.txtDescricaoPostarEdita);
+        btnImagem = findViewById(R.id.btnImagemPostarEdita);
+        imgfoto = findViewById(R.id.imgfotoPostarEdita);
+        CarregaValoresCampos();
         btnImagem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,19 +69,11 @@ public class SuasHorasCoordenadorFragment extends Fragment {
                         txtInstituicao.getText().toString(),
                         "EM ANALISE",txtDescricao.getText().toString(),
                         "Não Respondido",testecat));*/
-                sugestaoController.incluir(sugestao);
-                Log.i(AppUtil.TAG, "onCreate: sugestao postada "+sugestao.getTitulo());
+                Log.i(AppUtil.TAG, "onCreate: sugestao postada " + sugestao.getTitulo());
                 Alertar_onClick();
 
             }
         });
-
-        return view;
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-
     }
     private static final int FILE_SELECT_CODE = 0;
 
@@ -112,7 +86,7 @@ public class SuasHorasCoordenadorFragment extends Fragment {
             //startActivityForResult(intent,FILE_SELECT_CODE);
         } catch (android.content.ActivityNotFoundException ex) {
             // Potentially direct the user to the Market with a Dialog
-            Toast.makeText(getActivity(), "Please install a File Manager.",
+            Toast.makeText(this, "Please install a File Manager.",
                     Toast.LENGTH_SHORT).show();
         }
 
@@ -125,7 +99,7 @@ public class SuasHorasCoordenadorFragment extends Fragment {
                 Cursor c;
                 Uri selectedImage = dados.getData();
                 String[] filePath = {MediaStore.Images.Media.DATA};
-                c=getActivity().getContentResolver().query(selectedImage,filePath,null,null,null);
+                c= getContentResolver().query(selectedImage,filePath,null,null,null);
                 c.moveToFirst();
                 int columnIndex = c.getColumnIndex(filePath[0]);
                 String picturePath = c.getString(columnIndex);
@@ -139,7 +113,7 @@ public class SuasHorasCoordenadorFragment extends Fragment {
                 fotoEmString = Base64.encodeToString(fotoembyte,Base64.DEFAULT);
                 sugestao.setImgSugestao(fotoEmString);
                 Log.i(AppUtil.TAG, "onActivityResult: FOTO: "+sugestao.getImgSugestao());
-                Toast.makeText(getActivity(), "Foto adicionada.",
+                Toast.makeText(this, "Foto adicionada.",
                         Toast.LENGTH_SHORT).show();
             }catch (Exception e){
 
@@ -147,28 +121,52 @@ public class SuasHorasCoordenadorFragment extends Fragment {
         }
     }
     protected void Alertar_onClick(){
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
-        alertDialog.setMessage("Deseja realizar a postagem");
-        alertDialog.setPositiveButton("confirmar", new DialogInterface.OnClickListener() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setMessage("Deseja alterar a postagem?");
+        alertDialog.setPositiveButton("alterar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(getContext(),"Sugestão postada com sucesso!",
+                sugestaoController.alterar(sugestao);
+                Toast.makeText(EditActivity.this,"Sugestão alterada com sucesso!",
                         Toast.LENGTH_SHORT).show();
-                imgfoto.setImageBitmap(null);
-                txtTitulo.setText("");
-                txtDescricao.setText("");
-                Bundle parametros = new Bundle();
+                Intent intent = new Intent(EditActivity.this,MenuCoordenadorActivity.class);
+                coordenador= new Coordenador();
+                Intent intentreceptor = getIntent();
+                Bundle parametros = intentreceptor.getExtras();
+                coordenador.setNome(parametros.getString("nome"));
+                coordenador.setSenha(parametros.getString("senha"));
+                coordenador.setCelular(parametros.getString("celular"));
+                coordenador.setCPF(parametros.getString("CPF"));
+                coordenador.setEmail(parametros.getString("email"));
+                coordenador.setId(parametros.getInt("id"));
                 parametros.putString("nome", coordenador.getNome());
                 parametros.putString("senha", coordenador.getSenha());
                 parametros.putString("celular", coordenador.getCelular());
                 parametros.putString("CPF", coordenador.getCPF());
                 parametros.putString("email", coordenador.getEmail());
-                parametros.putInt("id", coordenador.getId());
-                Intent intent = new Intent(getContext(),MenuCoordenadorActivity.class);
+                parametros.putInt("id",coordenador.getId());
                 intent.putExtras(parametros);
                 startActivity(intent);
+                finish();
+
             }
         });
         alertDialog.show();
+    }
+    protected void CarregaValoresCampos(){
+        sugestaoController = new SugestaoController(this);
+        Bundle extra = this.getIntent().getExtras();
+        int id = extra.getInt("id_sugestao");
+        sugestao = sugestaoController.getSugestaoById(extra.getInt("id_sugestao"));
+        this.id = id;
+        txtTitulo.setText(sugestao.getTitulo());
+        txtDescricao.setText(sugestao.getDescricao());
+        txtDescricao.setText(sugestao.getDescricao());
+        fotoEmString = sugestao.getImgSugestao();
+        Log.i(AppUtil.TAG, "CarregaValoresCampos: id "+id);
+        byte[] imagemBites;
+        imagemBites = Base64.decode(fotoEmString,Base64.DEFAULT);
+        Bitmap imagemdecodificada = BitmapFactory.decodeByteArray(imagemBites,0,imagemBites.length);
+        imgfoto.setImageBitmap(imagemdecodificada);
     }
 }

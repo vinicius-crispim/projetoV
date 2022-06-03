@@ -1,7 +1,9 @@
 package com.vinicius.crispim.vprojeto.fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Bundle;
 import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +16,11 @@ import android.widget.Toast;
 
 import com.vinicius.crispim.vprojeto.R;
 import com.vinicius.crispim.vprojeto.controller.SugestaoController;
+import com.vinicius.crispim.vprojeto.model.Coordenador;
 import com.vinicius.crispim.vprojeto.model.Sugestao;
+import com.vinicius.crispim.vprojeto.view.EditActivity;
+import com.vinicius.crispim.vprojeto.view.Menu1Activity;
+import com.vinicius.crispim.vprojeto.view.MenuCoordenadorActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,6 +90,24 @@ public class LinhaConsultarCoordenadorAdapter extends BaseAdapter{
                 Toast.makeText(lista.getContext(), "Registro excluido com sucesso!", Toast.LENGTH_SHORT).show();
                 AtualizarLista();
 
+            }
+        });
+        btnEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(lista.getContext(), EditActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("id_sugestao", sugestoes.get(position).getId());
+                Bundle parametros = new Bundle();
+                MenuCoordenadorActivity activity = (MenuCoordenadorActivity) viewLinhaLista.getContext();
+                parametros.putString("nome", activity.getCoordenador().getNome());
+                parametros.putString("senha", activity.getCoordenador().getSenha());
+                parametros.putString("celular", activity.getCoordenador().getCelular());
+                parametros.putString("CPF", activity.getCoordenador().getCPF());
+                parametros.putString("email", activity.getCoordenador().getEmail());
+                parametros.putInt("id",activity.getCoordenador().getId());
+                intent.putExtras(parametros);
+                lista.startActivity(intent);
             }
         });
 

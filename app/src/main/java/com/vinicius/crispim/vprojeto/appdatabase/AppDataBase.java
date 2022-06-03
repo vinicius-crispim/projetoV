@@ -510,6 +510,25 @@ public class AppDataBase extends SQLiteOpenHelper {
 
         return sugestoes;
     }@SuppressLint("Range")
+    public Sugestao getSugestaoById(String tabela, Integer id){
+        db = getWritableDatabase();
+        Log.i(AppUtil.TAG, "getById: ID"+id);
+        String sql = "select * from "+tabela+" where id = "+id;
+        Cursor cursor;
+
+        cursor = db.rawQuery(sql,null);
+        Sugestao obj;
+        if(cursor.moveToFirst()){
+            obj = new Sugestao();
+            obj.setId(cursor.getInt(cursor.getColumnIndex(SugestaoDataModel.ID)));
+            obj.setTitulo(cursor.getString(cursor.getColumnIndex(SugestaoDataModel.TITULO)));
+            obj.setDescricao(cursor.getString(cursor.getColumnIndex(SugestaoDataModel.DESCRICAO)));
+            obj.setImgSugestao(cursor.getString(cursor.getColumnIndex(SugestaoDataModel.IMGSUGESTAO)));
+            return obj;
+        }else{
+            return null;
+        }
+    }@SuppressLint("Range")
     public List<Solicitacao> getAllSolicitacao(String tabela){
         List<Solicitacao> solicitacaos = new ArrayList<>();
         db = getWritableDatabase();

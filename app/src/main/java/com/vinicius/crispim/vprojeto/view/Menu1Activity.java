@@ -20,7 +20,7 @@ import com.vinicius.crispim.vprojeto.model.Curso;
 import com.vinicius.crispim.vprojeto.viewpageradapter.ViewPagerAdapter;
 
 public class Menu1Activity extends AppCompatActivity {
-
+    private long con;
     private BottomNavigationView mNavigationView;
     private ViewPager mViewPager;
     private Aluno aluno;
@@ -77,6 +77,16 @@ public class Menu1Activity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+        if (con + 2000 > System.currentTimeMillis()) {
+            startActivity(new Intent(this,MainActivity.class));
+            finish();
+        } else {
+            Toast.makeText(getBaseContext(), "Pressione duas vezes para sair", Toast.LENGTH_SHORT).show();
+        }
+        con = System.currentTimeMillis();
     }
     private void setUpViewPager(){
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);

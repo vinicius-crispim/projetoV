@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VProjeto">
         <activity
+            android:name=".view.EditActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.VisualizaAlunoActivity"
             android:exported="false" />
         <activity
@@ -36,10 +39,10 @@
         </activity>
         <activity
             android:name=".view.Menu1Activity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".view.MenuCoordenadorActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

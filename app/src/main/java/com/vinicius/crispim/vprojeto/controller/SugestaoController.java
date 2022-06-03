@@ -37,8 +37,13 @@ public class SugestaoController extends AppDataBase implements ICrud<Sugestao>{
 
     @Override
     public boolean alterar(Sugestao obj) {
-        return false;
-    }
+        dados = new ContentValues();
+        dados.put(SugestaoDataModel.TITULO,obj.getTitulo());
+        dados.put(SugestaoDataModel.ID,obj.getId());
+        dados.put(SugestaoDataModel.DESCRICAO,obj.getDescricao());
+        dados.put(SugestaoDataModel.IMGSUGESTAO,obj.getImgSugestao());
+
+        return update(SugestaoDataModel.TABELA,dados);    }
 
     @Override
     public boolean deletar(int id) {
@@ -48,5 +53,8 @@ public class SugestaoController extends AppDataBase implements ICrud<Sugestao>{
     @Override
     public List<Sugestao> listar() {
         return getAllSugestao(SugestaoDataModel.TABELA);
+    }
+    public Sugestao getSugestaoById(Integer id) {
+        return getSugestaoById(SugestaoDataModel.TABELA,id);
     }
 }
