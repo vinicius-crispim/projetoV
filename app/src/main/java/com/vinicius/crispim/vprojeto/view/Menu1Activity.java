@@ -72,6 +72,9 @@ public class Menu1Activity extends AppCompatActivity {
                     case R.id.action_perfil:
                         mViewPager.setCurrentItem(2);
                         break;
+                    case R.id.action_historico:
+                        mViewPager.setCurrentItem(3);
+                        break;
 
                 }
                 return true;
@@ -109,6 +112,9 @@ public class Menu1Activity extends AppCompatActivity {
                         break;
                     case 2:
                         mNavigationView.getMenu().findItem(R.id.action_perfil).setChecked(true);
+                        break;
+                        case 3:
+                        mNavigationView.getMenu().findItem(R.id.action_historico).setChecked(true);
                         break;
                 }
 

@@ -70,5 +70,9 @@ public class SolicitacaoController extends AppDataBase implements ICrud<Solicita
     @Override
     public List<Solicitacao> listar() {
         return getAllSolicitacao(SolicitacaoDataModel.TABELA);
+    }public List<Solicitacao> listarByAluno(Integer id,String status) {
+        return getAllSolicitacaoByAluno(SolicitacaoDataModel.TABELA, id,status);
+    }public List<Solicitacao> listarByFiltro(String filtro) {
+        return getAllSolicitacaoFiltro(SolicitacaoDataModel.TABELA, filtro);
     }
 }

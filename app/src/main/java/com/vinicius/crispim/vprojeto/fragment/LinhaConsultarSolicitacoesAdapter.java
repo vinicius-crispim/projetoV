@@ -77,8 +77,6 @@ public class LinhaConsultarSolicitacoesAdapter extends BaseAdapter{
         TextView txtCategoria = (TextView) viewLinhaLista.findViewById(R.id.txtCategoriaSolicitacaoResposta);
         TextView txtStatus = (TextView) viewLinhaLista.findViewById(R.id.txtStatusSolicitacaoResposta);
         TextView txtDescricaoLinha = (TextView) viewLinhaLista.findViewById(R.id.txtDescricaoSolicitacaoResposta);
-        solicitacoes = new ArrayList<>();
-        solicitacoes = solicitacaoController.listar();
         ImageView imgSugestao = (ImageView) viewLinhaLista.findViewById(R.id.imgSolicitacaoResposta);
         Button btnInvalidar = (Button) viewLinhaLista.findViewById(R.id.btnInvalidar);
         Button btnValidar = (Button) viewLinhaLista.findViewById(R.id.btnValidar);

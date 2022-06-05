@@ -6,4 +6,6 @@
         android:icon="@drawable/suashoras"/>
     <item android:id="@+id/action_perfil" android:title="@string/action_perfil"
         android:icon="@drawable/perfil"/>
+    <item android:id="@+id/action_historico" android:title="@string/action_historico"
+        android:icon="@drawable/historico"/>
 </menu>

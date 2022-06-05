@@ -1,5 +1,7 @@
 package com.vinicius.crispim.vprojeto.appdatabase;
 
+import static com.vinicius.crispim.vprojeto.api.AppUtil.TAG;
+
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
@@ -36,7 +38,7 @@ public class AppDataBase extends SQLiteOpenHelper {
     public AppDataBase(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
 
-        Log.d(AppUtil.TAG, "AppDataBase: Criando Banco de Dados");
+        Log.d(TAG, "AppDataBase: Criando Banco de Dados");
 
         db = getWritableDatabase();
     }
@@ -49,7 +51,7 @@ public class AppDataBase extends SQLiteOpenHelper {
         db.execSQL(CoordenadorDataModel.criarTabela());
         db.execSQL(CursoDataModel.criarTabela());
         db.execSQL(SugestaoDataModel.criarTabela());
-        Log.i(AppUtil.TAG, "onCreate: Tabela Curso criada com sucesso"+CursoDataModel.criarTabela());
+        Log.i(TAG, "onCreate: Tabela Curso criada com sucesso"+CursoDataModel.criarTabela());
     }
 
     @Override
@@ -64,7 +66,7 @@ public class AppDataBase extends SQLiteOpenHelper {
         try {
             retorno=db.insert(tabela,null,values)>0;
         }catch (Exception e) {
-            Log.d(AppUtil.TAG, "insert: ERRO "+e.getMessage());
+            Log.d(TAG, "insert: ERRO "+e.getMessage());
         }
         return retorno;
     }
@@ -75,7 +77,7 @@ public class AppDataBase extends SQLiteOpenHelper {
         try {
             retorno=db.delete(tabela,"id = ?",new String[] {String.valueOf(id)}) > 0;
         }catch (Exception e) {
-            Log.d(AppUtil.TAG, "insert: ERRO "+e.getMessage());
+            Log.d(TAG, "insert: ERRO "+e.getMessage());
         }
         return retorno;
     }
@@ -99,7 +101,7 @@ public class AppDataBase extends SQLiteOpenHelper {
 
 
         }catch (Exception e){
-            Log.d(AppUtil.TAG, "update: "+e.getMessage());
+            Log.d(TAG, "update: "+e.getMessage());
         }
         return retorno; // FALSE ou TRUE
     } public boolean updateAluno(String tabela, ContentValues dados){
@@ -122,7 +124,7 @@ public class AppDataBase extends SQLiteOpenHelper {
 
 
         }catch (Exception e){
-            Log.d(AppUtil.TAG, "update: "+e.getMessage());
+            Log.d(TAG, "update: "+e.getMessage());
         }
         return retorno; // FALSE ou TRUE
     }
@@ -152,13 +154,13 @@ public class AppDataBase extends SQLiteOpenHelper {
                     obj.setCPF(cursor.getString(cursor.getColumnIndex(AlunoDataModel.CPF)));
                     obj.setEmail(cursor.getString(cursor.getColumnIndex(AlunoDataModel.EMAIL)));
                     Integer idcurso = cursor.getInt(cursor.getColumnIndex(AlunoDataModel.IDCURSO));
-                    Log.i(AppUtil.TAG, "getAllAlunos: "+idcurso);
-                    Log.i(AppUtil.TAG, "getAllAlunos: "+obj);
+                    Log.i(TAG, "getAllAlunos: "+idcurso);
+                    Log.i(TAG, "getAllAlunos: "+obj);
                     List<Curso> cursos = getAllCursos(CursoDataModel.TABELA);
                     for (Curso curso1:cursos) {
                         if (curso1.getId() == idcurso){
                             obj.setCurso(curso1);
-                            Log.i(AppUtil.TAG, "getAllAlunos: CURSO: "+obj.getCurso());
+                            Log.i(TAG, "getAllAlunos: CURSO: "+obj.getCurso());
                         }
                     }
                     alunos.add(obj);
@@ -190,7 +192,7 @@ public class AppDataBase extends SQLiteOpenHelper {
                     for (Curso curso1:cursos) {
                         if (curso1.getId() == idcurso){
                             obj.setCurso(curso1);
-                            Log.i(AppUtil.TAG, "getAllAlunos: CURSO: "+obj.getCurso());
+                            Log.i(TAG, "getAllAlunos: CURSO: "+obj.getCurso());
                         }
                     }
                     alunos.add(obj);
@@ -268,7 +270,7 @@ public class AppDataBase extends SQLiteOpenHelper {
                 for (Coordenador coordenador1:coordenadores) {
                     if (coordenador1.getId() == idcoordenador){
                         obj.setCoordenador(coordenador1);
-                        Log.i(AppUtil.TAG, "getAllAlunos: CURSO AQUI: "+obj.getCoordenador().getNome());
+                        Log.i(TAG, "getAllAlunos: CURSO AQUI: "+obj.getCoordenador().getNome());
                     }
                 }
                 cursos.add(obj);
@@ -512,7 +514,7 @@ public class AppDataBase extends SQLiteOpenHelper {
     }@SuppressLint("Range")
     public Sugestao getSugestaoById(String tabela, Integer id){
         db = getWritableDatabase();
-        Log.i(AppUtil.TAG, "getById: ID"+id);
+        Log.i(TAG, "getById: ID"+id);
         String sql = "select * from "+tabela+" where id = "+id;
         Cursor cursor;
 
@@ -564,6 +566,87 @@ public class AppDataBase extends SQLiteOpenHelper {
             }while (cursor.moveToNext());
         }
 
+        return solicitacaos;
+    }@SuppressLint("Range")
+    public List<Solicitacao> getAllSolicitacaoByAluno(String tabela, Integer id, String status){
+        List<Solicitacao> solicitacaos = new ArrayList<>();
+        db = getWritableDatabase();
+        String sql;
+        if(status.equals("TODAS")){
+            sql = "select * from "+tabela+" where idaluno = "+id;
+        }else {
+            sql = "select * from "+tabela+" where idaluno = "+id+" and status = '"+status+"'";
+        }
+        Cursor cursor;
+
+        cursor = db.rawQuery(sql,null);
+        Solicitacao obj;
+        if(cursor.moveToFirst()){
+            do {
+                obj = new Solicitacao();
+
+                obj.setId(cursor.getInt(cursor.getColumnIndex(SolicitacaoDataModel.ID)));
+                obj.setData(cursor.getString(cursor.getColumnIndex(SolicitacaoDataModel.DATA)));
+                obj.setStatus(cursor.getString(cursor.getColumnIndex(SolicitacaoDataModel.STATUS)));
+                obj.setDescricao(cursor.getString(cursor.getColumnIndex(SolicitacaoDataModel.DESCRICAO)));
+                obj.setInstituicao(cursor.getString(cursor.getColumnIndex(SolicitacaoDataModel.INSTITUICAO)));
+                obj.setResposta(cursor.getString(cursor.getColumnIndex(SolicitacaoDataModel.RESPOSTA)));
+                obj.setTitulo(cursor.getString(cursor.getColumnIndex(SolicitacaoDataModel.TITULO)));
+                obj.setCarga(cursor.getInt(cursor.getColumnIndex(SolicitacaoDataModel.CARGA)));
+                obj.setImagem(cursor.getString(cursor.getColumnIndex(SolicitacaoDataModel.IMAGEM)));
+                Integer idaluno = cursor.getInt(cursor.getColumnIndex(SolicitacaoDataModel.IDALUNO));
+                Integer idcoordenador = cursor.getInt(cursor.getColumnIndex(SolicitacaoDataModel.IDCOORDENADOR));
+                Integer idcategoria = cursor.getInt(cursor.getColumnIndex(SolicitacaoDataModel.IDCATEGORIA));
+                Aluno alunos = getAlunoById(AlunoDataModel.TABELA,idaluno.toString());
+                Coordenador coordenador = getCoordenadorById(CoordenadorDataModel.TABELA,idcoordenador.toString());
+                Categoria categoria = getCategoriaById(CategoriaDataModel.TABELA,idcategoria.toString());
+                obj.setAluno(alunos);
+                obj.setCoordenador(coordenador);
+                obj.setCategoria(categoria);
+                solicitacaos.add(obj);
+                Log.i("LISTAR", "getAllSolicitacao: "+obj.getTitulo());
+            }while (cursor.moveToNext());
+        }
+
+        return solicitacaos;
+    }@SuppressLint("Range")
+    public List<Solicitacao> getAllSolicitacaoFiltro(String tabela, String filtro){
+        List<Solicitacao> solicitacaos = new ArrayList<>();
+        db = getWritableDatabase();
+        String sql;
+        if(filtro.equals("TODAS")){
+            sql = "select * from "+tabela;
+        }else {
+            sql = "select * from " + tabela + " where status = '" + filtro + "'";
+        }Cursor cursor;
+
+        cursor = db.rawQuery(sql,null);
+        Solicitacao obj;
+        if(cursor.moveToFirst()){
+            do {
+                obj = new Solicitacao();
+
+                obj.setId(cursor.getInt(cursor.getColumnIndex(SolicitacaoDataModel.ID)));
+                obj.setData(cursor.getString(cursor.getColumnIndex(SolicitacaoDataModel.DATA)));
+                obj.setStatus(cursor.getString(cursor.getColumnIndex(SolicitacaoDataModel.STATUS)));
+                obj.setDescricao(cursor.getString(cursor.getColumnIndex(SolicitacaoDataModel.DESCRICAO)));
+                obj.setInstituicao(cursor.getString(cursor.getColumnIndex(SolicitacaoDataModel.INSTITUICAO)));
+                obj.setResposta(cursor.getString(cursor.getColumnIndex(SolicitacaoDataModel.RESPOSTA)));
+                obj.setTitulo(cursor.getString(cursor.getColumnIndex(SolicitacaoDataModel.TITULO)));
+                obj.setCarga(cursor.getInt(cursor.getColumnIndex(SolicitacaoDataModel.CARGA)));
+                obj.setImagem(cursor.getString(cursor.getColumnIndex(SolicitacaoDataModel.IMAGEM)));
+                Integer idaluno = cursor.getInt(cursor.getColumnIndex(SolicitacaoDataModel.IDALUNO));
+                Integer idcoordenador = cursor.getInt(cursor.getColumnIndex(SolicitacaoDataModel.IDCOORDENADOR));
+                Integer idcategoria = cursor.getInt(cursor.getColumnIndex(SolicitacaoDataModel.IDCATEGORIA));
+                Aluno alunos = getAlunoById(AlunoDataModel.TABELA,idaluno.toString());
+                Coordenador coordenador = getCoordenadorById(CoordenadorDataModel.TABELA,idcoordenador.toString());
+                Categoria categoria = getCategoriaById(CategoriaDataModel.TABELA,idcategoria.toString());
+                obj.setAluno(alunos);
+                obj.setCoordenador(coordenador);
+                obj.setCategoria(categoria);
+                solicitacaos.add(obj);
+            }while (cursor.moveToNext());
+        }
         return solicitacaos;
     }
 }

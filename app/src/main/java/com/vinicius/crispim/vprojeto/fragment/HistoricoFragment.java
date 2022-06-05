@@ -1,13 +1,11 @@
 package com.vinicius.crispim.vprojeto.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -17,30 +15,26 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.vinicius.crispim.vprojeto.R;
-import com.vinicius.crispim.vprojeto.api.AppUtil;
-import com.vinicius.crispim.vprojeto.controller.CursoController;
 import com.vinicius.crispim.vprojeto.controller.SolicitacaoController;
 import com.vinicius.crispim.vprojeto.controller.SugestaoController;
-import com.vinicius.crispim.vprojeto.model.Aluno;
 import com.vinicius.crispim.vprojeto.model.Solicitacao;
 import com.vinicius.crispim.vprojeto.model.Sugestao;
 import com.vinicius.crispim.vprojeto.view.Menu1Activity;
-import com.vinicius.crispim.vprojeto.view.MenuCoordenadorActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class SolicitacoesFragment extends Fragment {
-    ListView lista_solicitacao;
-    Spinner spinner;
+public class HistoricoFragment extends Fragment {
+    ListView lista_historico;
+    private View view;
+    private Spinner spinner;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_perfil_coordenador, container,false);
-        ((MenuCoordenadorActivity) getActivity()).setActionBarTitle("Solicitações");
-        lista_solicitacao = (ListView) view.findViewById(R.id.lista_solicitacao_coordenador);
-        spinner = (Spinner) view.findViewById(R.id.spnSolicitacoes);
+        view = inflater.inflate(R.layout.fragment_historico, container,false);
+        lista_historico = (ListView) view.findViewById(R.id.lista_historico);
+        spinner = (Spinner) view.findViewById(R.id.spnSolicitacoesAluno);
         List<String> opcoes = new ArrayList<>(Arrays.asList("TODAS","EM ANALISE","DEFERIDA","INDEFERIDA"));
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_spinner_item, opcoes );
@@ -62,11 +56,9 @@ public class SolicitacoesFragment extends Fragment {
     }
     protected void CarregarFeed(){
         SolicitacaoController solicitacaoController = new SolicitacaoController(getContext());
-        List<Solicitacao> solicitacoes = solicitacaoController.listarByFiltro(spinner.getSelectedItem().toString());
-        lista_solicitacao.setAdapter((ListAdapter) new LinhaConsultarSolicitacoesAdapter(this, solicitacoes));
-        for (Solicitacao aluno2:solicitacoes
-        ) {
-            Log.i(AppUtil.TAG, "run: ALUNOS: "+aluno2.getTitulo());
-        }
+        Menu1Activity activity = (Menu1Activity) view.getContext();
+        List<Solicitacao> solicitacoes = solicitacaoController.listarByAluno(activity.getAluno().getMatricula(),spinner.getSelectedItem().toString());
+        lista_historico.setAdapter((ListAdapter) new LinhaConsultarHistoricoAlunoAdapter(this,solicitacoes));
+
     }
 }

@@ -11,13 +11,16 @@
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/drawable-v24/mail-48px.xml" value="0.1" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/drawable-v24/timer.xml" value="0.1" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/drawable-v24/wifi_calling_1-48px.xml" value="0.125" />
+        <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/drawable/historico.xml" value="0.125" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1245" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/drawable/search.xml" value="0.125" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/acitivity_linha_consultar.xml" value="0.22" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/acitivity_linha_consultar_coordenador.xml" value="0.1675929884566054" />
+        <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/acitivity_linha_consultar_historico.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/acitivity_linha_consultar_solicitacoes.xml" value="0.18" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/acitivity_linha_consultar_solicitacoes_aluno.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/activity_edit.xml" value="0.1675929884566054" />
+        <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/activity_linha_consultar_historico.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/activity_main.xml" value="0.16108786610878661" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/activity_menu.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/activity_menucoordenador.xml" value="0.22" />
@@ -25,6 +28,7 @@
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/activity_solicitacao.xml" value="0.12" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/activity_visualiza_aluno.xml" value="0.1675929884566054" />
+        <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/fragment_historico.xml" value="0.1" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/fragment_home.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/fragment_home_coordenador.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/fragment_perfil.xml" value="0.1" />

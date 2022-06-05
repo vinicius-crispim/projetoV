@@ -86,11 +86,11 @@ public class LinhaConsultarSolicitacoesAlunoAdapter extends BaseAdapter{
 
     }
     protected void CorStatus(){
-        if (txtStatusSolicitacaoAluno.getText().equals("DEFERIDA")){
+        if (txtStatusSolicitacaoAluno.getText().toString().equals("DEFERIDA")){
             txtStatusSolicitacaoAluno.setTextColor(Color.parseColor("#669900"));
-        }else if (txtStatusSolicitacaoAluno.getText().equals("INDEFERIDA")){
+        }else if (txtStatusSolicitacaoAluno.getText().toString().equals("INDEFERIDA")){
             txtStatusSolicitacaoAluno.setTextColor(Color.parseColor("#FFFF4444"));
-        }else if (txtStatusSolicitacaoAluno.getText().equals("EM ANÁLISE")){
+        }else if (txtStatusSolicitacaoAluno.getText().toString().equals("EM ANÁLISE")){
             txtStatusSolicitacaoAluno.setTextColor(Color.parseColor("#ffffbb33"));
         }
     }
