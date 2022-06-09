@@ -6,14 +6,26 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.vinicius.crispim.vprojeto.R;
 import com.vinicius.crispim.vprojeto.api.AppUtil;
 import com.vinicius.crispim.vprojeto.controller.CursoController;
+import com.vinicius.crispim.vprojeto.controller.SolicitacaoController;
+import com.vinicius.crispim.vprojeto.controller.SugestaoController;
+import com.vinicius.crispim.vprojeto.fragment.LinhaConsultarAdapter;
+import com.vinicius.crispim.vprojeto.fragment.LinhaConsultarSolicitacoesAlunoAdapter;
+import com.vinicius.crispim.vprojeto.fragment.LinhaConsultarSolicitacoesAlunoTesteAdapter;
 import com.vinicius.crispim.vprojeto.model.Aluno;
 import com.vinicius.crispim.vprojeto.model.Coordenador;
 import com.vinicius.crispim.vprojeto.model.Curso;
+import com.vinicius.crispim.vprojeto.model.Solicitacao;
+import com.vinicius.crispim.vprojeto.model.Sugestao;
+import com.vinicius.crispim.vprojeto.util.Helper;
+
+import java.util.List;
 
 public class VisualizaAlunoActivity extends AppCompatActivity {
     EditText txtSeusDados_Nome;
@@ -27,12 +39,16 @@ public class VisualizaAlunoActivity extends AppCompatActivity {
     EditText txtSeusDados_Curso_Horas;
     EditText txtSeusDados_Horas;
     EditText txtSeusDados_HorasFaltando;
+    ListView listView;
+    Aluno aluno = new Aluno();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_visualiza_aluno);
+        setContentView(R.layout.activity_visualiza_alunoteste);
         txtSeusDados_Nome = findViewById(R.id.txtPesquisaAlunoNome);
+        listView = findViewById(R.id.lista_teste);
         txtSeusDados_Matricula =findViewById(R.id.txtPesquisaAlunoMatricula);
         txtSeusDados_Telefone = findViewById(R.id.txtPesquisaAlunoTelefone);
         txtSeusDados_Email = findViewById(R.id.txtPesquisaAlunoEmail);
@@ -44,7 +60,6 @@ public class VisualizaAlunoActivity extends AppCompatActivity {
         txtSeusDados_HorasFaltando = findViewById(R.id.txtPesquisaAlunoHorasFaltando);
         Intent intentreceptor = getIntent();
         Bundle parametros = intentreceptor.getExtras();
-        Aluno aluno = new Aluno();
         Curso curso = new Curso();
         aluno.setNome(parametros.getString("nome"));
         aluno.setSenha(parametros.getString("senha"));
@@ -77,5 +92,13 @@ public class VisualizaAlunoActivity extends AppCompatActivity {
         txtSeusDados_Curso_Horas.getText().append(aluno.getCurso().getHorasnecessarias().toString());
         txtSeusDados_Horas.getText().append(aluno.getHorasFeitas().toString());
         txtSeusDados_HorasFaltando.getText().append(aluno.getHorasFaltando().toString());
+        this.CarregarFeed();
+        Helper.getListViewSize(listView);
+    }
+    protected void CarregarFeed(){
+        SolicitacaoController sugestaoController = new SolicitacaoController(this);
+        List<Solicitacao> sugestoes = sugestaoController.listarByAluno(aluno.getMatricula(),"TODAS");
+        listView.setAdapter((ListAdapter) new LinhaConsultarSolicitacoesAlunoTesteAdapter(this, sugestoes));
+
     }
 }

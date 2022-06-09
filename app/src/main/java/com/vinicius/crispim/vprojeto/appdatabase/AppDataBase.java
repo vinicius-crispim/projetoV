@@ -610,14 +610,14 @@ public class AppDataBase extends SQLiteOpenHelper {
 
         return solicitacaos;
     }@SuppressLint("Range")
-    public List<Solicitacao> getAllSolicitacaoFiltro(String tabela, String filtro){
+    public List<Solicitacao> getAllSolicitacaoFiltro(String tabela, String filtro, Integer idcoordenador2){
         List<Solicitacao> solicitacaos = new ArrayList<>();
         db = getWritableDatabase();
         String sql;
         if(filtro.equals("TODAS")){
-            sql = "select * from "+tabela;
+            sql = "select * from "+tabela+" where idcoordenador = "+idcoordenador2;
         }else {
-            sql = "select * from " + tabela + " where status = '" + filtro + "'";
+            sql = "select * from " + tabela + " where status = '" + filtro + "' and idcoordenador = "+idcoordenador2;
         }Cursor cursor;
 
         cursor = db.rawQuery(sql,null);

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/vinic/.gradle/caches/transforms-3/f791586eb8e3cddcf33fb36842d7675a/transformed/appcompat-1.4.1/res/layout/support_simple_spinner_dropdown_item.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/drawable-v24/alarm_off.xml" value="0.1" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/drawable-v24/alarm_on.xml" value="0.1" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/drawable-v24/coordenadorperfil.xml" value="0.1" />
@@ -28,6 +29,8 @@
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/activity_solicitacao.xml" value="0.12" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/activity_visualiza_aluno.xml" value="0.1675929884566054" />
+        <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/activity_visualiza_aluno2.xml" value="0.1" />
+        <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/activity_visualiza_alunoteste.xml" value="0.1" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/fragment_historico.xml" value="0.1" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/fragment_home.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/fragment_home_coordenador.xml" value="0.1675929884566054" />
@@ -36,6 +39,7 @@
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/fragment_suas_horas.xml" value="0.22" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/fragment_suas_horas_coordenador.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/menu1_activity.xml" value="0.1675929884566054" />
+        <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/layout/spinner_item.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/menu/menu_bottom_nav.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/menu/menu_bottom_nav_coordenador.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/vinic/AndroidStudioProjects/VProjeto/app/src/main/res/menu/menu_pesquisar_coordenador.xml" value="0.1675929884566054" />

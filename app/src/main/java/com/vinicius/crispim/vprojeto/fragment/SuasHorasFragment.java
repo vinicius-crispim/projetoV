@@ -80,8 +80,7 @@ public class SuasHorasFragment extends Fragment {
         Menu1Activity activity = (Menu1Activity) getActivity();
         Log.i(AppUtil.TAG, "onCreateView: ALUNO PASSADO:"+activity.getAluno().getNome());
         aluno = activity.getAluno();
-        ArrayAdapter<Categoria> adpter = new ArrayAdapter<Categoria>(getContext(), android.R.layout.simple_spinner_dropdown_item,categoriaController.listar());
-        adpter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<Categoria> adpter = new ArrayAdapter<Categoria>(getContext(), R.layout.spinner_item,categoriaController.listar());
         spinner = view.findViewById(R.id.spnCategorias);
         spinner.setAdapter(adpter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -123,10 +122,6 @@ public class SuasHorasFragment extends Fragment {
                         txtInstituicao.getText().toString(),
                         "EM ANALISE",txtDescricao.getText().toString(),
                         "Não Respondido",testecat));*/
-                solicitacaoController.incluir(solicitacao);
-                Log.i(AppUtil.TAG, "onCreate: aluno cadastrado "+solicitacao.getTitulo());
-                Toast.makeText(getContext(),"Solicitação enviada com sucesso, aguarde resposta do seu coordenador!",
-                        Toast.LENGTH_SHORT).show();
                 Alertar_onClick();
 
             }
@@ -150,17 +145,18 @@ public class SuasHorasFragment extends Fragment {
             //startActivityForResult(intent,FILE_SELECT_CODE);
         } catch (android.content.ActivityNotFoundException ex) {
             // Potentially direct the user to the Market with a Dialog
-            Toast.makeText(getActivity(), "Please install a File Manager.",
+            Toast.makeText(getActivity(), "Favor instalar um gerenciador de arquivos.",
                     Toast.LENGTH_SHORT).show();
         }
 
     }
     protected void Alertar_onClick(){
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
-        alertDialog.setMessage("A solicitação será enviada");
-        alertDialog.setPositiveButton("confirmar", new DialogInterface.OnClickListener() {
+        alertDialog.setMessage("Deseja enviar a solicitação");
+        alertDialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                solicitacaoController.incluir(solicitacao);
                 Toast.makeText(getContext(),"Solicitação enviada com sucesso!",
                         Toast.LENGTH_SHORT).show();
                 imgfoto.setImageBitmap(null);
@@ -189,7 +185,7 @@ public class SuasHorasFragment extends Fragment {
                 imgfoto.setImageBitmap(imagemGalery);
                 byte[] fotoembyte;
                 ByteArrayOutputStream streamdafoto = new ByteArrayOutputStream();
-                imagemGalery.compress(Bitmap.CompressFormat.JPEG,100,streamdafoto);
+                imagemGalery.compress(Bitmap.CompressFormat.JPEG,70,streamdafoto);
                 fotoembyte = streamdafoto.toByteArray();
                 fotoEmString = Base64.encodeToString(fotoembyte,Base64.DEFAULT);
                 solicitacao.setImagem(fotoEmString);

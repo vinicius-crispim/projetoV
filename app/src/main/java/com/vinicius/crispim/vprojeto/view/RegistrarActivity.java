@@ -27,10 +27,10 @@ import com.vinicius.crispim.vprojeto.util.MaskUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RegistrarActivity extends AppCompatActivity  {
+public class RegistrarActivity extends AppCompatActivity {
 
     private static final String TAG = "TESTANDO REGISTRAR";
-    Aluno aluno= new Aluno();
+    Aluno aluno = new Aluno();
     Curso curso1 = new Curso();
     Double i;
     Curso curso2 = new Curso();
@@ -49,6 +49,8 @@ public class RegistrarActivity extends AppCompatActivity  {
     List<Curso> curso = new ArrayList<Curso>();
     Curso ultimo;
     CursoController cursoController;
+    AlunoController alunoController;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,40 +60,72 @@ public class RegistrarActivity extends AppCompatActivity  {
         senha = findViewById(R.id.txtSenhaCadastro);
         senhaConfirma = findViewById(R.id.txtConfirmaSenha);
         CPF = findViewById(R.id.txtCPF);
-        matricula =findViewById(R.id.txtMatricula);
+        matricula = findViewById(R.id.txtMatricula);
         email = findViewById(R.id.txtEmailCadastro);
         nome = findViewById(R.id.txtTituloLinha);
         txtautocursos = findViewById(R.id.txtautocursos);
         cursoController = new CursoController(getApplicationContext());
         curso = cursoController.listar();
-        ArrayAdapter<Curso> adpter = new ArrayAdapter<Curso>(this, android.R.layout.simple_spinner_dropdown_item,curso);
+        ArrayAdapter<Curso> adpter = new ArrayAdapter<Curso>(this, R.layout.spinner_item, curso);
         txtautocursos.setAdapter(adpter);
-        ArrayAdapter<Curso> adapter = new ArrayAdapter<Curso>(this, android.R.layout.simple_spinner_dropdown_item,curso);
-        adpter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         CPF.addTextChangedListener(MaskUtil.insert(CPF, MaskType.CPF));
-        celular.addTextChangedListener(MaskUtil.insert(celular,MaskType.CEL));
+        celular.addTextChangedListener(MaskUtil.insert(celular, MaskType.CEL));
         btncadastrar = findViewById(R.id.btnCadastrarAluno);
+        alunoController = new AlunoController(getApplicationContext());
         btncadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                aluno.setNome(nome.getText().toString());
-                aluno.setCPF(CPF.getText().toString());
-                aluno.setEmail(email.getText().toString());
-                aluno.setCelular(celular.getText().toString());
-                aluno.setSenha(senha.getText().toString());
-                aluno.setHorasFeitas(0);
-                aluno.setCurso(cursoController.getCursoByNome(txtautocursos.getText().toString()));
-                aluno.setHorasFaltando(aluno.getCurso().getHorasnecessarias());
-                AlunoController alunoController = new AlunoController(getApplicationContext());
-                alunoController.incluir(aluno);
+                if (senhaConfirma.getText().toString().equals(senha.getText().toString())) {
+                    int aux = 0;
+                    for (Aluno alunofor : alunoController.listar()) {
+                        if (alunofor.getSenha().equals(senha.getText().toString())) {
+                            Toast.makeText(RegistrarActivity.this, "Esta senha ja está em uso",
+                                    Toast.LENGTH_SHORT).show();
+                            aux++;
+                        }
+                    }
+                    if (aux == 0) {
+                        if(ValidaValores() == true) {
+                            aluno.setNome(nome.getText().toString());
+                            aluno.setCPF(CPF.getText().toString());
+                            aluno.setEmail(email.getText().toString());
+                            aluno.setCelular(celular.getText().toString());
+                            aluno.setSenha(senha.getText().toString());
+                            aluno.setHorasFeitas(0);
+                            aluno.setCurso(cursoController.getCursoByNome(txtautocursos.getText().toString()));
+                            aluno.setHorasFaltando(aluno.getCurso().getHorasnecessarias());
+                            alunoController.incluir(aluno);
 
-                Log.i(AppUtil.TAG, "onCreate: aluno cadastrado "+aluno.getCurso().getNome());
-                Toast.makeText(RegistrarActivity.this,"Aluno "+aluno.getNome()+" registrado com sucesso",
-                        Toast.LENGTH_SHORT).show();
-                Intent troca = new Intent(RegistrarActivity.this, MainActivity.class);
-                startActivity(troca);
+                            Log.i(AppUtil.TAG, "onCreate: aluno cadastrado " + aluno.getCurso().getNome());
+                            Toast.makeText(RegistrarActivity.this, "Aluno " + aluno.getNome() + " registrado com sucesso",
+                                    Toast.LENGTH_SHORT).show();
+                            Intent troca = new Intent(RegistrarActivity.this, MainActivity.class);
+                            startActivity(troca);
+                        }
+                    }
+
+                } else {
+                    Toast.makeText(RegistrarActivity.this, "As senhas não são iguais",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
 
         });
+    }
+
+    private Boolean ValidaValores() {
+        if (nome.getText().toString().equals("") &&
+                senha.getText().toString().equals("") &&
+                senhaConfirma.getText().toString().equals("") &&
+                celular.getText().toString().equals("") &&
+                CPF.getText().toString().equals("") &&
+                matricula.getText().toString().equals("") &&
+                email.getText().toString().equals("")) {
+            Toast.makeText(RegistrarActivity.this, "Todos os campos devem ser preenchidos",
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        }else{
+            return true;
+        }
     }
 }

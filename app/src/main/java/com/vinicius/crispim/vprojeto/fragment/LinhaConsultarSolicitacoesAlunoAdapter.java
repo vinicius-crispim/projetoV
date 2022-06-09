@@ -66,8 +66,8 @@ public class LinhaConsultarSolicitacoesAlunoAdapter extends BaseAdapter{
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent){
-        final View viewLinhaLista = layoutInflater.inflate(R.layout.acitivity_linha_consultar_solicitacoes_aluno, null);
-        TextView txtTituloSolicitacao = (TextView) viewLinhaLista.findViewById(R.id.txtTituloSolicitacaoAluno);
+        final View viewLinhaLista = layoutInflater.inflate(R.layout.activity_linha_consultar_historico, null);
+       /* TextView txtTituloSolicitacao = (TextView) viewLinhaLista.findViewById(R.id.txtTituloHistoricoCoordenador);
         TextView txtDataSolicitacaoAluno = (TextView) viewLinhaLista.findViewById(R.id.txtDataSolicitacaoAluno);
         txtStatusSolicitacaoAluno = (TextView) viewLinhaLista.findViewById(R.id.txtStatusSolicitacaoAluno);
         TextView txtDescricaoLinha = (TextView) viewLinhaLista.findViewById(R.id.txtDescricaoSolicitacaoAluno);
@@ -81,7 +81,7 @@ public class LinhaConsultarSolicitacoesAlunoAdapter extends BaseAdapter{
         txtDataSolicitacaoAluno.setText(solicitacoes.get(position).getData());
         txtDescricaoLinha.setText(solicitacoes.get(position).getDescricao());
         txtStatusSolicitacaoAluno.setText(solicitacoes.get(position).getStatus());
-        CorStatus();
+        CorStatus();*/
         return viewLinhaLista;
 
     }

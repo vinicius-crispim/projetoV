@@ -87,8 +87,6 @@ public class SuasHorasCoordenadorFragment extends Fragment {
                         txtInstituicao.getText().toString(),
                         "EM ANALISE",txtDescricao.getText().toString(),
                         "Não Respondido",testecat));*/
-                sugestaoController.incluir(sugestao);
-                Log.i(AppUtil.TAG, "onCreate: sugestao postada "+sugestao.getTitulo());
                 Alertar_onClick();
 
             }
@@ -112,7 +110,7 @@ public class SuasHorasCoordenadorFragment extends Fragment {
             //startActivityForResult(intent,FILE_SELECT_CODE);
         } catch (android.content.ActivityNotFoundException ex) {
             // Potentially direct the user to the Market with a Dialog
-            Toast.makeText(getActivity(), "Please install a File Manager.",
+            Toast.makeText(getActivity(), "Favor instalar um gerenciador de arquivos.",
                     Toast.LENGTH_SHORT).show();
         }
 
@@ -152,6 +150,7 @@ public class SuasHorasCoordenadorFragment extends Fragment {
         alertDialog.setPositiveButton("confirmar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                sugestaoController.incluir(sugestao);
                 Toast.makeText(getContext(),"Sugestão postada com sucesso!",
                         Toast.LENGTH_SHORT).show();
                 imgfoto.setImageBitmap(null);

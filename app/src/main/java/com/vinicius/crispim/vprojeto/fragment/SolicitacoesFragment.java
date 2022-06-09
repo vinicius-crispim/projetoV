@@ -1,5 +1,7 @@
 package com.vinicius.crispim.vprojeto.fragment;
 
+import static com.vinicius.crispim.vprojeto.api.AppUtil.TAG;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,6 +32,7 @@ import com.vinicius.crispim.vprojeto.view.MenuCoordenadorActivity;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 public class SolicitacoesFragment extends Fragment {
     ListView lista_solicitacao;
@@ -38,13 +41,11 @@ public class SolicitacoesFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_perfil_coordenador, container,false);
-        ((MenuCoordenadorActivity) getActivity()).setActionBarTitle("Solicitações");
         lista_solicitacao = (ListView) view.findViewById(R.id.lista_solicitacao_coordenador);
         spinner = (Spinner) view.findViewById(R.id.spnSolicitacoes);
-        List<String> opcoes = new ArrayList<>(Arrays.asList("TODAS","EM ANALISE","DEFERIDA","INDEFERIDA"));
+        List<String> opcoes = new ArrayList<>(Arrays.asList("Todas","Em analise","Deferida","Indeferida"));
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_spinner_item, opcoes );
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(view.getContext(), R.layout.spinner_item, opcoes );
 
         spinner.setAdapter(dataAdapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -62,11 +63,12 @@ public class SolicitacoesFragment extends Fragment {
     }
     protected void CarregarFeed(){
         SolicitacaoController solicitacaoController = new SolicitacaoController(getContext());
-        List<Solicitacao> solicitacoes = solicitacaoController.listarByFiltro(spinner.getSelectedItem().toString());
-        lista_solicitacao.setAdapter((ListAdapter) new LinhaConsultarSolicitacoesAdapter(this, solicitacoes));
+        MenuCoordenadorActivity activity = (MenuCoordenadorActivity) getActivity();
+        List<Solicitacao> solicitacoes = solicitacaoController.listarByFiltro(spinner.getSelectedItem().toString().toUpperCase(Locale.ROOT),activity.getCoordenador().getId());
+        lista_solicitacao.setAdapter((ListAdapter) new LinhaConsultarSolicitacoesAdapter(this, solicitacoes,spinner.getSelectedItem().toString(),activity.getCoordenador().getId()));
         for (Solicitacao aluno2:solicitacoes
         ) {
-            Log.i(AppUtil.TAG, "run: ALUNOS: "+aluno2.getTitulo());
+            Log.i(TAG, "run: ALUNOS: "+aluno2.getTitulo());
         }
     }
 }

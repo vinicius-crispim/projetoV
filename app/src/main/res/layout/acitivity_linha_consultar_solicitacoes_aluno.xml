@@ -7,109 +7,217 @@
     android:orientation="vertical">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="0dp"
 
         android:layout_marginEnd="0dp"
         android:backgroundTint="#8B36ECD7"
+        android:paddingRight="10dp"
         app:rippleColor="#FFFFFF"
         app:strokeColor="@color/black"
         app:strokeWidth="0dp"
         tools:ignore="DuplicateIds">
 
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/txtTituloSolicitacaoAluno"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="10dp"
-                    android:text="Nome"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/black" />
-
-                <TextView
-                    android:id="@+id/txtTracoCodigo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:enabled="false"
-                    android:text=" - "
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/black" />
-
-                <TextView
-                    android:id="@+id/txtDataSolicitacaoAluno"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:enabled="false"
-                    android:paddingRight="10dp"
-                    android:text="Data"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/black" />
-            </LinearLayout>
+            <!-- Media -->
+            <ImageView
+                android:id="@+id/imgHistoricoCoordenador"
+                android:layout_width="350dp"
+                android:layout_height="300dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="0dp"
+                android:foregroundGravity="center_horizontal|center_vertical"
+                tools:srcCompat="@tools:sample/avatars" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:padding="16dp">
 
-                <TextView
-                    android:id="@+id/txtDescricaoSolicitacaoAluno"
-                    android:layout_width="wrap_content"
+                <!-- Title, secondary and supporting text -->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="Descrição"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/black"
-                    android:textStyle="italic"></TextView>
+                    android:hint="Titulo da Atividade"
+                    app:hintTextColor="@color/black">
 
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtTituloHistoricoCoordenador"
+                        android:layout_width="340dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="#6E6E6E"
+                        android:enabled="false"
+                        android:textColor="#CBFFFFFF"
+                        android:textSize="18sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Descrição"
+                    app:hintTextColor="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtDescricaoHistoricoCoordenador"
+                        android:layout_width="340dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:background="#6E6E6E"
+                        android:enabled="false"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="#CBFFFFFF"
+                        android:textSize="18sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Coordenador"
+                    app:hintTextColor="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtCoordenadorHistoricoCoordenador"
+                        android:layout_width="340dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:background="#6E6E6E"
+                        android:enabled="false"
+                        android:textColor="#CBFFFFFF"
+                        android:textSize="18sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Instituição"
+                    app:hintTextColor="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtInstituicaoHistoricoCoordenador"
+                        android:layout_width="340dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:background="#6E6E6E"
+                        android:enabled="false"
+                        android:textColor="#CBFFFFFF"
+                        android:textSize="18sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Carga"
+
+                        app:hintTextColor="@color/black"
+                        app:startIconContentDescription="Imagem representando perfil">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtCargaHistoricoCoordenador"
+                            android:layout_width="135dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginRight="15dp"
+                            android:background="#6E6E6E"
+                            android:enabled="false"
+                            android:textColor="#CBFFFFFF"
+                            android:textSize="18sp"
+                            tools:ignore="DuplicateClickableBoundsCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Data"
+                        app:hintTextColor="@color/black">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtDataHistoricoCoordenador"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginRight="70dp"
+                            android:background="#6E6E6E"
+                            android:enabled="false"
+                            android:textColor="#CBFFFFFF"
+                            android:textSize="18sp"
+                            tools:ignore="DuplicateClickableBoundsCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Status"
+
+                        app:hintTextColor="@color/black"
+                        app:startIconContentDescription="Imagem representando perfil">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtStatusHistoricoCoordenador"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginRight="15dp"
+                            android:background="#6E6E6E"
+                            android:enabled="false"
+                            android:textColor="#CBFFFFFF"
+                            android:textSize="18sp"
+                            tools:ignore="DuplicateClickableBoundsCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Categoria"
+                        app:hintTextColor="@color/black">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtCategoriaSolicitacaoHistoricoCoordenador"
+                            android:layout_width="175dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginRight="81dp"
+                            android:background="#6E6E6E"
+                            android:enabled="false"
+                            android:textColor="#CBFFFFFF"
+                            android:textSize="18sp"
+                            tools:ignore="DuplicateClickableBoundsCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </RelativeLayout>
             </LinearLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="2dp">
-
-                <Button
-                    android:id="@+id/btnVerMaisSolicitacaoAluno"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginEnd="30dp"
-                    android:layout_marginRight="30dp"
-                    android:background="@android:color/transparent"
-                    android:text="Ver mais"
-                    android:textAllCaps="true"
-                    android:textColor="@android:color/holo_blue_dark" />
-
-                <TextView
-                    android:id="@+id/txtStatusSolicitacaoAluno"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="false"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="9dp"
-                    android:text="Status"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/black" />
-
-            </RelativeLayout>
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>

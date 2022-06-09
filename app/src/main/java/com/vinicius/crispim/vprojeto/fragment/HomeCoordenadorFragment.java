@@ -38,7 +38,7 @@ public class HomeCoordenadorFragment extends Fragment {
         txtPesquisarAluno = view.findViewById(R.id.txtPesquisarAluno);
         AlunoController alunoController = new AlunoController(getContext());
         List<Aluno> alunos = alunoController.listar();
-        ArrayAdapter<Aluno> adpter = new ArrayAdapter<>(view.getContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,alunos);
+        ArrayAdapter<Aluno> adpter = new ArrayAdapter<>(view.getContext(), R.layout.spinner_item,alunos);
         txtPesquisarAluno.setAdapter(adpter);
         Log.i(TAG, "onCreateView: Pesquisando ALuno: "+txtPesquisarAluno.getText());
         txtPesquisarAluno.setOnItemClickListener(new AdapterView.OnItemClickListener() {

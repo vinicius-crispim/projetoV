@@ -24,6 +24,7 @@ import com.vinicius.crispim.vprojeto.view.Menu1Activity;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 public class HistoricoFragment extends Fragment {
     ListView lista_historico;
@@ -35,10 +36,9 @@ public class HistoricoFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_historico, container,false);
         lista_historico = (ListView) view.findViewById(R.id.lista_historico);
         spinner = (Spinner) view.findViewById(R.id.spnSolicitacoesAluno);
-        List<String> opcoes = new ArrayList<>(Arrays.asList("TODAS","EM ANALISE","DEFERIDA","INDEFERIDA"));
+        List<String> opcoes = new ArrayList<>(Arrays.asList("Todas","Em Analise","Deferida","Indeferida"));
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_spinner_item, opcoes );
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(view.getContext(), R.layout.spinner_item, opcoes );
 
         spinner.setAdapter(dataAdapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -57,7 +57,7 @@ public class HistoricoFragment extends Fragment {
     protected void CarregarFeed(){
         SolicitacaoController solicitacaoController = new SolicitacaoController(getContext());
         Menu1Activity activity = (Menu1Activity) view.getContext();
-        List<Solicitacao> solicitacoes = solicitacaoController.listarByAluno(activity.getAluno().getMatricula(),spinner.getSelectedItem().toString());
+        List<Solicitacao> solicitacoes = solicitacaoController.listarByAluno(activity.getAluno().getMatricula(),spinner.getSelectedItem().toString().toUpperCase(Locale.ROOT));
         lista_historico.setAdapter((ListAdapter) new LinhaConsultarHistoricoAlunoAdapter(this,solicitacoes));
 
     }
