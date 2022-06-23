@@ -67,6 +67,7 @@ public class LinhaConsultarHistoricoAlunoAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         final View viewLinhaLista = layoutInflater.inflate(R.layout.activity_linha_consultar_historico, null);
         TextView txtTituloLinha = (TextView) viewLinhaLista.findViewById(R.id.txtTituloHistorico);
+        TextView txtJustifica = (TextView) viewLinhaLista.findViewById(R.id.txtJustificativa2);
         TextView txtNomeCoordenador = (TextView) viewLinhaLista.findViewById(R.id.txtCoordenadorHistorico);
         TextView txtData = (TextView) viewLinhaLista.findViewById(R.id.txtDataHistorico);
         TextView txtInstituicao = (TextView) viewLinhaLista.findViewById(R.id.txtInstituicaoHistorico);
@@ -84,8 +85,7 @@ public class LinhaConsultarHistoricoAlunoAdapter extends BaseAdapter {
 
         txtTituloLinha.setText(solicitacoes.get(position).getTitulo());
         txtDescricaoLinha.setText(solicitacoes.get(position).getDescricao());
-
-
+        txtJustifica.setText(solicitacoes.get(position).getResposta());
         txtTituloLinha.setText(String.valueOf(solicitacoes.get(position).getTitulo()));
         txtInstituicao.setText(solicitacoes.get(position).getInstituicao());
         txtCategoria.setText(solicitacoes.get(position).getCategoria().getNome());

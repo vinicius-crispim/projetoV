@@ -594,6 +594,7 @@ public class AppDataBase extends SQLiteOpenHelper {
                 obj.setTitulo(cursor.getString(cursor.getColumnIndex(SolicitacaoDataModel.TITULO)));
                 obj.setCarga(cursor.getInt(cursor.getColumnIndex(SolicitacaoDataModel.CARGA)));
                 obj.setImagem(cursor.getString(cursor.getColumnIndex(SolicitacaoDataModel.IMAGEM)));
+                obj.setResposta(cursor.getString(cursor.getColumnIndex(SolicitacaoDataModel.RESPOSTA)));
                 Integer idaluno = cursor.getInt(cursor.getColumnIndex(SolicitacaoDataModel.IDALUNO));
                 Integer idcoordenador = cursor.getInt(cursor.getColumnIndex(SolicitacaoDataModel.IDCOORDENADOR));
                 Integer idcategoria = cursor.getInt(cursor.getColumnIndex(SolicitacaoDataModel.IDCATEGORIA));

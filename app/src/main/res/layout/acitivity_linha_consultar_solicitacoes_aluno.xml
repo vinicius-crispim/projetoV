@@ -217,6 +217,24 @@
                             tools:ignore="DuplicateClickableBoundsCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </RelativeLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Justificativa do Coordenador"
+                    app:hintTextColor="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtJustificativa"
+                        android:layout_width="340dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:background="#6E6E6E"
+                        android:enabled="false"
+                        android:textColor="#CBFFFFFF"
+                        android:textSize="18sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
         </LinearLayout>
 

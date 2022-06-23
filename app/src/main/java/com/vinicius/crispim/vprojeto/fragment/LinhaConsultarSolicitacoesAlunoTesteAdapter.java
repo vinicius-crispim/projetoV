@@ -67,6 +67,7 @@ public class LinhaConsultarSolicitacoesAlunoTesteAdapter extends BaseAdapter{
         TextView txtInstituicao = (TextView) viewLinhaLista.findViewById(R.id.txtInstituicaoHistoricoCoordenador);
         TextView txtCarga = (TextView) viewLinhaLista.findViewById(R.id.txtCargaHistoricoCoordenador);
         TextView txtCategoria = (TextView) viewLinhaLista.findViewById(R.id.txtCategoriaSolicitacaoHistoricoCoordenador);
+        TextView txtJustificativa = (TextView) viewLinhaLista.findViewById(R.id.txtJustificativa);
         txtStatus = (TextView) viewLinhaLista.findViewById(R.id.txtStatusHistoricoCoordenador);
         TextView txtDescricaoLinha = (TextView) viewLinhaLista.findViewById(R.id.txtDescricaoHistoricoCoordenador);
         ImageView imgSugestao = (ImageView) viewLinhaLista.findViewById(R.id.imgHistoricoCoordenador);
