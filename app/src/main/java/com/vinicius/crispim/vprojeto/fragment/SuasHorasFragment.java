@@ -105,24 +105,20 @@ public class SuasHorasFragment extends Fragment {
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CoordenadorController coordenadorController = new CoordenadorController(getContext());
-                solicitacao.setTitulo(txtTitulo.getText().toString());
-                solicitacao.setInstituicao(txtInstituicao.getText().toString());
-                solicitacao.setDescricao(txtDescricao.getText().toString());
-                solicitacao.setCarga(Integer.parseInt(txtCarga.getText().toString()));
-                solicitacao.setResposta("Não Respondido");
-                solicitacao.setStatus("EM ANÁLISE");
-                solicitacao.setData(sdf1.format(new Date()));
-                solicitacao.setAluno(aluno);
-                Log.i(AppUtil.TAG, "onClick: IDCOORDENADOR: "+aluno.getCurso().getCoordenador().getId().toString());
-               // solicitacao.setCoordenador(coordenadorController.getCoordenadorById(CoordenadorDataModel.TABELA,aluno.getCurso().getCoordenador().getId().toString()));
-                /*solicitacaoController.incluir(new Solicitacao(aluno, fotoEmString,
-                        sdf1.format(new Date()),
-                        txtTitulo.getText().toString(),Integer.parseInt(txtCarga.getText().toString()),
-                        txtInstituicao.getText().toString(),
-                        "EM ANALISE",txtDescricao.getText().toString(),
-                        "Não Respondido",testecat));*/
-                Alertar_onClick();
+                if(aluno.getHorasFeitas()<aluno.getCurso().getHorasnecessarias()) {
+                    CoordenadorController coordenadorController = new CoordenadorController(getContext());
+                    solicitacao.setTitulo(txtTitulo.getText().toString());
+                    solicitacao.setInstituicao(txtInstituicao.getText().toString());
+                    solicitacao.setDescricao(txtDescricao.getText().toString());
+                    solicitacao.setCarga(Integer.parseInt(txtCarga.getText().toString()));
+                    solicitacao.setResposta("Não Respondido");
+                    solicitacao.setStatus("EM ANÁLISE");
+                    solicitacao.setData(sdf1.format(new Date()));
+                    solicitacao.setAluno(aluno);
+                    Alertar_onClick();
+                }else{
+                    Alertar_onClick_Erro();
+                }
 
             }
         });
@@ -150,6 +146,7 @@ public class SuasHorasFragment extends Fragment {
         }
 
     }
+
     protected void Alertar_onClick(){
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
         alertDialog.setMessage("Deseja enviar a solicitação");
@@ -168,7 +165,13 @@ public class SuasHorasFragment extends Fragment {
             }
         });
         alertDialog.show();
+    }protected void Alertar_onClick_Erro(){
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
+        alertDialog.setMessage("Você ja completou todas as suas horas complementares!");
+        alertDialog.setNeutralButton("OK",null);
+        alertDialog.show();
     }
+
     public void onActivityResult(int requestCode, int resultCode, Intent dados) {
         super.onActivityResult(requestCode,resultCode,dados);
         if (resultCode == -1) {

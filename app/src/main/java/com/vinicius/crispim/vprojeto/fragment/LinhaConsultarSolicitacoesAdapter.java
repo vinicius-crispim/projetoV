@@ -15,7 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -79,6 +81,7 @@ public class LinhaConsultarSolicitacoesAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         final View viewLinhaLista = layoutInflater.inflate(R.layout.acitivity_linha_consultar_solicitacoes, null);
         TextView txtTituloLinha = (TextView) viewLinhaLista.findViewById(R.id.txtTituloSolicitacaoResposta2);
+        TextView txtJustificativa = (TextView) viewLinhaLista.findViewById(R.id.txtjustificativaSolicitacaoResposta);
         TextView txtNomeAluno = (TextView) viewLinhaLista.findViewById(R.id.txtNomeSolicitacaoResposta);
         TextView txtData = (TextView) viewLinhaLista.findViewById(R.id.txtDataSolicitacaoResposta);
         TextView txtInstituicao = (TextView) viewLinhaLista.findViewById(R.id.txtInstituicaoSolicitacaoResposta);
@@ -111,6 +114,23 @@ public class LinhaConsultarSolicitacoesAdapter extends BaseAdapter {
         btnInvalidar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                /*AlertDialog.Builder justificaResposta = new AlertDialog.Builder(lista.getContext());
+                justificaResposta.setTitle("Justificativa");
+                justificaResposta.setMessage("Informe uma justificativa");
+                justificaResposta.setCancelable(false);
+                EditText editjustifica = new EditText(lista.getContext());
+                LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+                editjustifica.setLayoutParams(layout);
+                justificaResposta.setView(editjustifica);
+                justificaResposta.setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        solicitacoes.get(position).setResposta(editjustifica.getText().toString());
+                    }
+                });
+                justificaResposta.setNegativeButton("Cancelar",null);
+                justificaResposta.create().show();*/
+                solicitacoes.get(position).setCarga(Integer.parseInt(txtCarga.getText().toString()));
                 if (solicitacoes.get(position).getStatus().equals("DEFERIDA")){
                     solicitacoes.get(position).getAluno().setHorasFeitas(
                             solicitacoes.get(position).getAluno().getHorasFeitas() - solicitacoes.get(position).getCarga()
@@ -122,8 +142,11 @@ public class LinhaConsultarSolicitacoesAdapter extends BaseAdapter {
                     Aluno aluno = solicitacoes.get(position).getAluno();
                     alunoController.alterar(aluno);
                 }
+                solicitacoes.get(position).setResposta(txtJustificativa.getText().toString());
                 solicitacoes.get(position).setStatus("INDEFERIDA");
                 solicitacaoController.alterar(solicitacoes.get(position));
+                Toast.makeText(view.getContext(), "Solicitação invalidada!",
+                        Toast.LENGTH_SHORT).show();
                 AtualizarLista();
             }
         });
@@ -132,7 +155,7 @@ public class LinhaConsultarSolicitacoesAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 solicitacoes.get(position).setStatus("DEFERIDA");
-                solicitacaoController.alterar(solicitacoes.get(position));
+                solicitacoes.get(position).setCarga(Integer.parseInt(txtCarga.getText().toString()));
                 solicitacoes.get(position).getAluno().setHorasFeitas(
                         solicitacoes.get(position).getAluno().getHorasFeitas() + solicitacoes.get(position).getCarga()
                 );
@@ -140,46 +163,17 @@ public class LinhaConsultarSolicitacoesAdapter extends BaseAdapter {
                         solicitacoes.get(position).getAluno().getHorasFaltando() - solicitacoes.get(position).getCarga()
                 );
                 AlunoController alunoController = new AlunoController(lista.getContext());
+                solicitacoes.get(position).setResposta(txtJustificativa.getText().toString());
                 Aluno aluno = solicitacoes.get(position).getAluno();
                 alunoController.alterar(aluno);
+                solicitacaoController.alterar(solicitacoes.get(position));
+                Toast.makeText(view.getContext(), "Solicitação validada com sucesso!",
+                        Toast.LENGTH_SHORT).show();
                 AtualizarLista();
             }
         });
         return viewLinhaLista;
 
     }
-    /*protected void Alertar_onClickValidar(){
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(lista.getContext());
-        alertDialog.setMessage("Solicitação será validada");
-        alertDialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                solicitacao.setStatus("DEFERIDA");
-                solicitacaoController.alterar(solicitacao);
-                solicitacao.getAluno().setHorasFeitas(
-                        solicitacao.getAluno().getHorasFeitas()+solicitacao.getCarga()
-                );
-                solicitacao.getAluno().setHorasFaltando(
-                        solicitacao.getAluno().getHorasFaltando()-solicitacao.getCarga()
-                );
-                AlunoController alunoController = new AlunoController(lista.getContext());
-                alunoController.alterar(solicitacao.getAluno());
-                AtualizarLista();
-            }
-        });
-        alertDialog.show();
-    }protected void Alertar_onClickInvalidar(){
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(lista.getContext());
-        alertDialog.setMessage("Solicitação será invalidada");
-        alertDialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                solicitacao.setStatus("INDEFERIDA");
-                solicitacaoController.alterar(solicitacao);
-                AtualizarLista();
-            }
-        });
-        alertDialog.show();
-    }*/
 
 }

@@ -1,5 +1,6 @@
 package com.vinicius.crispim.vprojeto.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,6 +33,9 @@ import com.vinicius.crispim.vprojeto.model.Sugestao;
 import com.vinicius.crispim.vprojeto.view.EditActivity;
 import com.vinicius.crispim.vprojeto.view.Menu1Activity;
 
+import org.eazegraph.lib.charts.PieChart;
+import org.eazegraph.lib.models.PieModel;
+
 import java.util.List;
 
 public class PerfilFragment extends Fragment {
@@ -47,6 +52,9 @@ public class PerfilFragment extends Fragment {
     EditText txtSeusDados_HorasFaltando;
     ListView lista_solicitacoes;
     Button btnEditar;
+    TextView tvR, tvPython, tvCPP, tvJava;
+    PieChart pieChart;
+    Aluno aluno;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -62,8 +70,11 @@ public class PerfilFragment extends Fragment {
         txtSeusDados_Horas = view.findViewById(R.id.txtSeusDados_Horas);
         txtSeusDados_HorasFaltando = view.findViewById(R.id.txtSeusDados_HorasFaltando);
         btnEditar = view.findViewById(R.id.btnEditarPerfil);
+        tvR = view.findViewById(R.id.tvR);
+        tvPython = view.findViewById(R.id.tvPython);
+        pieChart = view.findViewById(R.id.piechart);
         Menu1Activity activity = (Menu1Activity) getActivity();
-        Aluno aluno = activity.getAluno();
+        aluno = activity.getAluno();
         txtSeusDados_Nome.setText(aluno.getNome());
         txtSeusDados_Matricula.setText(aluno.getMatricula().toString());
         txtSeusDados_Telefone.getText().append(aluno.getCelular());
@@ -75,6 +86,7 @@ public class PerfilFragment extends Fragment {
         txtSeusDados_Horas.getText().append(aluno.getHorasFeitas().toString());
         txtSeusDados_HorasFaltando.getText().append(aluno.getHorasFaltando().toString());
         alunoController = new AlunoController(getContext());
+        setData();
         btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,5 +101,36 @@ public class PerfilFragment extends Fragment {
         return view;
     }
 
+    private void setData()
+    {
 
+        // Set the percentage of language used
+        tvR.setText(Integer.toString(aluno.getHorasFeitas()));
+        tvPython.setText(Integer.toString(aluno.getHorasFaltando()));
+
+        // Set the data and color to the pie chart
+        pieChart.addPieSlice(
+                new PieModel(
+                        "Horas Feitas",
+                        Integer.parseInt(tvR.getText().toString()),
+                        Color.parseColor("#66BB6A")));
+        pieChart.addPieSlice(
+                new PieModel(
+                        "Horas Faltando",
+                        Integer.parseInt(tvPython.getText().toString()),
+                        Color.parseColor("#EF5350")));
+        /*pieChart.addPieSlice(
+                new PieModel(
+                        "C++",
+                        Integer.parseInt(tvCPP.getText().toString()),
+                        Color.parseColor("#EF5350")));
+        pieChart.addPieSlice(
+                new PieModel(
+                        "Java",
+                        Integer.parseInt(tvJava.getText().toString()),
+                        Color.parseColor("#29B6F6")));*/
+
+        // To animate the pie chart
+        pieChart.startAnimation();
+    }
 }

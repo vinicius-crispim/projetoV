@@ -36,7 +36,7 @@ public class HistoricoFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_historico, container,false);
         lista_historico = (ListView) view.findViewById(R.id.lista_historico);
         spinner = (Spinner) view.findViewById(R.id.spnSolicitacoesAluno);
-        List<String> opcoes = new ArrayList<>(Arrays.asList("Todas","Em Analise","Deferida","Indeferida"));
+        List<String> opcoes = new ArrayList<>(Arrays.asList("Em análise","Todas","Deferida","Indeferida"));
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(view.getContext(), R.layout.spinner_item, opcoes );
 

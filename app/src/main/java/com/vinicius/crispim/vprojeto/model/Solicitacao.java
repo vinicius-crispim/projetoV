@@ -1,8 +1,5 @@
 package com.vinicius.crispim.vprojeto.model;
 
-import java.io.File;
-import java.util.Date;
-
 public class Solicitacao {
     private Integer id;
     private Aluno aluno;

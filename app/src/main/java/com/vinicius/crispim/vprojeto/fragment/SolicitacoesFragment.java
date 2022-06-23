@@ -43,7 +43,7 @@ public class SolicitacoesFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_perfil_coordenador, container,false);
         lista_solicitacao = (ListView) view.findViewById(R.id.lista_solicitacao_coordenador);
         spinner = (Spinner) view.findViewById(R.id.spnSolicitacoes);
-        List<String> opcoes = new ArrayList<>(Arrays.asList("Todas","Em analise","Deferida","Indeferida"));
+        List<String> opcoes = new ArrayList<>(Arrays.asList("Em análise","Todas","Deferida","Indeferida"));
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(view.getContext(), R.layout.spinner_item, opcoes );
 

@@ -35,8 +35,10 @@ public class CategoriaController extends AppDataBase implements ICrud<Categoria>
 
     @Override
     public boolean alterar(Categoria obj) {
-        return false;
-    }
+        dados = new ContentValues();
+        dados.put(CategoriaDataModel.NOME,obj.getNome());
+        dados.put(CategoriaDataModel.ID,obj.getId());
+        return update(CategoriaDataModel.TABELA,dados);    }
 
     @Override
     public boolean deletar(int id) {
