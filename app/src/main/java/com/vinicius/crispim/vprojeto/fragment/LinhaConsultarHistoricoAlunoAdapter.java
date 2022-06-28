@@ -85,7 +85,9 @@ public class LinhaConsultarHistoricoAlunoAdapter extends BaseAdapter {
 
         txtTituloLinha.setText(solicitacoes.get(position).getTitulo());
         txtDescricaoLinha.setText(solicitacoes.get(position).getDescricao());
-        txtJustifica.setText(solicitacoes.get(position).getResposta());
+        if (solicitacoes.get(position).getResposta() != null) {
+            txtJustifica.setText(solicitacoes.get(position).getResposta());
+        }
         txtTituloLinha.setText(String.valueOf(solicitacoes.get(position).getTitulo()));
         txtInstituicao.setText(solicitacoes.get(position).getInstituicao());
         txtCategoria.setText(solicitacoes.get(position).getCategoria().getNome());

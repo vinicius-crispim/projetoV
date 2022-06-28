@@ -83,8 +83,16 @@ public class PerfilFragment extends Fragment {
         txtSeusDados_Curso.getText().append(aluno.getCurso().getNome());
         txtSeusDados_Curso_Coordenador.getText().append(aluno.getCurso().getCoordenador().getNome());
         txtSeusDados_Curso_Horas.getText().append(aluno.getCurso().getHorasnecessarias().toString());
-        txtSeusDados_Horas.getText().append(aluno.getHorasFeitas().toString());
-        txtSeusDados_HorasFaltando.getText().append(aluno.getHorasFaltando().toString());
+        if (aluno.getHorasFeitas()>aluno.getCurso().getHorasnecessarias()){
+            txtSeusDados_Horas.getText().append(aluno.getCurso().getHorasnecessarias().toString());
+        }else {
+            txtSeusDados_Horas.getText().append(aluno.getHorasFeitas().toString());
+        }
+        if (aluno.getHorasFaltando()<0){
+            txtSeusDados_HorasFaltando.getText().append("0");
+        }else {
+            txtSeusDados_HorasFaltando.getText().append(aluno.getHorasFaltando().toString());
+        }
         alunoController = new AlunoController(getContext());
         setData();
         btnEditar.setOnClickListener(new View.OnClickListener() {
@@ -105,8 +113,16 @@ public class PerfilFragment extends Fragment {
     {
 
         // Set the percentage of language used
-        tvR.setText(Integer.toString(aluno.getHorasFeitas()));
-        tvPython.setText(Integer.toString(aluno.getHorasFaltando()));
+        if (aluno.getHorasFaltando() < 0){
+            tvPython.setText("0");
+        }else{
+            tvPython.setText(Integer.toString(aluno.getHorasFaltando()));
+        }
+        if (aluno.getHorasFeitas() > aluno.getCurso().getHorasnecessarias()){
+            tvR.setText(aluno.getCurso().getHorasnecessarias().toString());
+        }else{
+            tvR.setText(Integer.toString(aluno.getHorasFaltando()));
+        }
 
         // Set the data and color to the pie chart
         pieChart.addPieSlice(

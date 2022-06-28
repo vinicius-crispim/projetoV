@@ -4,29 +4,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroud">
-
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:text="Histórico de Solicitações"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30sp"
+        android:background="#6E6E6E"
+        android:gravity="bottom"
+        android:paddingLeft="20dp"
+        android:paddingBottom="15dp"
+        android:textColor="#CBFFFFFF"
+        android:textSize="20dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/txtSuasAtividades"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:background="#6E6E6E"
-            android:fontFamily="monospace"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="SUAS ATIVIDADES"
-            android:textColor="@color/black"
-            android:textSize="34sp" />
+        android:orientation="vertical"
+        android:layout_marginTop="50dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
             android:foregroundGravity="center"
             android:gravity="center"
             android:orientation="horizontal">
@@ -44,14 +45,16 @@
             <Spinner
                 android:id="@+id/spnSolicitacoesAluno"
                 android:layout_width="130dp"
-                android:layout_height="40dp"
+                android:layout_height="42dp"
+                android:paddingBottom="7dp"
+
                 android:layout_gravity="center"
                 android:background="@color/black"
                 android:backgroundTint="#717171"
-                android:contentDescription="Spinner do filtro de solicitações"
+                android:contentDescription="Spinner do filtro de solicitações do aluno"
                 android:foregroundGravity="center"
                 android:gravity="center"
-                android:paddingTop="10dp"></Spinner>
+                android:paddingTop="5dp"></Spinner>
         </LinearLayout>
 
         <ListView

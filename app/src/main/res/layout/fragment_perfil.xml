@@ -7,6 +7,18 @@
     android:background="@color/backgroud"
     android:orientation="vertical">
 
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:background="#6E6E6E"
+        android:gravity="bottom"
+        android:paddingLeft="20dp"
+        android:paddingBottom="15dp"
+        android:text="Perfil do Aluno"
+        android:textColor="#CBFFFFFF"
+        android:textSize="20dp" />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -71,14 +83,12 @@
          -->       <TextView
                             android:id="@+id/txtSeusDados"
                             android:layout_width="match_parent"
-                            android:layout_height="85dp"
-                            android:layout_marginBottom="5dp"
-                            android:background="#6E6E6E"
+                            android:layout_height="30dp"
                             android:fontFamily="monospace"
                             android:gravity="center_horizontal|center_vertical"
-                            android:text="SEUS DADOS"
+                            android:text="Seus dados"
                             android:textColor="@color/black"
-                            android:textSize="34sp" />
+                            android:textSize="20dp" />
 
                             <com.google.android.material.textfield.TextInputLayout
                                 android:layout_width="match_parent"
@@ -94,7 +104,7 @@
                                     android:layout_width="350dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:layout_marginTop="20dp"
+                                    android:layout_marginTop="10dp"
                                     android:background="#6E6E6E"
                                     android:enabled="false"
                                     android:textColor="#CBFFFFFF"

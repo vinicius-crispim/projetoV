@@ -77,7 +77,8 @@ public class SplashActivity extends AppCompatActivity {
                 categoria2.setNome("Produção Científica");
                 Categoria categoria3 = new Categoria();
                 categoria3.setId(3);
-                categoria3.setNome("Atividades Humanísticcas");
+                categoria3.setNome("Atividades Humanísticas");
+                categoriaController.alterar(categoria3);
                 Categoria categoria4 = new Categoria();
                 categoria4.setNome("Vivência Profissional Complementar");
                 coordenador.setEmail("gouveia@unifacear.com");
@@ -88,7 +89,6 @@ public class SplashActivity extends AppCompatActivity {
                 coordenador2.setId(2);
                 categoriaController.alterar(categoria);
                 categoriaController.alterar(categoria2);
-                categoriaController.alterar(categoria3);
                 categoriaController.incluir(categoria4);
                 coordenadorController.incluir(coordenador);
                 coordenadorController.incluir(coordenador2);

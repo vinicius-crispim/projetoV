@@ -80,8 +80,9 @@ public class LinhaConsultarSolicitacoesAlunoTesteAdapter extends BaseAdapter{
 
         txtTituloLinha.setText(solicitacoes.get(position).getTitulo());
         txtDescricaoLinha.setText(solicitacoes.get(position).getDescricao());
-
-
+        if (solicitacoes.get(position).getResposta() != null) {
+            txtJustificativa.setText(solicitacoes.get(position).getResposta());
+        }
         txtTituloLinha.setText(String.valueOf(solicitacoes.get(position).getTitulo()));
         txtInstituicao.setText(solicitacoes.get(position).getInstituicao());
         txtCategoria.setText(solicitacoes.get(position).getCategoria().getNome());
