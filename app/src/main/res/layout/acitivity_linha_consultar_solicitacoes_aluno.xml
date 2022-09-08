@@ -12,7 +12,7 @@
         android:layout_margin="0dp"
 
         android:layout_marginEnd="0dp"
-        android:backgroundTint="#8B36ECD7"
+        android:backgroundTint="#8B8FF4E9"
         android:paddingRight="10dp"
         app:rippleColor="#FFFFFF"
         app:strokeColor="@color/black"

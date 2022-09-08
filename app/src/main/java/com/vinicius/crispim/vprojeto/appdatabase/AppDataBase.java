@@ -110,7 +110,7 @@ public class AppDataBase extends SQLiteOpenHelper {
 
         boolean retorno = false;
 
-        // Regra de negócio
+        // Regra de negócio/
 
         try {
             // O que deve ser realizado?

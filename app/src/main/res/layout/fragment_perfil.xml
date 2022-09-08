@@ -12,7 +12,7 @@
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
-        android:background="#6E6E6E"
+        android:background="@color/color_title"
         android:gravity="bottom"
         android:paddingLeft="20dp"
         android:paddingBottom="15dp"
@@ -47,7 +47,6 @@
                     android:orientation="vertical">
 
                     <ScrollView
-                        android:id="@+id/scrCadastro"
                         android:layout_width="411dp"
                         android:layout_height="wrap_content"
                         android:contentDescription="@string/app_name"
@@ -81,7 +80,6 @@
                     app:startIconContentDescription="Imagem representando perfil"
                     app:startIconDrawable="@drawable/perfil"></com.google.android.material.textfield.TextInputLayout>
          -->       <TextView
-                            android:id="@+id/txtSeusDados"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:fontFamily="monospace"
@@ -447,7 +445,6 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/details"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/cardViewGraph"

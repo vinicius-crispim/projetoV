@@ -1,9 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="spinnerpersolnalizado" parent="Theme.AppCompat.DayNight.DarkActionBar">
-        <item name="android:textSize">20sp</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textColorHint">@color/black</item>
-        <item name="android:backgroundTint">@color/white</item>
-    </style>
-</resources>
+<resources></resources>

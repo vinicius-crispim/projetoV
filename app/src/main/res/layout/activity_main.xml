@@ -21,7 +21,6 @@
         app:srcCompat="@drawable/desconto" />
 
     <TextView
-        android:id="@+id/textView"
         android:layout_width="287dp"
         android:layout_height="75dp"
         android:fontFamily="serif"
@@ -38,7 +37,6 @@
         app:layout_constraintVertical_bias="0.321" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
