@@ -119,9 +119,9 @@ public class PerfilFragment extends Fragment {
             tvPython.setText(Integer.toString(aluno.getHorasFaltando()));
         }
         if (aluno.getHorasFeitas() > aluno.getCurso().getHorasnecessarias()){
-            tvR.setText(aluno.getCurso().getHorasnecessarias().toString());
+            tvR.setText(Integer.toString(aluno.getHorasFeitas()));
         }else{
-            tvR.setText(Integer.toString(aluno.getHorasFaltando()));
+            tvR.setText(Integer.toString(aluno.getHorasFeitas()));
         }
 
         // Set the data and color to the pie chart

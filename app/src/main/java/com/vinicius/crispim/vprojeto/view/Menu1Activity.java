@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -56,7 +57,7 @@ public class Menu1Activity extends AppCompatActivity {
         Log.i(AppUtil.TAG, "onCreate: Aluno:"+aluno);
         mNavigationView = findViewById(R.id.bottom_nav);
         mViewPager = findViewById(R.id.view_pager);
-
+        mViewPager.setVisibility(View.INVISIBLE);
         setUpViewPager();
 
         mNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

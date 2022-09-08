@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -17,6 +18,7 @@ import android.widget.Spinner;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.vinicius.crispim.vprojeto.R;
 import com.vinicius.crispim.vprojeto.api.AppUtil;
@@ -28,6 +30,7 @@ import com.vinicius.crispim.vprojeto.model.Solicitacao;
 import com.vinicius.crispim.vprojeto.model.Sugestao;
 import com.vinicius.crispim.vprojeto.view.Menu1Activity;
 import com.vinicius.crispim.vprojeto.view.MenuCoordenadorActivity;
+import com.vinicius.crispim.vprojeto.viewpageradapter.ViewPagerAdapterCoordenador;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,6 +40,7 @@ import java.util.Locale;
 public class SolicitacoesFragment extends Fragment {
     ListView lista_solicitacao;
     Spinner spinner;
+    Button button;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -46,6 +50,15 @@ public class SolicitacoesFragment extends Fragment {
         List<String> opcoes = new ArrayList<>(Arrays.asList("Em análise","Todas","Deferida","Indeferida"));
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(view.getContext(), R.layout.spinner_item, opcoes );
+        button = view.findViewById(R.id.btntroca);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ViewPager mViewPager = view.findViewById(R.id.view_pager_coordenador);
+                mViewPager.setCurrentItem(3);
+            }
+        });
 
         spinner.setAdapter(dataAdapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

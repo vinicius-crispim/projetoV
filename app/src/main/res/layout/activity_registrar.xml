@@ -9,7 +9,6 @@
     tools:context=".view.RegistrarActivity">
 
     <ScrollView
-        android:id="@+id/scrCadastro"
         android:layout_width="411dp"
         android:layout_height="wrap_content"
         android:contentDescription="@string/app_name"
@@ -33,7 +32,6 @@
 
 
             <ImageView
-                android:id="@+id/imageView"
                 android:layout_width="264dp"
                 android:layout_height="120dp"
                 android:layout_gravity="center"
@@ -42,7 +40,6 @@
                 app:srcCompat="@drawable/desconto" />
 
             <TextView
-                android:id="@+id/textView"
                 android:layout_width="308dp"
                 android:layout_height="72dp"
                 android:layout_marginBottom="16dp"
@@ -218,7 +215,6 @@
                 android:textSize="20sp" />
 
             <Button
-                android:id="@+id/button2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Button"

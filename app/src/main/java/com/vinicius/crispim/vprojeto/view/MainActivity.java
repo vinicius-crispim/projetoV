@@ -19,8 +19,6 @@ import com.vinicius.crispim.vprojeto.model.Aluno;
 import com.vinicius.crispim.vprojeto.model.Coordenador;
 import com.vinicius.crispim.vprojeto.model.Curso;
 
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity {
     TextView link;
     Button btnlogar;

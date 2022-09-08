@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -44,8 +45,9 @@ public class MenuCoordenadorActivity extends AppCompatActivity {
         Log.i(AppUtil.TAG, "onCreate: Coordenador:"+coordenador.getNome());
         mNavigationView = findViewById(R.id.bottom_nav_coordenador);
         mViewPager = findViewById(R.id.view_pager_coordenador);
-
+        ViewPager viewPager=findViewById(R.id.view_pager_coordenador);
         setUpViewPager();
+        viewPager.setVisibility(View.VISIBLE);
 
         mNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -60,6 +62,7 @@ public class MenuCoordenadorActivity extends AppCompatActivity {
                     case R.id.action_perfil_coordenadores:
                         mViewPager.setCurrentItem(2);
                         break;
+
 
                 }
                 return true;

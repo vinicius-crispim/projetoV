@@ -81,11 +81,11 @@ public class LinhaConsultarSolicitacoesAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         final View viewLinhaLista = layoutInflater.inflate(R.layout.acitivity_linha_consultar_solicitacoes, null);
         TextView txtTituloLinha = (TextView) viewLinhaLista.findViewById(R.id.txtTituloSolicitacaoResposta2);
-        TextView txtJustificativa = (TextView) viewLinhaLista.findViewById(R.id.txtjustificativaSolicitacaoResposta);
+        EditText txtJustificativa = viewLinhaLista.findViewById(R.id.txtjustificativaSolicitacaoResposta);
         TextView txtNomeAluno = (TextView) viewLinhaLista.findViewById(R.id.txtNomeSolicitacaoResposta);
         TextView txtData = (TextView) viewLinhaLista.findViewById(R.id.txtDataSolicitacaoResposta);
         TextView txtInstituicao = (TextView) viewLinhaLista.findViewById(R.id.txtInstituicaoSolicitacaoResposta);
-        TextView txtCarga = (TextView) viewLinhaLista.findViewById(R.id.txtCargaSolicitacaoResposta);
+        EditText txtCarga = viewLinhaLista.findViewById(R.id.txtCargaSolicitacaoResposta);
         TextView txtCategoria = (TextView) viewLinhaLista.findViewById(R.id.txtCategoriaSolicitacaoResposta);
         TextView txtStatus = (TextView) viewLinhaLista.findViewById(R.id.txtStatusSolicitacaoResposta);
         TextView txtDescricaoLinha = (TextView) viewLinhaLista.findViewById(R.id.txtDescricaoSolicitacaoResposta);
@@ -111,6 +111,7 @@ public class LinhaConsultarSolicitacoesAdapter extends BaseAdapter {
         txtCarga.setText(String.valueOf(solicitacoes.get(position).getCarga()));
         txtNomeAluno.setText(solicitacoes.get(position).getAluno().getNome());
         txtDescricaoLinha.setText(solicitacoes.get(position).getDescricao());
+        txtJustificativa.setText(solicitacoes.get(position).getResposta());
         btnInvalidar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
