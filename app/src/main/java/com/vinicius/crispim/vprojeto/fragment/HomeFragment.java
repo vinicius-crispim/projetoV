@@ -36,6 +36,6 @@ public class HomeFragment extends Fragment {
         SugestaoController sugestaoController = new SugestaoController(getContext());
         List<Sugestao> sugestoes = sugestaoController.listar();
         lista_sugestao.setAdapter((ListAdapter) new LinhaConsultarAdapter(this, sugestoes));
-
+        Log.i("TESTE", "CarregarFeed: TESTE");
     }
 }

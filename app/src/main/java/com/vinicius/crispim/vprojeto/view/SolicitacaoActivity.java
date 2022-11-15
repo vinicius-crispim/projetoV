@@ -141,7 +141,8 @@ public class SolicitacaoActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         try {
             startActivityForResult(
-                    Intent.createChooser(new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI), "Select a File to Upload"),
+                    Intent.createChooser(new Intent(Intent.ACTION_PICK,
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI), "Select a File to Upload"),
                     FILE_SELECT_CODE);
             //startActivityForResult(intent,FILE_SELECT_CODE);
         } catch (android.content.ActivityNotFoundException ex) {
